@@ -1,196 +1,166 @@
-﻿using Dapper;
-using Microsoft.EntityFrameworkCore; // Ensure this is the correct using for DbContext
-using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI.Relational;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System.Linq.Expressions;
-using System.Reflection;
-using System.Xml.Linq;
 using WorkflowManagemetAPI.Interfaces;
-using WorkflowManagemetAPI.Models;
-using WorkflowManagemetAPI.Repositories;
-using static Dapper.SqlMapper;
 
 namespace WorkflowManagemetAPI.UoW
 {
-    public class UnitOfWork<TEntity> : IUnitOfWork<TEntity>, IDisposable where TEntity : class
+    public class UnitOfWork<TEntity> : IUnitOfWork<TEntity> where TEntity : class
     {
-		internal Microsoft.EntityFrameworkCore.DbContext context;
-		internal DbSet<TEntity> dbSet;
-		private bool _disposed;
+        internal Microsoft.EntityFrameworkCore.DbContext context;
+        internal DbSet<TEntity> dbSet;
+        private bool _disposed;
 
-		public UnitOfWork(Microsoft.EntityFrameworkCore.DbContext dbContext)
-		{
-			context = dbContext;
-			dbSet = context.Set<TEntity>();
-		}
+        public UnitOfWork(Microsoft.EntityFrameworkCore.DbContext dbContext)
+        {
+            context = dbContext;
+            dbSet = context.Set<TEntity>();
+        }
 
-		public void Delete(object id)
-		{
-			TEntity? entityToDelete = dbSet.Find(id);
-			Delete(entityToDelete);
-		}
+        public IDbContextTransaction BeginTransaction()
+        {
+            return context.Database.BeginTransaction();
+        }
 
-		public void Delete(TEntity? entityToDelete)
-		{
-			if (entityToDelete != null)
-			{
-				if (context.Entry(entityToDelete).State == EntityState.Detached)
-				{
-					dbSet.Attach(entityToDelete);
-				}
-				dbSet.Remove(entityToDelete);
-			}
-		}
+        public void Commit(IDbContextTransaction transaction)
+        {
+            try
+            {
+                transaction.Commit();
+            }
+            catch
+            {
+                Rollback(transaction);
+                throw;
+            }
+            finally
+            {
+                transaction.Dispose();
+            }
+        }
 
+        public void Rollback(IDbContextTransaction transaction)
+        {
+            transaction.Rollback();
+            transaction.Dispose();
+        }
 
-		public Task SaveChangeAsync()
-		{
-			return context.SaveChangesAsync();
-		}
+        public IEnumerable<TEntity> Get(
+            Expression<Func<TEntity, bool>>? filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
+            string includeProperties = "")
+        {
+            IQueryable<TEntity> query = dbSet;
 
-		public int SaveChanges()
-		{
-			return context.SaveChanges();
-		}
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
 
-		public void Dispose()
-		{
-			Dispose(true);
-			GC.SuppressFinalize(this);
-		}
+            foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
 
-		private void Dispose(bool disposing)
-		{
-			if (disposing && !_disposed)
-			{
-				context.Dispose();
-			}
-			_disposed = true;
-		}
-		public IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>>? filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null, string includeProperties = "")
-		{
-			IQueryable<TEntity> query = dbSet;
+            if (orderBy != null)
+            {
+                return orderBy(query).ToList();
+            }
+            else
+            {
+                return query.ToList();
+            }
+        }
 
-			if (filter != null)
-			{
-				query = query.Where(filter);
-			}
+        public TEntity? GetByID(object id)
+        {
+            return dbSet.Find(id);
+        }
 
-			foreach (var includeProperty in includeProperties.Split
-				(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-			{
-				query = query.Include(includeProperty);
-			}
+        public int Count(Expression<Func<TEntity, bool>> filter)
+        {
+            return dbSet.Where(filter).Count();
+        }
 
-			if (orderBy != null)
-			{
-				return orderBy(query).ToList();
-			}
-			else
-			{
-				return query.ToList();
-			}
-		}
+        public TEntity Insert(TEntity entity)
+        {
+            dbSet.Add(entity);
+            return entity;
+        }
 
-		public TEntity? GetByID(object id)
-		{
-			return dbSet.Find(id);
-		}
+        public List<TEntity> InsertRange(List<TEntity> entityList)
+        {
+            dbSet.AddRange(entityList);
+            return entityList;
+        }
 
-		public TEntity Insert(TEntity entity)
-		{
-			dbSet.Add(entity);
-			return entity;
-		}
+        public TEntity Update(TEntity entityToUpdate)
+        {
+            dbSet.Attach(entityToUpdate);
+            context.Entry(entityToUpdate).State = EntityState.Modified;
+            return entityToUpdate;
+        }
 
-		public TEntity Update(TEntity entityToUpdate)
-		{
-			dbSet.Attach(entityToUpdate);
-			context.Entry(entityToUpdate).State = EntityState.Modified;
-			return entityToUpdate;
-		}
+        public IList<TEntity> UpdateAll(IList<TEntity> entityToUpdateList)
+        {
+            foreach (TEntity item in entityToUpdateList)
+            {
+                dbSet.Attach(item);
+                context.Entry(item).State = EntityState.Modified;
+            }
+            return entityToUpdateList;
+        }
 
+        public void Delete(object id)
+        {
+            TEntity? entityToDelete = dbSet.Find(id);
+            if (entityToDelete != null)
+            {
+                Delete(entityToDelete);
+            }
+        }
 
-		public int Count(Expression<Func<TEntity, bool>> filter)
-		{
-			return dbSet.Where(filter).Count();
-		}
+        public void Delete(TEntity entityToDelete)
+        {
+            if (context.Entry(entityToDelete).State == EntityState.Detached)
+            {
+                dbSet.Attach(entityToDelete);
+            }
+            dbSet.Remove(entityToDelete);
+        }
 
-		public int Count(IQueryable<TEntity> query)
-		{
-			return query.Count();
-		}
+        public IList<TEntity> DeleteAll(IList<TEntity> entityToDeleteList)
+        {
+            foreach (TEntity item in entityToDeleteList)
+            {
+                Delete(item);
+            }
+            return entityToDeleteList;
+        }
 
-		private readonly MethodInfo OrderByMethod = typeof(Queryable).GetMethods().Single(method => method.Name == "OrderBy" && method.GetParameters().Length == 2);
+        public int SaveChanges()
+        {
+            return context.SaveChanges();
+        }
 
-		private readonly MethodInfo OrderByDescendingMethod = typeof(Queryable).GetMethods().Single(method => method.Name == "OrderByDescending" && method.GetParameters().Length == 2);
+        public Task SaveChangeAsync()
+        {
+            return context.SaveChangesAsync();
+        }
 
-		public bool PropertyExists<T>(string propertyName)
-		{
-			return typeof(T).GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance) != null;
-		}
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
-		public IQueryable<T>? OrderByProperty<T>(IQueryable<T> source, string propertyName)
-		{
-			if (typeof(T).GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance) == null)
-			{
-				return null;
-			}
-			ParameterExpression paramterExpression = Expression.Parameter(typeof(T));
-			Expression orderByProperty = Expression.Property(paramterExpression, propertyName);
-			LambdaExpression lambda = Expression.Lambda(orderByProperty, paramterExpression);
-			MethodInfo genericMethod = OrderByMethod.MakeGenericMethod(typeof(T), orderByProperty.Type);
-			object? ret = genericMethod.Invoke(null, new object[] { source, lambda });
-			return (IQueryable<T>?)ret;
-		}
-
-		public IQueryable<T>? OrderByPropertyDescending<T>(IQueryable<T> source, string propertyName)
-		{
-			if (typeof(T).GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance) == null)
-			{
-				return null;
-			}
-			ParameterExpression paramterExpression = Expression.Parameter(typeof(T));
-			Expression orderByProperty = Expression.Property(paramterExpression, propertyName);
-			LambdaExpression lambda = Expression.Lambda(orderByProperty, paramterExpression);
-			MethodInfo genericMethod = OrderByDescendingMethod.MakeGenericMethod(typeof(T), orderByProperty.Type);
-			object? ret = genericMethod.Invoke(null, new object[] { source, lambda });
-			return (IQueryable<T>?)ret;
-		}
-
-		public List<TEntity> InsertRange(List<TEntity> entity)
-		{
-			dbSet.AddRange(entity);
-			return entity;
-		}
-
-		public IList<TEntity> DeleteAll(IList<TEntity> entityToDeleteList)
-		{
-			foreach (TEntity item in entityToDeleteList)
-			{
-				if (item != null)
-				{
-					if (context.Entry(item).State == EntityState.Detached)
-					{
-						dbSet.Attach(item);
-					}
-					dbSet.Remove(item);
-				}
-			}
-			return entityToDeleteList;
-		}
-
-		public IList<TEntity> UpdateAll(IList<TEntity> entityToUpdateList)
-		{
-			foreach (TEntity item in entityToUpdateList)
-			{
-				dbSet.Attach(item);
-				context.Entry(item).State = EntityState.Modified;
-			}
-			return entityToUpdateList;
-		}
-	}
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing && !_disposed)
+            {
+                context.Dispose();
+            }
+            _disposed = true;
+        }
+    }
 }

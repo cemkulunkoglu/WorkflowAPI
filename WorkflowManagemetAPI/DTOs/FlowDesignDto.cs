@@ -4,6 +4,9 @@ namespace WorkflowManagemetAPI.DTOs;
 
 public class FlowDesignDto
 {
+    [JsonPropertyName("id")]
+    public int Id { get; init; }
+
     [JsonPropertyName("nodes")]
     public required IEnumerable<FlowNodeDto> Nodes { get; init; }
 

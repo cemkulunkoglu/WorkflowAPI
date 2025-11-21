@@ -14,7 +14,7 @@ namespace WorkflowManagemetAPI.Repositories
 		private readonly Microsoft.EntityFrameworkCore.DbContext _dbContext;
 		private readonly DbSet<FlowNode> dbSet;
 		public FlowNodeRepository(Microsoft.EntityFrameworkCore.DbContext dbContext) 
-            : base(dbContext) // Pass dbContext to base UnitOfWork<FlowNode> constructor
+            : base(dbContext)
         {
             _dbContext = dbContext;
             dbSet = _dbContext.Set<FlowNode>();
@@ -28,5 +28,18 @@ namespace WorkflowManagemetAPI.Repositories
 		{
 			return dbSet.AsNoTracking().ToList();
 		}
-	}
+
+		public void AddRange(List<FlowNode> nodes)
+		{
+            InsertRange(nodes);
+            SaveChanges();
+        }
+
+        public void DeleteByDesignId(int designId)
+        {
+            dbSet.Where(x => x.DesignId == designId).ExecuteDelete();
+        }
+    }
+
+
 }

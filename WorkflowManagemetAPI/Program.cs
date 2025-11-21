@@ -1,4 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Text;
 using System.Text.Json;
 using WorkflowManagemetAPI.DbContext;
 using WorkflowManagemetAPI.Interfaces;
@@ -9,7 +13,7 @@ using WorkflowManagemetAPI.UoW;
 var builder = WebApplication.CreateBuilder(args);
 
 // ----------------------------
-// 🔧 Controller + JSON ayarları
+// 🔧 1. Controller + JSON Ayarları
 // ----------------------------
 builder.Services
     .AddControllers()
@@ -20,38 +24,94 @@ builder.Services
     });
 
 // ----------------------------
-// 📘 Swagger
+// 📘 2. Swagger Ayarları (Kilit Butonu Ekli)
 // ----------------------------
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-
-
-builder.Services.AddDbContext<WorkflowFlowDbContext>(options =>
+builder.Services.AddSwaggerGen(c =>
 {
-	options.UseMySQL(builder.Configuration.GetConnectionString("WorkflowDB"),
-			 mySqlOptions => mySqlOptions.EnableRetryOnFailure());
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Workflow API", Version = "v1" });
+
+    // Swagger arayüzüne "Authorize" butonu ekliyoruz
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme. Örnek: \"Bearer {token}\"",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                },
+                Scheme = "oauth2",
+                Name = "Bearer",
+                In = ParameterLocation.Header,
+            },
+            new List<string>()
+        }
+    });
 });
 
+// ----------------------------
+// 🔐 3. JWT Authentication Ayarları
+// ----------------------------
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+var secretKey = jwtSettings["SecretKey"];
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+    };
+});
 
 // ----------------------------
-// 🧩 Servis bağımlılıkları
+// 🗄️ 4. Veritabanı Bağlantısı
+// ----------------------------
+builder.Services.AddDbContext<WorkflowFlowDbContext>(options =>
+{
+    options.UseMySQL(builder.Configuration.GetConnectionString("WorkflowDB"));
+});
+
+// ----------------------------
+// 🧩 5. Servis Bağımlılıkları (DI)
 // ----------------------------
 
+// HttpContext'e erişmek için (Token içinden User ID okumak için şart)
+builder.Services.AddHttpContextAccessor();
 
-//Repositories
+// Repositories
 builder.Services.AddScoped<IFlowDesignRepository, FlowDesignRepository>();
 builder.Services.AddScoped<IFlowNodeRepository, FlowNodeRepository>();
 
-
-//Context
+// Context
 builder.Services.AddScoped<DbContext, WorkflowFlowDbContext>();
 
-// Service DI
+// Services
 builder.Services.AddScoped<IDesignService, DesignService>();
 
 // ----------------------------
-// 🌐 CORS
+// 🌐 6. CORS Ayarları
 // ----------------------------
 builder.Services.AddCors(options =>
 {
@@ -62,7 +122,7 @@ builder.Services.AddCors(options =>
 });
 
 // ----------------------------
-// 🚀 Pipeline
+// 🚀 7. Pipeline (Çalışma Sırası)
 // ----------------------------
 var app = builder.Build();
 
@@ -73,7 +133,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseCors("FrontendCors");
+
+// DİKKAT: Authentication (Kimlik Sorma) her zaman Authorization (Yetki Sorma)'dan önce gelmelidir!
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
+
 app.Run();

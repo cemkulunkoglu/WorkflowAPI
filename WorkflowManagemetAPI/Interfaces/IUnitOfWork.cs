@@ -1,26 +1,29 @@
-﻿using System.Data;
+﻿using Microsoft.EntityFrameworkCore.Storage;
 using System.Linq.Expressions;
-using WorkflowManagemetAPI.Repositories;
-
-public interface IUnitOfWork<TEntity> where TEntity : class
+public interface IUnitOfWork<TEntity> : IDisposable where TEntity : class
 {
-	public abstract IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>>? filter = null,
-		Func<IQueryable<TEntity>,
-		IOrderedQueryable<TEntity>>? orderBy = null, string includeProperties = "");
-	public abstract TEntity? GetByID(object id);
-	public abstract TEntity Insert(TEntity entity);
-	public abstract List<TEntity> InsertRange(List<TEntity> entity);
-	public abstract void Delete(object id);
-	public abstract void Delete(TEntity entityToDelete);
-	public abstract TEntity Update(TEntity entityToUpdate);
-	public int Count(Expression<Func<TEntity, bool>> filter);
-	public int Count(IQueryable<TEntity> query);
-	public bool PropertyExists<T>(string propertyName);
-	public IQueryable<T> OrderByProperty<T>(IQueryable<T> source, string propertyName);
-	public IQueryable<T> OrderByPropertyDescending<T>(IQueryable<T> source, string propertyName);
-	public int SaveChanges();
-	public Task SaveChangeAsync();
-	public void Dispose();
-	public IList<TEntity> DeleteAll(IList<TEntity> entityToDelete);
-	public IList<TEntity> UpdateAll(IList<TEntity> entityToUpdate);
+    IEnumerable<TEntity> Get(
+        Expression<Func<TEntity, bool>>? filter = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
+        string includeProperties = "");
+
+    TEntity? GetByID(object id);
+
+    int Count(Expression<Func<TEntity, bool>> filter);
+    TEntity Insert(TEntity entity);
+    List<TEntity> InsertRange(List<TEntity> entity);
+
+    TEntity Update(TEntity entityToUpdate);
+    IList<TEntity> UpdateAll(IList<TEntity> entityToUpdate);
+
+    void Delete(object id);
+    void Delete(TEntity entityToDelete);
+    IList<TEntity> DeleteAll(IList<TEntity> entityToDelete);
+
+    int SaveChanges();
+    Task SaveChangeAsync();
+
+    IDbContextTransaction BeginTransaction();
+    void Commit(IDbContextTransaction transaction);
+    void Rollback(IDbContextTransaction transaction);
 }

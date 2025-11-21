@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36616.10 d17.14
+VisualStudioVersion = 17.14.36616.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkflowManagemetAPI", "WorkflowManagemetAPI\WorkflowManagemetAPI.csproj", "{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServerAPI", "AuthServerAPI\AuthServerAPI.csproj", "{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

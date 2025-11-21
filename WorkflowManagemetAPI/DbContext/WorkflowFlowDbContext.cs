@@ -14,8 +14,16 @@ namespace WorkflowManagemetAPI.DbContext
         {
             modelBuilder.Entity<FlowNode>(eb =>
             {
-                eb.OwnsOne(fn => fn.LabelStyle);
-                eb.OwnsOne(fn => fn.Style);
+                eb.OwnsOne(fn => fn.LabelStyle, navigation =>
+                {
+                    navigation.WithOwner();
+                });
+                eb.Navigation(fn => fn.LabelStyle).IsRequired(false);
+                eb.OwnsOne(fn => fn.Style, navigation =>
+                {
+                    navigation.WithOwner();
+                });
+                eb.Navigation(fn => fn.Style).IsRequired(false);
             });
 
             base.OnModelCreating(modelBuilder);

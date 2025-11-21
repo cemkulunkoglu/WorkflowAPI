@@ -9,5 +9,9 @@ namespace WorkflowManagemetAPI.Interfaces
         IEnumerable<FlowDesignDto> GetAllFlowDesigns();
 
         FlowDesignDto CreateFlowDesign(CreateFlowDesignRequest request);
+
+        FlowDesignDto UpdateFlowDesign(int id, CreateFlowDesignRequest request);
+
+        void DeleteFlowDesign(int designId);
     }
 }
