@@ -75,6 +75,7 @@ public class DesignService : IDesignService
         return new FlowDesignDto
         {
             Id = designId,
+            DesignName = design.DesignName,
             Nodes = nodeDtos,
             Edges = edgeDtos
         };

@@ -7,6 +7,9 @@ public class FlowDesignDto
     [JsonPropertyName("id")]
     public int Id { get; init; }
 
+    [JsonPropertyName("designName")]
+    public string DesignName { get; init; } = string.Empty;
+
     [JsonPropertyName("nodes")]
     public required IEnumerable<FlowNodeDto> Nodes { get; init; }
 

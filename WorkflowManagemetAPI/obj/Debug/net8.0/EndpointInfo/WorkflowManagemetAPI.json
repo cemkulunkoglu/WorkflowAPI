@@ -291,6 +291,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "designName": {
+            "type": "string",
+            "nullable": true
+          },
           "nodes": {
             "type": "array",
             "items": {
