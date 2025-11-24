@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "MultipleProjects",
+    "Projects": [
+      {
+        "Path": "WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "AuthServerAPI\\AuthServerAPI.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

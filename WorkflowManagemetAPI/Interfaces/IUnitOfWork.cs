@@ -23,7 +23,7 @@ public interface IUnitOfWork<TEntity> : IDisposable where TEntity : class
     int SaveChanges();
     Task SaveChangeAsync();
 
-    IDbContextTransaction BeginTransaction();
-    void Commit(IDbContextTransaction transaction);
-    void Rollback(IDbContextTransaction transaction);
+    IDbContextTransaction BeginTransaction();       // "Kaydı başlat"
+    void Commit(IDbContextTransaction transaction); // "Her şeyi onayla"
+    void Rollback(IDbContextTransaction transaction); // "Hata var, geri al"
 }

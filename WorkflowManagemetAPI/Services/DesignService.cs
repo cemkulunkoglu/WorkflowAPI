@@ -11,7 +11,7 @@ public class DesignService : IDesignService
     private readonly IFlowDesignRepository _flowDesignRepository;
     private readonly IFlowNodeRepository _flowNodeRepository;
 
-    // 👇 1. YENİ: Token'a erişmemizi sağlayan servis
+    // Token'a erişmemizi sağlayan servis
     private readonly IHttpContextAccessor _httpContextAccessor;
 
     public DesignService(
@@ -24,7 +24,7 @@ public class DesignService : IDesignService
         _httpContextAccessor = httpContextAccessor;
     }
 
-    // 👇 2. YARDIMCI METOT: Token içindeki User ID'yi (sub) okur
+    // YARDIMCI METOT: Token içindeki User ID'yi (sub) okur
     private string GetCurrentUserId()
     {
         // Token'daki "sub" (Subject) claim'i, .NET'te NameIdentifier'a denk gelir.
