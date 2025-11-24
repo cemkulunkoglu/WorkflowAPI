@@ -42,8 +42,7 @@
               "RelativeToolTip": "WorkflowManagemetAPI\\Extensions\\FlowMappingExtensions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T09:49:15.827Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T09:49:15.827Z"
             },
             {
               "$type": "Document",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "WorkflowManagemetAPI\\Services\\DesignService.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAgwDIAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T09:47:50.951Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T09:47:50.951Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "WorkflowManagemetAPI\\UnitOfWork\\UnitOfWork.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAACYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T09:46:46.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T09:46:46.51Z"
             },
             {
               "$type": "Document",
@@ -94,8 +91,7 @@
               "RelativeToolTip": "WorkflowManagemetAPI\\Interfaces\\IUnitOfWork.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAA3wBsAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T09:46:29.095Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T09:46:29.095Z"
             }
           ]
         }
