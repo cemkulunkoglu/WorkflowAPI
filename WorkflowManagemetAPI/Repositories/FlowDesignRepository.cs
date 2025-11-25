@@ -19,5 +19,33 @@ namespace WorkflowManagemetAPI.Repositories
 		{
 			return dbSet.AsNoTracking().ToList();
 		}
-	}
+
+		public IEnumerable<FlowDesign>? AddRange(List<FlowDesign> flowDesigns)
+		{
+			InsertRange(flowDesigns);
+			SaveChanges();
+
+            return flowDesigns;
+		}
+
+        public IEnumerable<FlowDesign>? Add(FlowDesign flowDesign)
+        {
+            Insert(flowDesign);
+            SaveChanges();
+
+            return new List<FlowDesign> { flowDesign };
+        }
+
+        public void UpdateDesign(FlowDesign flowDesign)
+        {
+            Update(flowDesign);
+            SaveChanges();
+        }
+
+        public void DeleteDesign(FlowDesign flowDesign)
+        {
+            Delete(flowDesign);
+            SaveChanges();
+        }
+    }
 }

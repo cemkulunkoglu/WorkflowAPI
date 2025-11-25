@@ -13,19 +13,6 @@ var connectionString = builder.Configuration.GetConnectionString("AuthConnection
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseMySQL(connectionString));
 
-// 2. Identity Ayarları
-builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
-{
-    options.Password.RequireDigit = false;
-    options.Password.RequiredLength = 6;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireLowercase = false;
-    options.User.RequireUniqueEmail = true;
-})
-.AddEntityFrameworkStores<AuthDbContext>()
-.AddDefaultTokenProviders();
-
 // 3. JWT Authentication Ayarları
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var secretKey = jwtSettings["SecretKey"];

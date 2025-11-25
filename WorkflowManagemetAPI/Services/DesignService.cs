@@ -107,16 +107,13 @@ public class DesignService : IDesignService
             // 👇 3. KRİTİK NOKTA: Tasarımın sahibini Token'dan alıp kaydediyoruz!
             design.OwnerUser = GetCurrentUserId();
 
-            _flowDesignRepository.Insert(design);
-            _flowDesignRepository.SaveChanges();
+            _flowDesignRepository.Add(design);
 
             var nodes = request.Nodes.ToNodeEntities(design.Id);
             var edges = request.Edges.ToEdgeEntities(design.Id);
 
-            _flowNodeRepository.InsertRange(nodes);
-            _flowNodeRepository.InsertRange(edges);
-
-            _flowNodeRepository.SaveChanges();
+            _flowNodeRepository.AddRange(nodes);
+            _flowNodeRepository.AddRange(edges);
 
             return GetFlowDesignById(design.Id);
         });
@@ -136,21 +133,14 @@ public class DesignService : IDesignService
             existingDesign.DesignName = request.DesignName;
             existingDesign.UpdatedDate = DateTime.Now;
 
-            _flowDesignRepository.Update(existingDesign);
-
-            var oldFlowObjects = _flowNodeRepository.GetByDesignId(id).ToList();
-            if (oldFlowObjects.Any())
-            {
-                _flowNodeRepository.DeleteAll(oldFlowObjects);
-            }
+            _flowDesignRepository.UpdateDesign(existingDesign);
+            _flowNodeRepository.DeleteByDesignId(id);
 
             var newNodes = request.Nodes.ToNodeEntities(id);
             var newEdges = request.Edges.ToEdgeEntities(id);
 
-            _flowNodeRepository.InsertRange(newNodes);
-            _flowNodeRepository.InsertRange(newEdges);
-
-            _flowNodeRepository.SaveChanges();
+            _flowNodeRepository.AddRange(newNodes);
+            _flowNodeRepository.AddRange(newEdges);
 
             return GetFlowDesignById(id);
         });
@@ -162,11 +152,13 @@ public class DesignService : IDesignService
         {
             var design = _flowDesignRepository.GetByID(designId);
             if (design == null)
-                throw new Exception($"Silinecek tasarım bulunamadı (ID={designId})");
+                throw new Exception($"Tasarım bulunamadı (ID={designId})");
+
+            if (design.OwnerUser != GetCurrentUserId())
+                throw new UnauthorizedAccessException("Yetkiniz yok.");
 
             _flowNodeRepository.DeleteByDesignId(designId);
-            _flowDesignRepository.Delete(design);
-            _flowDesignRepository.SaveChanges();
+            _flowDesignRepository.DeleteDesign(design);
 
             return true;
         });

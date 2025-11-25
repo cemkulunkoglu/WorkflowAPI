@@ -6,7 +6,8 @@ namespace WorkflowManagemetAPI.Interfaces
 	{
 		IEnumerable<FlowNode> GetByDesignId(int designId);
         void AddRange(List<FlowNode> nodes);
-
+        FlowNode? Add(FlowNode flowNode);
         void DeleteByDesignId(int designId);
+
     }
 }

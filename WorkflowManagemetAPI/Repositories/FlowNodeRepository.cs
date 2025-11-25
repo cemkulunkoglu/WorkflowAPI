@@ -35,10 +35,18 @@ namespace WorkflowManagemetAPI.Repositories
             SaveChanges();
         }
 
+        public FlowNode? Add(FlowNode flowNode)
+        {
+            Insert(flowNode);
+            SaveChanges();
+
+            return flowNode;
+        }
         public void DeleteByDesignId(int designId)
         {
             dbSet.Where(x => x.DesignId == designId).ExecuteDelete();
         }
+
     }
 
 
