@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4071B73C-57AC-47FE-AE45-5CEEE15914E5}|ApiGateway\\WorkflowGateway.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\apigateway\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{4071B73C-57AC-47FE-AE45-5CEEE15914E5}|ApiGateway\\WorkflowGateway.csproj|solutionrelative:apigateway\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4071B73C-57AC-47FE-AE45-5CEEE15914E5}|ApiGateway\\ApiGateway.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\apigateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4071B73C-57AC-47FE-AE45-5CEEE15914E5}|ApiGateway\\ApiGateway.csproj|solutionrelative:apigateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C67AEA67-C5EF-4FED-A2E8-14CFD23B5F45}|WorkflowGateway\\WorkflowGateway.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\workflowgateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C67AEA67-C5EF-4FED-A2E8-14CFD23B5F45}|WorkflowGateway\\WorkflowGateway.csproj|solutionrelative:workflowgateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "ApiGateway\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\Properties\\launchSettings.json",
-              "RelativeToolTip": "ApiGateway\\Properties\\launchSettings.json",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
+              "Title": "ocelot.json",
+              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\ocelot.json",
+              "RelativeDocumentMoniker": "WorkflowGateway\\ocelot.json",
+              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\ocelot.json",
+              "RelativeToolTip": "WorkflowGateway\\ocelot.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-26T10:45:02.316Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\Program.cs",
-              "RelativeDocumentMoniker": "ApiGateway\\Program.cs",
-              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\Program.cs",
-              "RelativeToolTip": "ApiGateway\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T10:24:01.248Z",
+              "WhenOpened": "2025-11-26T11:15:48.467Z",
               "EditorCaption": ""
             }
           ]

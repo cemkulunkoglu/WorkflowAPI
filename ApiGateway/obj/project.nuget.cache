@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "88zNkB2l3uU=",
+  "dgSpecHash": "2HNmOuuCNRM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\WorkflowGateway.csproj",
+  "projectFilePath": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\ApiGateway.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cem Kulunkoglu\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Cem Kulunkoglu\\.nuget\\packages\\ipaddressrange\\6.2.0\\ipaddressrange.6.2.0.nupkg.sha512",

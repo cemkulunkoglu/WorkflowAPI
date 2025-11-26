@@ -11,7 +11,7 @@
         "Action": "Start"
       },
       {
-        "Path": "ApiGateway\\WorkflowGateway.csproj",
+        "Path": "WorkflowGateway\\WorkflowGateway.csproj",
         "Action": "Start"
       }
     ]

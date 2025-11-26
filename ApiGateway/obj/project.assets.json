@@ -957,9 +957,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\WorkflowGateway.csproj",
-      "projectName": "WorkflowGateway",
-      "projectPath": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\WorkflowGateway.csproj",
+      "projectUniqueName": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\ApiGateway.csproj",
+      "projectName": "ApiGateway",
+      "projectPath": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\ApiGateway.csproj",
       "packagesPath": "C:\\Users\\Cem Kulunkoglu\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\ApiGateway\\obj\\",
       "projectStyle": "PackageReference",
