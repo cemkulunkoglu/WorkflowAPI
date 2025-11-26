@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkflowManagemetAPI", "Wor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServerAPI", "AuthServerAPI\AuthServerAPI.csproj", "{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkflowGateway", "ApiGateway\WorkflowGateway.csproj", "{4071B73C-57AC-47FE-AE45-5CEEE15914E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4071B73C-57AC-47FE-AE45-5CEEE15914E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4071B73C-57AC-47FE-AE45-5CEEE15914E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4071B73C-57AC-47FE-AE45-5CEEE15914E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4071B73C-57AC-47FE-AE45-5CEEE15914E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

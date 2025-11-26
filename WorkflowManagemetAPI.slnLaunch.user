@@ -9,6 +9,10 @@
       {
         "Path": "AuthServerAPI\\AuthServerAPI.csproj",
         "Action": "Start"
+      },
+      {
+        "Path": "ApiGateway\\WorkflowGateway.csproj",
+        "Action": "Start"
       }
     ]
   }
