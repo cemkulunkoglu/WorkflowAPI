@@ -32,7 +32,7 @@ public class AuthController : ControllerBase
             return BadRequest(new { message = "Bu email adresi zaten kayıtlı." });
         }
 
-        // 👇 SİHİR BURADA: Şifreyi hashliyoruz
+        // Şifreyi hashliyoruz
         HashingHelper.CreatePasswordHash(request.Password, out string passwordHash, out string passwordSalt);
 
         var newUser = new User
@@ -40,7 +40,7 @@ public class AuthController : ControllerBase
             UserName = request.Email,
             Email = request.Email,
 
-            // 👇 Hashlenmiş verileri atıyoruz
+            // Hashlenmiş verileri atıyoruz
             PasswordHash = passwordHash,
             PasswordSalt = passwordSalt,
 
@@ -115,7 +115,11 @@ public class AuthController : ControllerBase
             issuer: _configuration["JwtSettings:Issuer"],
             audience: _configuration["JwtSettings:Audience"],
             claims: claims,
-            expires: DateTime.Now.AddHours(4),
+
+            // DateTime.Now.AddHours(4) -> 4 Saat
+            // DateTime.Now.AddDays(30) -> 30 Gün (Oturum 1 ay açık kalır)
+            expires: DateTime.Now.AddDays(30),
+
             signingCredentials: creds
         );
 
