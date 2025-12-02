@@ -20,7 +20,12 @@ namespace WorkflowManagemetAPI.Repositories
 			return dbSet.AsNoTracking().ToList();
 		}
 
-		public IEnumerable<FlowDesign>? AddRange(List<FlowDesign> flowDesigns)
+        public IEnumerable<FlowDesign> GetDesignByUserId(string userId)
+        {
+            return dbSet.AsNoTracking().Where(d => d.UserId == userId).ToList();
+        }
+
+        public IEnumerable<FlowDesign>? AddRange(List<FlowDesign> flowDesigns)
 		{
 			InsertRange(flowDesigns);
 			SaveChanges();

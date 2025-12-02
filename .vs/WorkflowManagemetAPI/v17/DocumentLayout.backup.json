@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C67AEA67-C5EF-4FED-A2E8-14CFD23B5F45}|WorkflowGateway\\WorkflowGateway.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\workflowgateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C67AEA67-C5EF-4FED-A2E8-14CFD23B5F45}|WorkflowGateway\\WorkflowGateway.csproj|solutionrelative:workflowgateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\workflowmanagemetapi\\services\\designservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\services\\designservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\workflowmanagemetapi\\repositories\\flowdesignrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\repositories\\flowdesignrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\workflowmanagemetapi\\models\\flowdesign.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\models\\flowdesign.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ocelot.json",
-              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\ocelot.json",
-              "RelativeDocumentMoniker": "WorkflowGateway\\ocelot.json",
-              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\ocelot.json",
-              "RelativeToolTip": "WorkflowGateway\\ocelot.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-26T11:15:48.467Z",
+              "Title": "DesignService.cs",
+              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\DesignService.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Services\\DesignService.cs",
+              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\DesignService.cs*",
+              "RelativeToolTip": "WorkflowManagemetAPI\\Services\\DesignService.cs*",
+              "ViewState": "AgIAACcAAAAAAAAAAAAewDcAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T09:27:35.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FlowDesignRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Repositories\\FlowDesignRepository.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Repositories\\FlowDesignRepository.cs",
+              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Repositories\\FlowDesignRepository.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\Repositories\\FlowDesignRepository.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAcwCwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T09:27:34.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FlowDesign.cs",
+              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Models\\FlowDesign.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Models\\FlowDesign.cs",
+              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Models\\FlowDesign.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\Models\\FlowDesign.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T09:27:32.838Z",
               "EditorCaption": ""
             }
           ]

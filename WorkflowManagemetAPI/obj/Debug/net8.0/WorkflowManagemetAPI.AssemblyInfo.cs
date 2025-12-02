@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WorkflowManagemetAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07a011c700da690dc1e4398096394d6dd575e783")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad5baaf3fab8ce3ef6bdd70376604a54bdcfb9b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("WorkflowManagemetAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WorkflowManagemetAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

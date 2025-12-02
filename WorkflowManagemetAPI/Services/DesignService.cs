@@ -24,22 +24,19 @@ public class DesignService : IDesignService
         _httpContextAccessor = httpContextAccessor;
     }
 
-    // YARDIMCI METOT: Token içindeki User ID'yi (sub) okur
     private string GetCurrentUserId()
     {
-        // Token'daki "sub" (Subject) claim'i, .NET'te NameIdentifier'a denk gelir.
         var userId = _httpContextAccessor.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
         if (string.IsNullOrEmpty(userId))
         {
-            // Eğer [Authorize] attribute'ü varsa buraya düşmesi zordur ama yine de önlem alalım.
             throw new UnauthorizedAccessException("Kullanıcı kimliği (Token) doğrulanamadı.");
         }
 
         return userId;
     }
 
-    // --- OKUMA (READ) ---
+
     public FlowDesignDto GetFlowDesignById(int designId)
     {
         var design = _flowDesignRepository.GetByID(designId)
@@ -81,15 +78,13 @@ public class DesignService : IDesignService
         };
     }
 
-    public IEnumerable<FlowDesignDto> GetAllFlowDesigns()
-    {
-        // Sadece giriş yapan kullanıcının tasarımlarını getiriyoruz:
-        // var currentUserId = GetCurrentUserId();
-        // var designs = _flowDesignRepository.Get(x => x.OwnerUser == currentUserId);
 
-        // Şimdilik hepsini getiriyoruz:
+    public IEnumerable<FlowDesignDto> GetFlowDesignsByUserId()
+    {
+        var currentUserId = GetCurrentUserId();
+
         var result = new List<FlowDesignDto>();
-        var designs = _flowDesignRepository.GetAll();
+        var designs = _flowDesignRepository.GetDesignByUserId(currentUserId);
 
         foreach (var design in designs)
         {
@@ -98,13 +93,25 @@ public class DesignService : IDesignService
         return result;
     }
 
+
+    public IEnumerable<FlowDesignDto> GetAllFlowDesigns()
+    {
+        var designs = _flowDesignRepository.GetAll();
+        var result = new List<FlowDesignDto>();
+
+        foreach (var design in designs)
+        {
+            result.Add(GetFlowDesignById(design.Id));
+        }
+        return result;
+    }
+
+
     public FlowDesignDto CreateFlowDesign(CreateFlowDesignRequest request)
     {
         return ExecuteInTransaction(() =>
         {
             var design = request.ToEntity();
-
-            // 👇 3. KRİTİK NOKTA: Tasarımın sahibini Token'dan alıp kaydediyoruz!
             design.OwnerUser = GetCurrentUserId();
 
             _flowDesignRepository.Add(design);
@@ -119,6 +126,7 @@ public class DesignService : IDesignService
         });
     }
 
+
     public FlowDesignDto UpdateFlowDesign(int id, CreateFlowDesignRequest request)
     {
         return ExecuteInTransaction(() =>
@@ -126,9 +134,6 @@ public class DesignService : IDesignService
             var existingDesign = _flowDesignRepository.GetByID(id);
             if (existingDesign == null)
                 throw new Exception($"Güncellenecek tasarım bulunamadı (ID={id})");
-
-            // Burada da güvenlik kontrolü yapabilirsin:
-            // if (existingDesign.OwnerUser != GetCurrentUserId()) throw ...
 
             existingDesign.DesignName = request.DesignName;
             existingDesign.UpdatedDate = DateTime.Now;
@@ -145,6 +150,7 @@ public class DesignService : IDesignService
             return GetFlowDesignById(id);
         });
     }
+
 
     public void DeleteFlowDesign(int designId)
     {
@@ -164,6 +170,7 @@ public class DesignService : IDesignService
         });
     }
 
+
     private T ExecuteInTransaction<T>(Func<T> action)
     {
         using var transaction = _flowDesignRepository.BeginTransaction();
@@ -179,4 +186,5 @@ public class DesignService : IDesignService
             throw;
         }
     }
+
 }

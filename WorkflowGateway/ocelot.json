@@ -1,12 +1,12 @@
 ﻿{
   "Routes": [
     {
-      // 🔐 AUTH SERVICE YÖNLENDİRMESİ
-      // Frontend'den gelen: localhost:9000/auth/...
-      "UpstreamPathTemplate": "/auth/{everything}",
-      "UpstreamHttpMethod": [ "POST", "GET", "PUT", "DELETE" ],
+      // 🔐 AUTH SERVICE - LOGIN
+      // Frontend: https://localhost:9000/auth/login
+      "UpstreamPathTemplate": "/auth/login",
+      "UpstreamHttpMethod": [ "POST" ],
 
-      // Arkadaki servise giden: localhost:7130/api/Auth/...
+      // Backend: https://localhost:7130/api/Auth/login
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -14,15 +14,38 @@
           "Port": 7130
         }
       ],
-      "DownstreamPathTemplate": "/api/Auth/{everything}"
+      "DownstreamPathTemplate": "/api/Auth/login"
     },
     {
-      // ⚙️ WORKFLOW SERVICE YÖNLENDİRMESİ
-      // Frontend'den gelen: localhost:9000/workflow/...
+      // 🔐 AUTH SERVICE - REGISTER (optional)
+      "UpstreamPathTemplate": "/auth/register",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7130
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Auth/register"
+    },
+    {
+      // 🔐 AUTH SERVICE - REFRESH TOKEN (optional)
+      "UpstreamPathTemplate": "/auth/refresh",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7130
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Auth/refresh"
+    },
+    {
+      // ⚙️ WORKFLOW SERVICE YÖNLENDİRMESİ (kept generic)
       "UpstreamPathTemplate": "/workflow/{everything}",
       "UpstreamHttpMethod": [ "POST", "GET", "PUT", "DELETE" ],
-
-      // Arkadaki servise giden: localhost:7071/api/WorkflowEngine/...
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -34,6 +57,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:9000" // Gateway'in kendi adresi
+    "BaseUrl": "https://localhost:9000"
   }
 }

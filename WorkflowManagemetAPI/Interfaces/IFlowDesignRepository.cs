@@ -6,7 +6,9 @@ namespace WorkflowManagemetAPI.Interfaces
 	{
 		public IEnumerable<FlowDesign> GetAll();
 
-		public IEnumerable<FlowDesign>? AddRange(List<FlowDesign> flowDesigns);
+		public IEnumerable<FlowDesign> GetDesignByUserId(string userId);
+
+        public IEnumerable<FlowDesign>? AddRange(List<FlowDesign> flowDesigns);
 
 		public IEnumerable<FlowDesign>? Add(FlowDesign flowDesign);
 
