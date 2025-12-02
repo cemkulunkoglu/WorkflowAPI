@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj": {}
+    "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj": {
+    "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj",
+        "projectUniqueName": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj",
         "projectName": "WorkflowManagemetAPI",
-        "projectPath": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj",
-        "packagesPath": "C:\\Users\\Cem Kulunkoglu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\obj\\",
+        "projectPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj",
+        "packagesPath": "C:\\Users\\cemku\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Cem Kulunkoglu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cemku\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -118,7 +118,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
