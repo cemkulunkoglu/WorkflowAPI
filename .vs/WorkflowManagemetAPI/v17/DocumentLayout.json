@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\authserverapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|solutionrelative:authserverapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\authserverapi\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|solutionrelative:authserverapi\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\authserverapi\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|solutionrelative:authserverapi\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\authserverapi\\helpers\\hashinghelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|solutionrelative:authserverapi\\helpers\\hashinghelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\authserverapi\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|solutionrelative:authserverapi\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C67AEA67-C5EF-4FED-A2E8-14CFD23B5F45}|WorkflowGateway\\WorkflowGateway.csproj|c:\\users\\cem kulunkoglu\\documents\\github\\workflowapi\\workflowgateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{C67AEA67-C5EF-4FED-A2E8-14CFD23B5F45}|WorkflowGateway\\WorkflowGateway.csproj|solutionrelative:workflowgateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -22,11 +42,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "AuthServerAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "AuthServerAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAQwH8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T10:41:34.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\DTOs\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "AuthServerAPI\\DTOs\\RegisterDto.cs",
+              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\DTOs\\RegisterDto.cs",
+              "RelativeToolTip": "AuthServerAPI\\DTOs\\RegisterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T10:41:32.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "AuthServerAPI\\DTOs\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "AuthServerAPI\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T10:41:31.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Models\\AppUser.cs",
+              "RelativeDocumentMoniker": "AuthServerAPI\\Models\\AppUser.cs",
+              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Models\\AppUser.cs",
+              "RelativeToolTip": "AuthServerAPI\\Models\\AppUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T10:40:32.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HashingHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Helpers\\HashingHelper.cs",
+              "RelativeDocumentMoniker": "AuthServerAPI\\Helpers\\HashingHelper.cs",
+              "ToolTip": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Helpers\\HashingHelper.cs",
+              "RelativeToolTip": "AuthServerAPI\\Helpers\\HashingHelper.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAwCQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T10:40:20.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "WorkflowGateway\\Properties\\launchSettings.json",
@@ -34,12 +119,11 @@
               "RelativeToolTip": "WorkflowGateway\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAoAAAAAAAAAAAAUwCkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-02T09:41:40.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-02T09:41:40.228Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\Program.cs",
               "RelativeDocumentMoniker": "WorkflowGateway\\Program.cs",
@@ -47,12 +131,11 @@
               "RelativeToolTip": "WorkflowGateway\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T09:41:18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-02T09:41:18Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "ocelot.json",
               "DocumentMoniker": "C:\\Users\\Cem Kulunkoglu\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\ocelot.json",
               "RelativeDocumentMoniker": "WorkflowGateway\\ocelot.json",
