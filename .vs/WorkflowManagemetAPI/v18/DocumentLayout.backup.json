@@ -1,5 +1,18 @@
 {
   "Version": 1,
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  "WorkspaceRootPath": "C:\\Projects\\WorkflowAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\projects\\workflowapi\\workflowmanagemetapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\projects\\workflowapi\\workflowmanagemetapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+>>>>>>> Stashed changes
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
@@ -7,6 +20,10 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+<<<<<<< Updated upstream
+=======
+>>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+>>>>>>> Stashed changes
       "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,6 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\appsettings.json",
+              "ToolTip": "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\appsettings.json",
+              "RelativeToolTip": "WorkflowManagemetAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-02T18:26:39.001Z",
+=======
+>>>>>>> Stashed changes
               "Title": "Microsoft.NET.Sdk.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.targets",
@@ -30,12 +60,29 @@
               "ViewState": "AgIAAFADAAAAAAAAAAAAwFEDAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
               "WhenOpened": "2025-12-02T18:19:42.18Z",
+<<<<<<< Updated upstream
+=======
+>>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+>>>>>>> Stashed changes
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+              "DocumentMoniker": "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\Program.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Program.cs",
+              "ToolTip": "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\Program.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T18:19:13.028Z",
+              "EditorCaption": ""
+=======
+>>>>>>> Stashed changes
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Program.cs",
               "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Program.cs",
               "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Program.cs",
@@ -43,6 +90,10 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-02T18:19:13.028Z"
+<<<<<<< Updated upstream
+=======
+>>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+>>>>>>> Stashed changes
             }
           ]
         }

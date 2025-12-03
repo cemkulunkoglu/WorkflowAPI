@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< Updated upstream
     "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj": {}
   },
   "projects": {
@@ -12,6 +13,33 @@
         "projectPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
         "packagesPath": "C:\\Users\\cemku\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\obj\\",
+=======
+<<<<<<< HEAD
+    "C:\\Projects\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj": {}
+  },
+  "projects": {
+    "C:\\Projects\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
+        "projectName": "WorkflowGateway",
+        "projectPath": "C:\\Projects\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
+        "packagesPath": "C:\\Users\\cemku\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\WorkflowAPI\\WorkflowGateway\\obj\\",
+=======
+    "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
+        "projectName": "WorkflowGateway",
+        "projectPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
+        "packagesPath": "C:\\Users\\cemku\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\obj\\",
+>>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+>>>>>>> Stashed changes
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

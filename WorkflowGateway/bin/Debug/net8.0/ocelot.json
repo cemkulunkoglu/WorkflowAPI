@@ -1,0 +1,62 @@
+﻿{
+  "Routes": [
+    {
+      // 🔐 AUTH SERVICE - LOGIN
+      // Frontend: https://localhost:9000/auth/login
+      "UpstreamPathTemplate": "/auth/login",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      // Backend: https://localhost:7130/api/Auth/login
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7130
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Auth/login"
+    },
+    {
+      // 🔐 AUTH SERVICE - REGISTER (optional)
+      "UpstreamPathTemplate": "/auth/register",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7130
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Auth/register"
+    },
+    {
+      // 🔐 AUTH SERVICE - REFRESH TOKEN (optional)
+      "UpstreamPathTemplate": "/auth/refresh",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7130
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Auth/refresh"
+    },
+    {
+      // ⚙️ WORKFLOW SERVICE YÖNLENDİRMESİ (kept generic)
+      "UpstreamPathTemplate": "/workflow/{everything}",
+      "UpstreamHttpMethod": [ "POST", "GET", "PUT", "DELETE" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7071
+        }
+      ],
+      "DownstreamPathTemplate": "/api/WorkflowEngine/{everything}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:9000"
+  }
+}

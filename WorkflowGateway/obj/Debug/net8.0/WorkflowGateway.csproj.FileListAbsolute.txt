@@ -10,3 +10,57 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowGateway\obj\Debug\n
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.dll
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\refint\WorkflowGateway.dll
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.pdb
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\appsettings.Development.json
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\appsettings.json
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\ocelot.json
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\WorkflowGateway.staticwebassets.endpoints.json
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\WorkflowGateway.exe
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\WorkflowGateway.deps.json
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\WorkflowGateway.runtimeconfig.json
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\WorkflowGateway.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\WorkflowGateway.pdb
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\FluentValidation.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\IPAddressRange.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Microsoft.AspNetCore.MiddlewareAnalysis.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Microsoft.Extensions.DiagnosticAdapter.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Ocelot.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.csproj.AssemblyReference.cache
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.AssemblyInfoInputs.cache
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.AssemblyInfo.cs
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.csproj.CoreCompileInputs.cache
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.sourcelink.json
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\scopedcss\bundle\WorkflowGateway.styles.css
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\staticwebassets.build.json
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\staticwebassets.development.json
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\swae.build.ex.cache
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\Workflow.985063EF.Up2Date
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\refint\WorkflowGateway.dll
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.pdb
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.genruntimeconfig.cache
+C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\ref\WorkflowGateway.dll
+=======
+>>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+>>>>>>> Stashed changes

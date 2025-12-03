@@ -1,8 +1,20 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "GGZn4a/R+sc=",
   "success": true,
   "projectFilePath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\AuthServerAPI.csproj",
+=======
+<<<<<<< HEAD
+  "dgSpecHash": "9iZDDIB43Ek=",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\WorkflowAPI\\AuthServerAPI\\AuthServerAPI.csproj",
+=======
+  "dgSpecHash": "GGZn4a/R+sc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\AuthServerAPI.csproj",
+>>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+>>>>>>> Stashed changes
   "expectedPackageFiles": [
     "C:\\Users\\cemku\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\cemku\\.nuget\\packages\\google.protobuf\\3.32.0\\google.protobuf.3.32.0.nupkg.sha512",

@@ -1,8 +1,20 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "kNN8QWsWf2A=",
   "success": true,
   "projectFilePath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
+=======
+<<<<<<< HEAD
+  "dgSpecHash": "PqPY6gcI84k=",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
+=======
+  "dgSpecHash": "kNN8QWsWf2A=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
+>>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+>>>>>>> Stashed changes
   "expectedPackageFiles": [
     "C:\\Users\\cemku\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\cemku\\.nuget\\packages\\ipaddressrange\\6.2.0\\ipaddressrange.6.2.0.nupkg.sha512",
