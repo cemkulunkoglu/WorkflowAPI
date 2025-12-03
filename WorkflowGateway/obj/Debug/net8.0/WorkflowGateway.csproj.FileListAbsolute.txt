@@ -12,7 +12,10 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowGateway\obj\Debug\n
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\WorkflowGateway.pdb
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 <<<<<<< HEAD
@@ -67,6 +70,9 @@ C:\Projects\WorkflowAPI\WorkflowGateway\obj\Debug\net8.0\ref\WorkflowGateway.dll
 =======
 >>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

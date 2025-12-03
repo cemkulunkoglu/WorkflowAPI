@@ -3,6 +3,7 @@
   "restore": {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj": {}
   },
   "projects": {
@@ -35,6 +36,17 @@
         "projectUniqueName": "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj",
         "projectName": "WorkflowManagemetAPI",
 >>>>>>> Stashed changes
+=======
+<<<<<<< HEAD
+    "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj",
+        "projectName": "WorkflowManagemetAPI",
+>>>>>>> Stashed changes
         "projectPath": "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj",
         "packagesPath": "C:\\Users\\cemku\\.nuget\\packages\\",
         "outputPath": "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\obj\\",
@@ -52,6 +64,9 @@
         "outputPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\obj\\",
 >>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
