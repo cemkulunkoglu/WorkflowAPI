@@ -11,7 +11,10 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\refint\AuthServerAPI.dll
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\AuthServerAPI.pdb
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
 C:\Projects\WorkflowAPI\AuthServerAPI\bin\Debug\net8.0\appsettings.Development.json
 C:\Projects\WorkflowAPI\AuthServerAPI\bin\Debug\net8.0\appsettings.json
@@ -159,4 +162,7 @@ C:\Projects\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\AuthServerAPI.genruntimec
 C:\Projects\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\ref\AuthServerAPI.dll
 =======
 >>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

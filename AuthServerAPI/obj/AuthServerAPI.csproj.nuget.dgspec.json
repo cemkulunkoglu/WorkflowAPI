@@ -2,6 +2,7 @@
   "format": 1,
   "restore": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\AuthServerAPI.csproj": {}
   },
   "projects": {
@@ -23,6 +24,17 @@
       "restore": {
         "projectUniqueName": "C:\\Projects\\WorkflowAPI\\AuthServerAPI\\AuthServerAPI.csproj",
         "projectName": "AuthServerAPI",
+=======
+<<<<<<< HEAD
+    "C:\\Projects\\WorkflowAPI\\AuthServerAPI\\AuthServerAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\Projects\\WorkflowAPI\\AuthServerAPI\\AuthServerAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\WorkflowAPI\\AuthServerAPI\\AuthServerAPI.csproj",
+        "projectName": "AuthServerAPI",
+>>>>>>> Stashed changes
         "projectPath": "C:\\Projects\\WorkflowAPI\\AuthServerAPI\\AuthServerAPI.csproj",
         "packagesPath": "C:\\Users\\cemku\\.nuget\\packages\\",
         "outputPath": "C:\\Projects\\WorkflowAPI\\AuthServerAPI\\obj\\",
@@ -39,6 +51,9 @@
         "packagesPath": "C:\\Users\\cemku\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\obj\\",
 >>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         "projectStyle": "PackageReference",
         "fallbackFolders": [

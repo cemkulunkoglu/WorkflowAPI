@@ -140,7 +140,10 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\De
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\WorkflowManagemetAPI.genruntimeconfig.cache
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\ref\WorkflowManagemetAPI.dll
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
 C:\Projects\WorkflowAPI\WorkflowManagemetAPI\bin\Debug\net8.0\appsettings.Development.json
 C:\Projects\WorkflowAPI\WorkflowManagemetAPI\bin\Debug\net8.0\appsettings.json
@@ -285,4 +288,7 @@ C:\Projects\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\WorkflowManagemetA
 C:\Projects\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\ref\WorkflowManagemetAPI.dll
 =======
 >>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

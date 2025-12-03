@@ -1,7 +1,10 @@
 {
   "Version": 1,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Projects\\WorkflowAPI\\",
   "Documents": [
@@ -12,6 +15,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\projects\\workflowapi\\workflowmanagemetapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
 =======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
@@ -21,6 +27,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+>>>>>>> Stashed changes
 =======
 >>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
 >>>>>>> Stashed changes
@@ -40,7 +50,10 @@
               "$type": "Document",
               "DocumentIndex": 0,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\appsettings.json",
@@ -50,6 +63,9 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-12-02T18:26:39.001Z",
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
               "Title": "Microsoft.NET.Sdk.targets",
@@ -61,6 +77,10 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
               "WhenOpened": "2025-12-02T18:19:42.18Z",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+>>>>>>> Stashed changes
 =======
 >>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
 >>>>>>> Stashed changes
@@ -71,7 +91,10 @@
               "DocumentIndex": 1,
               "Title": "Program.cs",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
               "DocumentMoniker": "C:\\Projects\\WorkflowAPI\\WorkflowManagemetAPI\\Program.cs",
               "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Program.cs",
@@ -82,6 +105,9 @@
               "WhenOpened": "2025-12-02T18:19:13.028Z",
               "EditorCaption": ""
 =======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Program.cs",
               "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Program.cs",
@@ -91,6 +117,10 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-02T18:19:13.028Z"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+>>>>>>> Stashed changes
 =======
 >>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
 >>>>>>> Stashed changes

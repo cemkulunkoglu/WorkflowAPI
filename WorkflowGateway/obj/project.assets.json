@@ -958,6 +958,7 @@
     "version": "1.0.0",
     "restore": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
       "projectName": "WorkflowGateway",
       "projectPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
@@ -967,6 +968,11 @@
 <<<<<<< HEAD
       "projectUniqueName": "C:\\Projects\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
       "projectName": "WorkflowGateway",
+=======
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Projects\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
+      "projectName": "WorkflowGateway",
+>>>>>>> Stashed changes
       "projectPath": "C:\\Projects\\WorkflowAPI\\WorkflowGateway\\WorkflowGateway.csproj",
       "packagesPath": "C:\\Users\\cemku\\.nuget\\packages\\",
       "outputPath": "C:\\Projects\\WorkflowAPI\\WorkflowGateway\\obj\\",
@@ -977,6 +983,9 @@
       "packagesPath": "C:\\Users\\cemku\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowGateway\\obj\\",
 >>>>>>> 24350e1ea643940b7c9b9e35c0d7b26f730be537
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       "projectStyle": "PackageReference",
       "fallbackFolders": [
