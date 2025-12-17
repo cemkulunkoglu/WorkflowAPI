@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "WorkflowManagemetAPI.Controllers.EmployeesController",
+    "Method": "Create",
+    "RelativePath": "api/Employees",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WorkflowManagemetAPI.DTOs.CreateEmployeeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WorkflowManagemetAPI.Controllers.EmployeesController",
+    "Method": "GetTree",
+    "RelativePath": "api/Employees/tree",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WorkflowManagemetAPI.Controllers.WorkflowEngineController",
     "Method": "GetDesignById",
     "RelativePath": "api/WorkflowEngine/flow-design/{id}",

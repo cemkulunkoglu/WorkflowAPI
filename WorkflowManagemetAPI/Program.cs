@@ -93,6 +93,11 @@ builder.Services.AddDbContext<WorkflowFlowDbContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("WorkflowDB"));
 });
 
+builder.Services.AddDbContext<EmployeeDbContext>(options =>
+{
+    options.UseMySQL(builder.Configuration.GetConnectionString("EmployeeDB"));
+});
+
 // ----------------------------
 // 🧩 5. Servis Bağımlılıkları (DI)
 // ----------------------------
@@ -103,12 +108,14 @@ builder.Services.AddHttpContextAccessor();
 // Repositories
 builder.Services.AddScoped<IFlowDesignRepository, FlowDesignRepository>();
 builder.Services.AddScoped<IFlowNodeRepository, FlowNodeRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
 // Context
 builder.Services.AddScoped<DbContext, WorkflowFlowDbContext>();
 
 // Services
 builder.Services.AddScoped<IDesignService, DesignService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 // ----------------------------
 // 🌐 6. CORS Ayarları

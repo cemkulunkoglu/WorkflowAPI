@@ -3,11 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\dbcontext\\employeedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\dbcontext\\employeedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\repositories\\flowdesignrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\repositories\\flowdesignrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,27 +35,67 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "ViewState": "AgIAAJ8CAAAAAAAAAAAQwKsCAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-12-05T09:23:04.614Z",
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Services\\EmployeeService.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\Services\\EmployeeService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T12:19:06.893Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "EmployeeDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DbContext\\EmployeeDbContext.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\DbContext\\EmployeeDbContext.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DbContext\\EmployeeDbContext.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\DbContext\\EmployeeDbContext.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T12:13:57.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Program.cs",
               "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Program.cs",
               "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Program.cs",
               "RelativeToolTip": "WorkflowManagemetAPI\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAFgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-02T18:19:13.028Z"
+              "WhenOpened": "2025-12-17T12:03:22.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FlowDesignRepository.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Repositories\\FlowDesignRepository.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Repositories\\FlowDesignRepository.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Repositories\\FlowDesignRepository.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\Repositories\\FlowDesignRepository.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAqwCsAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T12:01:43.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Repositories\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Repositories\\EmployeeRepository.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Repositories\\EmployeeRepository.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\Repositories\\EmployeeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T11:58:47.542Z",
+              "EditorCaption": ""
             }
           ]
         }
