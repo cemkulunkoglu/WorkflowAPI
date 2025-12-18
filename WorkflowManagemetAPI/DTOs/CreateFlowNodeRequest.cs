@@ -4,6 +4,9 @@ namespace WorkflowManagemetAPI.DTOs
 {
     public class CreateFlowNodeRequest
     {
+        [JsonPropertyName("id")]
+        public string Id { get; set; } = string.Empty;
+
         [JsonPropertyName("label")]
         public string Label { get; set; } = string.Empty;
 

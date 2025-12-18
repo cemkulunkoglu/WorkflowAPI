@@ -40,7 +40,7 @@ public class WorkflowEngineController : ControllerBase
     public ActionResult<FlowDesignDto> CreateFlowDesign([FromBody] CreateFlowDesignRequest request)
     {
         var createdDesign = _designService.CreateFlowDesign(request);
-        return CreatedAtAction(nameof(GetDesignById), new { id = createdDesign.Nodes.First().Id }, createdDesign);
+        return CreatedAtAction(nameof(GetDesignById), new { id = createdDesign.Id }, createdDesign);
     }
 
 

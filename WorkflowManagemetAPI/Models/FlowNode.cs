@@ -5,6 +5,7 @@ namespace WorkflowManagemetAPI.Models
     public class FlowNode
     {
         public int Id { get; set; }
+        public string? ClientId { get; set; }
         public int DesignId { get; set; }
         public string Label { get; set; } = string.Empty;
         public string Type { get; set; } = string.Empty;

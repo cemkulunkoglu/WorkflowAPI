@@ -51,7 +51,7 @@ public class DesignService : IDesignService
             .Where(n => !string.Equals(n.NodeType, "transition", StringComparison.OrdinalIgnoreCase))
             .Select(n => new FlowNodeDto
             {
-                Id = n.Id.ToString(),
+                Id = !string.IsNullOrWhiteSpace(n.ClientId) ? n.ClientId : n.Id.ToString(),
                 Type = n.Type,
                 Data = new FlowNodeDataDto { Label = n.Label, Type = n.Type },
                 Position = new FlowNodePositionDto { X = n.Posx, Y = n.Posy }

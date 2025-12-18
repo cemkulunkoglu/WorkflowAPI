@@ -23,6 +23,7 @@ public static class FlowMappingExtensions
         return nodes.Select((n, index) => new FlowNode
         {
             DesignId = designId,
+            ClientId = n.Id,
             Label = n.Label,
             Type = n.Type,
             NodeType = "node",
