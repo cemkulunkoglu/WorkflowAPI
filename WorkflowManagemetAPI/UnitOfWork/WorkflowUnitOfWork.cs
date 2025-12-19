@@ -5,13 +5,13 @@ using WorkflowManagemetAPI.Interfaces;
 
 namespace WorkflowManagemetAPI.UoW
 {
-    public class UnitOfWork<TEntity> : IUnitOfWork<TEntity> where TEntity : class
+    public class WorkflowUnitOfWork<TEntity> : IUnitOfWork<TEntity> where TEntity : class
     {
         internal Microsoft.EntityFrameworkCore.DbContext context;
         internal DbSet<TEntity> dbSet;
         private bool _disposed;
 
-        public UnitOfWork(Microsoft.EntityFrameworkCore.DbContext dbContext)
+        public WorkflowUnitOfWork(Microsoft.EntityFrameworkCore.DbContext dbContext)
         {
             context = dbContext;
             dbSet = context.Set<TEntity>();

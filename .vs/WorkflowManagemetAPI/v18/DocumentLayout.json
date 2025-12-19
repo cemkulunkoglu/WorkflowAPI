@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\extensions\\flowmappingextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\extensions\\flowmappingextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\dtos\\employeedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\dtos\\employeedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\models\\flownode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\models\\flownode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\dtos\\employeetreedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\dtos\\employeetreedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\controllers\\workflowenginecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\controllers\\workflowenginecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\services\\designservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\services\\designservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\dtos\\createflownoderequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\dtos\\createflownoderequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\dtos\\employeeresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\dtos\\employeeresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\interfaces\\iemployeeunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\interfaces\\iemployeeunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\unitofwork\\employeeunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\unitofwork\\employeeunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +38,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WorkflowEngineController.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Controllers\\WorkflowEngineController.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Controllers\\WorkflowEngineController.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Controllers\\WorkflowEngineController.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Controllers\\WorkflowEngineController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAcwC0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T19:00:58.072Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FlowMappingExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Extensions\\FlowMappingExtensions.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Extensions\\FlowMappingExtensions.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Extensions\\FlowMappingExtensions.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Extensions\\FlowMappingExtensions.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAqwBkAAAAcAAAAAAAAAA==",
+              "Title": "EmployeeDetailDto.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeDetailDto.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\DTOs\\EmployeeDetailDto.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeDetailDto.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\DTOs\\EmployeeDetailDto.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T19:00:23.568Z",
+              "WhenOpened": "2025-12-19T11:15:47.815Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FlowNode.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Models\\FlowNode.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Models\\FlowNode.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Models\\FlowNode.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Models\\FlowNode.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
+              "Title": "EmployeeTreeDto.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeTreeDto.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\DTOs\\EmployeeTreeDto.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeTreeDto.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\DTOs\\EmployeeTreeDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T18:59:53.651Z",
+              "WhenOpened": "2025-12-19T11:10:00.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CreateFlowNodeRequest.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\CreateFlowNodeRequest.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\DTOs\\CreateFlowNodeRequest.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\CreateFlowNodeRequest.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\DTOs\\CreateFlowNodeRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA4AAAAAAAAAA==",
+              "Title": "EmployeeResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeResponseDto.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\DTOs\\EmployeeResponseDto.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeResponseDto.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\DTOs\\EmployeeResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T18:48:58.127Z",
+              "WhenOpened": "2025-12-19T11:09:59.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAC4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T11:01:00.066Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "DesignService.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\DesignService.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Services\\DesignService.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\DesignService.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Services\\DesignService.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAiwDkAAAAYAAAAAAAAAA==",
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Services\\EmployeeService.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\Services\\EmployeeService.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAwCUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T17:59:30.384Z",
+              "WhenOpened": "2025-12-19T10:33:08.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EmployeeUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\UnitOfWork\\EmployeeUnitOfWork.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\UnitOfWork\\EmployeeUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\UnitOfWork\\EmployeeUnitOfWork.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\UnitOfWork\\EmployeeUnitOfWork.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAIwBUAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T10:32:43.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IEmployeeUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Interfaces\\IEmployeeUnitOfWork.cs",
+              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Interfaces\\IEmployeeUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Interfaces\\IEmployeeUnitOfWork.cs",
+              "RelativeToolTip": "WorkflowManagemetAPI\\Interfaces\\IEmployeeUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T10:32:19.394Z",
               "EditorCaption": ""
             }
           ]

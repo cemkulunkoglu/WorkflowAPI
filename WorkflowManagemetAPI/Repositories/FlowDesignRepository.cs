@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WorkflowManagemetAPI.Repositories
 {
-	public class FlowDesignRepository : UnitOfWork<FlowDesign>, IFlowDesignRepository
+	public class FlowDesignRepository : WorkflowUnitOfWork<FlowDesign>, IFlowDesignRepository
 	{
 		private readonly Microsoft.EntityFrameworkCore.DbContext context;
 		private readonly DbSet<FlowDesign> dbSet;

@@ -1,34 +1,141 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WorkflowManagemetAPI.DTOs;
 using WorkflowManagemetAPI.Interfaces;
 
-namespace WorkflowManagemetAPI.Controllers
+namespace WorkflowManagemetAPI.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+[Authorize]
+public class EmployeesController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    [Authorize]
-    public class EmployeesController : ControllerBase
+    private readonly IEmployeeService _employeeService;
+
+    public EmployeesController(IEmployeeService employeeService)
     {
-        private readonly IEmployeeService _employeeService;
+        _employeeService = employeeService;
+    }
 
-        public EmployeesController(IEmployeeService employeeService)
+    [HttpGet("tree")]
+    [ProducesResponseType(typeof(List<EmployeeTreeDto>), StatusCodes.Status200OK)]
+    public ActionResult<List<EmployeeTreeDto>> GetTree()
+    {
+        var tree = _employeeService.GetEmployeeTree();
+        return Ok(tree);
+    }
+
+    [HttpGet("detail/{employeeId:int}")]
+    [ProducesResponseType(typeof(EmployeeDetailDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<EmployeeDetailDto> GetDetail(int employeeId)
+    {
+        try
         {
-            _employeeService = employeeService;
-        }
+            var emp = _employeeService.GetById(employeeId);
 
-        [HttpGet("tree")]
-        public IActionResult GetTree()
+            var dto = new EmployeeDetailDto
+            {
+                EmployeeId = emp.EmployeeId,
+                UserId = emp.UserId,
+                FirstName = emp.FirstName,
+                LastName = emp.LastName,
+                FullName = emp.FullName,
+                Phone = emp.Phone,
+                SicilNo = emp.SicilNo,
+                JobTitle = emp.JobTitle,
+                Department = emp.Department,
+                ManagerId = emp.ManagerId,
+                Path = emp.Path
+            };
+
+            return Ok(dto);
+        }
+        catch (Exception ex)
         {
-            var tree = _employeeService.GetEmployeeTree();
-            return Ok(tree);
+            return NotFound(new { message = ex.Message });
         }
+    }
 
-        [HttpPost]
-        public IActionResult Create([FromBody] CreateEmployeeRequest request)
+    [HttpPost("create")]
+    [ProducesResponseType(typeof(EmployeeResponseDto), StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public ActionResult<EmployeeResponseDto> Create([FromBody] CreateEmployeeRequest request)
+    {
+        try
         {
             var created = _employeeService.CreateEmployee(request);
-            return Ok(created);
+
+            var dto = new EmployeeResponseDto
+            {
+                EmployeeId = created.EmployeeId,
+                UserId = created.UserId,
+                FirstName = created.FirstName,
+                LastName = created.LastName,
+                FullName = created.FullName,
+                Phone = created.Phone,
+                SicilNo = created.SicilNo,
+                JobTitle = created.JobTitle,
+                Department = created.Department,
+                ManagerId = created.ManagerId,
+                Path = created.Path
+            };
+
+            return Created("", dto);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+    [HttpPut("update/{employeeId:int}")]
+    [ProducesResponseType(typeof(EmployeeResponseDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public ActionResult<EmployeeResponseDto> Update(int employeeId, [FromBody] UpdateEmployeeRequest request)
+    {
+        try
+        {
+            request.EmployeeId = employeeId;
+            var updated = _employeeService.UpdateEmployee(request);
+
+            var dto = new EmployeeResponseDto
+            {
+                EmployeeId = updated.EmployeeId,
+                UserId = updated.UserId,
+                FirstName = updated.FirstName,
+                LastName = updated.LastName,
+                FullName = updated.FullName,
+                Phone = updated.Phone,
+                SicilNo = updated.SicilNo,
+                JobTitle = updated.JobTitle,
+                Department = updated.Department,
+                ManagerId = updated.ManagerId,
+                Path = updated.Path
+            };
+
+            return Ok(dto);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+    [HttpDelete("delete/{employeeId:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public IActionResult Delete(int employeeId)
+    {
+        try
+        {
+            _employeeService.DeleteEmployee(employeeId);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
         }
     }
 }

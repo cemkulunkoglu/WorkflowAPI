@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Microsoft.EntityFrameworkCore;
 using System.Text;
 using System.Text.Json;
 using WorkflowManagemetAPI.DbContext;
 using WorkflowManagemetAPI.Interfaces;
 using WorkflowManagemetAPI.Repositories;
 using WorkflowManagemetAPI.Services;
+using WorkflowManagemetAPI.UnitOfWork;
 using WorkflowManagemetAPI.UoW;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -108,7 +109,7 @@ builder.Services.AddHttpContextAccessor();
 // Repositories
 builder.Services.AddScoped<IFlowDesignRepository, FlowDesignRepository>();
 builder.Services.AddScoped<IFlowNodeRepository, FlowNodeRepository>();
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeUnitOfWork, EmployeeUnitOfWork>();
 
 // Context
 builder.Services.AddScoped<DbContext, WorkflowFlowDbContext>();

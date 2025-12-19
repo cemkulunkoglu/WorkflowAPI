@@ -9,7 +9,7 @@ using WorkflowManagemetAPI.UoW;
 
 namespace WorkflowManagemetAPI.Repositories
 {
-    public class FlowNodeRepository : UnitOfWork<FlowNode>, IFlowNodeRepository
+    public class FlowNodeRepository : WorkflowUnitOfWork<FlowNode>, IFlowNodeRepository
 	{
 		private readonly Microsoft.EntityFrameworkCore.DbContext _dbContext;
 		private readonly DbSet<FlowNode> dbSet;

@@ -6,7 +6,7 @@ using WorkflowManagemetAPI.UoW;
 
 namespace WorkflowManagemetAPI.Repositories
 {
-    public class EmployeeRepository : UnitOfWork<Employee>, IEmployeeRepository
+    public class EmployeeRepository : WorkflowUnitOfWork<Employee>, IEmployeeRepository
     {
         private readonly EmployeeDbContext _context;
         private readonly DbSet<Employee> _dbSet;
