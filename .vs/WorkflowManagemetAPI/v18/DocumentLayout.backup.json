@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\storage\\inmemorychatstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\storage\\inmemorychatstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\dtos\\employeedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\dtos\\employeedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\dtos\\employeetreedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\dtos\\employeetreedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\dtos\\employeeresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\dtos\\employeeresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\interfaces\\iemployeeunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\interfaces\\iemployeeunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\messaging\\rabbitmqconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\messaging\\rabbitmqconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\unitofwork\\employeeunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\unitofwork\\employeeunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\messaging\\rabbitmqproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\messaging\\rabbitmqproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +38,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EmployeeDetailDto.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeDetailDto.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\DTOs\\EmployeeDetailDto.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeDetailDto.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\DTOs\\EmployeeDetailDto.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAzwAsAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T11:15:47.815Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EmployeeTreeDto.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeTreeDto.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\DTOs\\EmployeeTreeDto.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeTreeDto.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\DTOs\\EmployeeTreeDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T11:10:00.049Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EmployeeResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeResponseDto.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\DTOs\\EmployeeResponseDto.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\DTOs\\EmployeeResponseDto.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\DTOs\\EmployeeResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T11:09:59.109Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EmployeesController.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwC4AAAAoAAAAAAAAAA==",
+              "Title": "InMemoryChatStore.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Storage\\InMemoryChatStore.cs",
+              "RelativeDocumentMoniker": "ChatService\\Storage\\InMemoryChatStore.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Storage\\InMemoryChatStore.cs",
+              "RelativeToolTip": "ChatService\\Storage\\InMemoryChatStore.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAA1wDwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T11:01:00.066Z",
+              "WhenOpened": "2025-12-20T11:27:12.321Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EmployeeService.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\EmployeeService.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Services\\EmployeeService.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\EmployeeService.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Services\\EmployeeService.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAwCUAAAAAAAAAAAAAAA==",
+              "Title": "ChatController.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Controllers\\ChatController.cs",
+              "RelativeDocumentMoniker": "ChatService\\Controllers\\ChatController.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Controllers\\ChatController.cs",
+              "RelativeToolTip": "ChatService\\Controllers\\ChatController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAgwEMAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T10:33:08.31Z",
+              "WhenOpened": "2025-12-20T11:11:22.516Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EmployeeUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\UnitOfWork\\EmployeeUnitOfWork.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\UnitOfWork\\EmployeeUnitOfWork.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\UnitOfWork\\EmployeeUnitOfWork.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\UnitOfWork\\EmployeeUnitOfWork.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAIwBUAAAA0AAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Program.cs",
+              "RelativeDocumentMoniker": "ChatService\\Program.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Program.cs",
+              "RelativeToolTip": "ChatService\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACEAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T10:32:43.957Z",
+              "WhenOpened": "2025-12-20T11:10:53.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\appsettings.json",
+              "RelativeDocumentMoniker": "ChatService\\appsettings.json",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\appsettings.json",
+              "RelativeToolTip": "ChatService\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-20T11:10:51.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "ChatService\\Hubs\\ChatHub.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Hubs\\ChatHub.cs",
+              "RelativeToolTip": "ChatService\\Hubs\\ChatHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T11:10:38.182Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "IEmployeeUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Interfaces\\IEmployeeUnitOfWork.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Interfaces\\IEmployeeUnitOfWork.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Interfaces\\IEmployeeUnitOfWork.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Interfaces\\IEmployeeUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
+              "Title": "RabbitMqConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Messaging\\RabbitMqConsumer.cs",
+              "RelativeDocumentMoniker": "ChatService\\Messaging\\RabbitMqConsumer.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Messaging\\RabbitMqConsumer.cs",
+              "RelativeToolTip": "ChatService\\Messaging\\RabbitMqConsumer.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAmwGsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T10:32:19.394Z",
+              "WhenOpened": "2025-12-20T11:10:06.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RabbitMqProducer.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Messaging\\RabbitMqProducer.cs",
+              "RelativeDocumentMoniker": "ChatService\\Messaging\\RabbitMqProducer.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Messaging\\RabbitMqProducer.cs",
+              "RelativeToolTip": "ChatService\\Messaging\\RabbitMqProducer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T11:09:53.179Z",
               "EditorCaption": ""
             }
           ]

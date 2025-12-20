@@ -2,7 +2,7 @@
 
 namespace WorkflowManagemetAPI.Interfaces
 {
-	public interface IFlowDesignRepository : IUnitOfWork<FlowDesign>
+	public interface IFlowDesignRepository : IWorkflowUnitOfWork<FlowDesign>
 	{
 		public IEnumerable<FlowDesign> GetAll();
 

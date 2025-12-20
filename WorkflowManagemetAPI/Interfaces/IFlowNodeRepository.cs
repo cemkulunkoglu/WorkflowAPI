@@ -2,7 +2,7 @@
 
 namespace WorkflowManagemetAPI.Interfaces
 {
-	public interface IFlowNodeRepository : IUnitOfWork<FlowNode>
+	public interface IFlowNodeRepository : IWorkflowUnitOfWork<FlowNode>
 	{
 		IEnumerable<FlowNode> GetByDesignId(int designId);
         void AddRange(List<FlowNode> nodes);

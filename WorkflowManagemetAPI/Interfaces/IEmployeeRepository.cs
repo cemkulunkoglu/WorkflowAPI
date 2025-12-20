@@ -2,7 +2,7 @@
 
 namespace WorkflowManagemetAPI.Interfaces
 {
-    public interface IEmployeeRepository : IUnitOfWork<Employee>
+    public interface IEmployeeRepository : IWorkflowUnitOfWork<Employee>
     {
         IEnumerable<Employee> GetAll();
         Employee? GetByEmployeeId(int employeeId);

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 using System.Linq.Expressions;
-public interface IUnitOfWork<TEntity> : IDisposable where TEntity : class
+public interface IWorkflowUnitOfWork<TEntity> : IDisposable where TEntity : class
 {
     IEnumerable<TEntity> Get(
         Expression<Func<TEntity, bool>>? filter = null,

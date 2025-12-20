@@ -1,0 +1,65 @@
+[
+  {
+    "ContainingType": "Workflow.ChatService.Controllers.ChatController",
+    "Method": "GetMessages",
+    "RelativePath": "api/chat/threads/{threadId}/messages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "threadId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Workflow.ChatService.Controllers.ChatController",
+    "Method": "SendMessage",
+    "RelativePath": "api/chat/threads/{threadId}/messages",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "threadId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Workflow.ChatService.DTOs.SendMessageRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Workflow.ChatService.Controllers.ChatController",
+    "Method": "GetOrCreateThread",
+    "RelativePath": "api/chat/threads/get-or-create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Workflow.ChatService.DTOs.GetOrCreateThreadRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Workflow.ChatService.DTOs.GetOrCreateThreadResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

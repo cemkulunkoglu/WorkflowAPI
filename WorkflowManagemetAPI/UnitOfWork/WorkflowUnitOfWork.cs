@@ -5,7 +5,7 @@ using WorkflowManagemetAPI.Interfaces;
 
 namespace WorkflowManagemetAPI.UoW
 {
-    public class WorkflowUnitOfWork<TEntity> : IUnitOfWork<TEntity> where TEntity : class
+    public class WorkflowUnitOfWork<TEntity> : IWorkflowUnitOfWork<TEntity> where TEntity : class
     {
         internal Microsoft.EntityFrameworkCore.DbContext context;
         internal DbSet<TEntity> dbSet;
