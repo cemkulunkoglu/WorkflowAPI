@@ -37,6 +37,8 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 
+app.UseStaticFiles();
+
 app.MapControllers();
 
 // ✅ Hub endpoint

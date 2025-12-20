@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Workflow.ChatService.Domain;
 using Workflow.ChatService.DTOs;
 using Workflow.ChatService.Events;
+using Workflow.ChatService.Hubs;
 using Workflow.ChatService.Messaging;
 using Workflow.ChatService.Storage;
 
@@ -13,11 +15,16 @@ namespace Workflow.ChatService.Controllers
     {
         private readonly IChatStore _store;
         private readonly RabbitMqProducer _producer;
+        private readonly IHubContext<ChatHub> _hub;
 
-        public ChatController(IChatStore store, RabbitMqProducer producer)
+        public ChatController(
+            IChatStore store,
+            RabbitMqProducer producer,
+            IHubContext<ChatHub> hub)
         {
             _store = store;
             _producer = producer;
+            _hub = hub;
         }
 
         // POST: api/chat/threads/get-or-create
@@ -53,28 +60,51 @@ namespace Workflow.ChatService.Controllers
         }
 
         // POST: api/chat/threads/{threadId}/messages
+        // - RAM'e yazar
+        // - SignalR ile gruba yayınlar
+        // - İsteğe bağlı RabbitMQ event basar
         [HttpPost("threads/{threadId}/messages")]
-        public ActionResult SendMessage([FromRoute] string threadId, [FromBody] SendMessageRequest request)
+        public async Task<ActionResult> SendMessage([FromRoute] string threadId, [FromBody] SendMessageRequest request)
         {
             if (string.IsNullOrWhiteSpace(threadId))
                 return BadRequest("threadId zorunlu.");
+
             if (string.IsNullOrWhiteSpace(request.Text))
                 return BadRequest("Text zorunlu.");
 
-            var evt = new ChatMessageCreatedEvent
+            if (request.SenderType != "User" && request.SenderType != "AI")
+                return BadRequest("SenderType sadece 'User' veya 'AI' olabilir.");
+
+            // 1) RAM'e yaz (DB yok)
+            var msg = new ChatMessage
             {
-                ThreadId = threadId,
-                ClientId = "demo-client-1", // şimdilik. sonra JWT’den alırız.
                 MessageId = Guid.NewGuid().ToString(),
                 SenderType = request.SenderType,
                 Text = request.Text,
-                CreatedAtUtc = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _store.AddMessage(threadId, msg);
+
+            // 2) SignalR broadcast (thread grubuna)
+            await _hub.Clients.Group(threadId).SendAsync("message:new", msg);
+
+            // 3) Opsiyonel: Event publish (ileride consumer ile scale için)
+            // Not: ClientId şimdilik body’den veya sabitten geliyor; sonra JWT claim’den alacağız.
+            var evt = new ChatMessageCreatedEvent
+            {
+                ThreadId = threadId,
+                ClientId = "demo-client-1",
+                MessageId = msg.MessageId,
+                SenderType = msg.SenderType,
+                Text = msg.Text,
+                CreatedAtUtc = msg.CreatedAt
             };
 
             _producer.PublishMessageCreated(evt);
 
-            // Event-driven: kabul ettik, mesajı SignalR’dan göreceksin
-            return Accepted(new { evt.MessageId, evt.ThreadId });
+            // 4) Response: UI/WorkflowWeb hemen mesajı alabilsin
+            return Ok(msg);
         }
     }
 }

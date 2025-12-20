@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\storage\\inmemorychatstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\storage\\inmemorychatstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,16 +15,12 @@
       "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\messaging\\rabbitmqconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\messaging\\rabbitmqconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\storage\\inmemorychatstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|solutionrelative:chatservice\\storage\\inmemorychatstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE59F20C-871D-41D8-A396-23E29D67CEFF}|ChatService\\ChatService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\chatservice\\messaging\\rabbitmqproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,6 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Program.cs",
+              "RelativeDocumentMoniker": "ChatService\\Program.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Program.cs",
+              "RelativeToolTip": "ChatService\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T11:58:00.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "InMemoryChatStore.cs",
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Storage\\InMemoryChatStore.cs",
               "RelativeDocumentMoniker": "ChatService\\Storage\\InMemoryChatStore.cs",
@@ -50,8 +59,7 @@
               "RelativeToolTip": "ChatService\\Storage\\InMemoryChatStore.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAA1wDwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-20T11:27:12.321Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-20T11:27:12.321Z"
             },
             {
               "$type": "Document",
@@ -61,35 +69,9 @@
               "RelativeDocumentMoniker": "ChatService\\Controllers\\ChatController.cs",
               "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Controllers\\ChatController.cs",
               "RelativeToolTip": "ChatService\\Controllers\\ChatController.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAgwEMAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAkwF8AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-20T11:11:22.516Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Program.cs",
-              "RelativeDocumentMoniker": "ChatService\\Program.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Program.cs",
-              "RelativeToolTip": "ChatService\\Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACEAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-20T11:10:53.042Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\appsettings.json",
-              "RelativeDocumentMoniker": "ChatService\\appsettings.json",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\appsettings.json",
-              "RelativeToolTip": "ChatService\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-20T11:10:51.386Z",
               "EditorCaption": ""
             },
             {
@@ -98,8 +80,8 @@
               "Title": "ChatHub.cs",
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Hubs\\ChatHub.cs",
               "RelativeDocumentMoniker": "ChatService\\Hubs\\ChatHub.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Hubs\\ChatHub.cs",
-              "RelativeToolTip": "ChatService\\Hubs\\ChatHub.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Hubs\\ChatHub.cs*",
+              "RelativeToolTip": "ChatService\\Hubs\\ChatHub.cs*",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-20T11:10:38.182Z",
@@ -107,20 +89,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "RabbitMqConsumer.cs",
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Messaging\\RabbitMqConsumer.cs",
               "RelativeDocumentMoniker": "ChatService\\Messaging\\RabbitMqConsumer.cs",
               "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Messaging\\RabbitMqConsumer.cs",
               "RelativeToolTip": "ChatService\\Messaging\\RabbitMqConsumer.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAmwGsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAQwGsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-20T11:10:06.513Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "RabbitMqProducer.cs",
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\ChatService\\Messaging\\RabbitMqProducer.cs",
               "RelativeDocumentMoniker": "ChatService\\Messaging\\RabbitMqProducer.cs",
@@ -128,8 +110,7 @@
               "RelativeToolTip": "ChatService\\Messaging\\RabbitMqProducer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-20T11:09:53.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-20T11:09:53.179Z"
             }
           ]
         }
