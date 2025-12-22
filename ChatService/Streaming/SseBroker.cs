@@ -1,35 +1,52 @@
 ﻿using System.Collections.Concurrent;
-using System.Threading.Channels;
 
 namespace Workflow.ChatService.Streaming
 {
     public class SseBroker
     {
-        private readonly ConcurrentDictionary<string, Channel<string>> _clients = new();
+        private readonly ConcurrentDictionary<Guid, HttpResponse> _clients = new();
 
-        public (string clientId, ChannelReader<string> reader) Subscribe()
+        public async Task SubscribeAsync(HttpContext context)
         {
-            var id = Guid.NewGuid().ToString("N");
-            var channel = Channel.CreateUnbounded<string>(new UnboundedChannelOptions
+            var response = context.Response;
+
+            response.Headers.Add("Content-Type", "text/event-stream");
+            response.Headers.Add("Cache-Control", "no-cache");
+            response.Headers.Add("Connection", "keep-alive");
+
+            await response.Body.FlushAsync();
+
+            var clientId = Guid.NewGuid();
+            _clients.TryAdd(clientId, response);
+
+            try
             {
-                SingleReader = true,
-                SingleWriter = false
-            });
-
-            _clients[id] = channel;
-            return (id, channel.Reader);
+                await Task.Delay(Timeout.Infinite, context.RequestAborted);
+            }
+            catch (TaskCanceledException)
+            {
+                // client disconnect
+            }
+            finally
+            {
+                _clients.TryRemove(clientId, out _);
+            }
         }
 
-        public void Unsubscribe(string clientId)
+        public void Publish(string json)
         {
-            if (_clients.TryRemove(clientId, out var channel))
-                channel.Writer.TryComplete();
-        }
-
-        public void Publish(string payload)
-        {
-            foreach (var kv in _clients)
-                kv.Value.Writer.TryWrite(payload);
+            foreach (var client in _clients.Values)
+            {
+                try
+                {
+                    _ = client.WriteAsync($"event: message\ndata: {json}\n\n");
+                    _ = client.Body.FlushAsync();
+                }
+                catch
+                {
+                    // ignore broken connections
+                }
+            }
         }
     }
 }

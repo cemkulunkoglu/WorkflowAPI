@@ -26,8 +26,8 @@
     ]
   },
   {
-    "ContainingType": "Workflow.ChatService.Controllers.StreamController",
-    "Method": "Stream",
+    "ContainingType": "StreamController",
+    "Method": "Get",
     "RelativePath": "stream",
     "HttpMethod": "GET",
     "IsController": true,
