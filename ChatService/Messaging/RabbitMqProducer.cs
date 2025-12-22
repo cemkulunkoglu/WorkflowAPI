@@ -9,15 +9,14 @@ namespace Workflow.ChatService.Messaging
     {
         private readonly IConnection _connection;
         private readonly IModel _channel;
-
         private readonly string _exchange;
-        private readonly string _routingKey;
 
         public RabbitMqProducer(IConfiguration config)
         {
             var section = config.GetSection("RabbitMQ");
-            _exchange = section["Exchange"]!;
-            _routingKey = section["RoutingKey"]!;
+
+            _exchange = section["Exchange"]
+                ?? throw new InvalidOperationException("RabbitMQ:Exchange tanımlı değil.");
 
             var factory = new ConnectionFactory
             {
@@ -30,29 +29,38 @@ namespace Workflow.ChatService.Messaging
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
 
-            _channel.ExchangeDeclare(exchange: _exchange, type: ExchangeType.Topic, durable: true);
+            // 🔥 Fanout exchange → tüm consumer’lara yayın
+            _channel.ExchangeDeclare(
+                exchange: _exchange,
+                type: ExchangeType.Fanout,
+                durable: true
+            );
         }
 
-        public void PublishMessageCreated(ChatMessageCreatedEvent evt)
+        // 🔹 Generic publish (istersen ileride başka event’ler için)
+        public void Publish(object evt)
         {
             var json = JsonSerializer.Serialize(evt);
             var body = Encoding.UTF8.GetBytes(json);
 
-            var props = _channel.CreateBasicProperties();
-            props.Persistent = false;
-            props.MessageId = evt.MessageId;
-
             _channel.BasicPublish(
                 exchange: _exchange,
-                routingKey: _routingKey,
-                basicProperties: props,
-                body: body);
+                routingKey: "",       // fanout
+                basicProperties: null,
+                body: body
+            );
+        }
+
+        // 🔹 ChatController’ın çağırdığı NET ve OKUNAKLI API
+        public void PublishMessageCreated(ChatMessageCreatedEvent evt)
+        {
+            Publish(evt);
         }
 
         public void Dispose()
         {
-            try { _channel.Close(); } catch { }
-            try { _connection.Close(); } catch { }
+            try { _channel?.Close(); } catch { }
+            try { _connection?.Close(); } catch { }
         }
     }
 }

@@ -35,8 +35,12 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.0\ChatService.pdb
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.0\ChatService.genruntimeconfig.cache
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.0\ref\ChatService.dll
-C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\RabbitMQ.Client.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

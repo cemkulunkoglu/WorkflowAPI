@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/chat/threads/get-or-create": {
+    "/api/chat/send": {
       "post": {
         "tags": [
           "Chat"
@@ -14,17 +14,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/GetOrCreateThreadRequest"
+                "$ref": "#/components/schemas/SendMessageRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/GetOrCreateThreadRequest"
+                "$ref": "#/components/schemas/SendMessageRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/GetOrCreateThreadRequest"
+                "$ref": "#/components/schemas/SendMessageRequest"
               }
             }
           }
@@ -35,17 +35,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetOrCreateThreadResponse"
+                  "$ref": "#/components/schemas/ChatMessageCreatedEvent"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetOrCreateThreadResponse"
+                  "$ref": "#/components/schemas/ChatMessageCreatedEvent"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetOrCreateThreadResponse"
+                  "$ref": "#/components/schemas/ChatMessageCreatedEvent"
                 }
               }
             }
@@ -53,60 +53,11 @@
         }
       }
     },
-    "/api/chat/threads/{threadId}/messages": {
+    "/stream": {
       "get": {
         "tags": [
-          "Chat"
+          "Stream"
         ],
-        "parameters": [
-          {
-            "name": "threadId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Chat"
-        ],
-        "parameters": [
-          {
-            "name": "threadId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SendMessageRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SendMessageRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SendMessageRequest"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -117,36 +68,34 @@
   },
   "components": {
     "schemas": {
-      "GetOrCreateThreadRequest": {
+      "ChatMessageCreatedEvent": {
         "type": "object",
         "properties": {
+          "threadId": {
+            "type": "string",
+            "nullable": true
+          },
           "clientId": {
             "type": "string",
             "nullable": true
           },
-          "type": {
+          "messageId": {
             "type": "string",
             "nullable": true
           },
-          "contextType": {
+          "senderType": {
             "type": "string",
             "nullable": true
           },
-          "contextId": {
+          "text": {
             "type": "string",
             "nullable": true
           },
-          "contextTitle": {
+          "createdAtUtc": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetOrCreateThreadResponse": {
-        "type": "object",
-        "properties": {
-          "threadId": {
+            "format": "date-time"
+          },
+          "replyToMessageId": {
             "type": "string",
             "nullable": true
           }
@@ -156,6 +105,10 @@
       "SendMessageRequest": {
         "type": "object",
         "properties": {
+          "threadId": {
+            "type": "string",
+            "nullable": true
+          },
           "text": {
             "type": "string",
             "nullable": true

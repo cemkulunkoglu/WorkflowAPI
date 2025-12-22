@@ -1,12 +1,16 @@
-﻿using Workflow.ChatService.Hubs;
+﻿using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Workflow.ChatService.Messaging;
-using Workflow.ChatService.Storage;
+using Workflow.ChatService.Streaming;
+using Workflow.ChatService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpClient<IAiService, OpenAiService>();
 
 builder.Services.AddCors(options =>
 {
@@ -14,18 +18,43 @@ builder.Services.AddCors(options =>
     {
         policy.AllowAnyHeader()
               .AllowAnyMethod()
-              .SetIsOriginAllowed(_ => true)
-              .AllowCredentials();
+              .SetIsOriginAllowed(_ => true);
+        // SSE için credentials şart değilse kaldırmak daha temiz:
+        // .AllowCredentials();
     });
 });
 
-// ✅ SignalR
-builder.Services.AddSignalR();
+// ✅ JWT (OIDC yok → secret ile doğrula)
+var jwtSecret = builder.Configuration["Jwt:SecretKey"]
+    ?? throw new InvalidOperationException("Jwt:SecretKey tanımlı değil.");
 
-// ✅ RAM Store
-builder.Services.AddSingleton<IChatStore, InMemoryChatStore>();
+var jwtIssuer = builder.Configuration["Jwt:Issuer"];     // opsiyonel
+var jwtAudience = builder.Configuration["Jwt:Audience"]; // opsiyonel
 
-// ✅ RabbitMQ Producer + Consumer
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = false;
+
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret)),
+
+            ValidateIssuer = false,
+            ValidateAudience = false,
+
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.FromMinutes(1)
+        };
+    });
+
+builder.Services.AddAuthorization();
+
+// ✅ SSE broker
+builder.Services.AddSingleton<SseBroker>();
+
+// ✅ RabbitMQ
 builder.Services.AddSingleton<RabbitMqProducer>();
 builder.Services.AddHostedService<RabbitMqConsumer>();
 
@@ -37,11 +66,9 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 
-app.UseStaticFiles();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
-
-// ✅ Hub endpoint
-app.MapHub<ChatHub>("/hubs/chat");
 
 app.Run();

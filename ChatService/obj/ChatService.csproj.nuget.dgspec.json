@@ -50,9 +50,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.SignalR.Core": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[1.2.0, )"
+              "version": "[8.0.22, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",

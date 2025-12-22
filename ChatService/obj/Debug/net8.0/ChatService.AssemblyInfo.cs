@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("66cd2624-3675-40e4-b5b0-496286b1a84b")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChatService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67265e5d3fc73a807215e4207adaedcfd7e4f443")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9d24477ef7cb89c0c7b10775e51dfd2022e9ff3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChatService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChatService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

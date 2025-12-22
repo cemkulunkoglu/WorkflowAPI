@@ -1,111 +1,152 @@
-﻿using System.Collections.Concurrent;
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
-using Microsoft.AspNetCore.SignalR;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using Workflow.ChatService.Domain;
 using Workflow.ChatService.Events;
-using Workflow.ChatService.Hubs;
-using Workflow.ChatService.Storage;
+using Workflow.ChatService.Messaging;
+using Workflow.ChatService.Services;
+using Workflow.ChatService.Streaming;
 
 namespace Workflow.ChatService.Messaging
 {
     public class RabbitMqConsumer : BackgroundService
     {
         private readonly IConfiguration _config;
-        private readonly IChatStore _store;
-        private readonly IHubContext<ChatHub> _hub;
+        private readonly SseBroker _broker;
+        private readonly RabbitMqProducer _producer;
+        private readonly IAiService _ai;
 
         private IConnection? _connection;
         private IModel? _channel;
+        private string? _queueName;
+        private string? _exchange;
 
-        private static readonly ConcurrentDictionary<string, byte> ProcessedMessageIds = new();
+        // duplicate koruması (consumer restart olunca sıfırlanır; şimdilik yeterli)
+        private readonly HashSet<string> _seenMessageIds = new();
 
-        public RabbitMqConsumer(IConfiguration config, IChatStore store, IHubContext<ChatHub> hub)
+        public RabbitMqConsumer(
+            IConfiguration config,
+            SseBroker broker,
+            RabbitMqProducer producer,
+            IAiService ai)
         {
             _config = config;
-            _store = store;
-            _hub = hub;
+            _broker = broker;
+            _producer = producer;
+            _ai = ai;
         }
 
         public override Task StartAsync(CancellationToken cancellationToken)
         {
             var section = _config.GetSection("RabbitMQ");
 
+            var host = section["HostName"];
+            var user = section["UserName"];
+            var pass = section["Password"];
+            var port = int.Parse(section["Port"] ?? "5672");
+            _exchange = section["Exchange"];
+
+            if (string.IsNullOrWhiteSpace(_exchange))
+                throw new InvalidOperationException("RabbitMQ:Exchange ayarı zorunlu.");
+
             var factory = new ConnectionFactory
             {
-                HostName = section["HostName"],
-                UserName = section["UserName"],
-                Password = section["Password"],
-                Port = int.Parse(section["Port"] ?? "5672")
+                HostName = host,
+                UserName = user,
+                Password = pass,
+                Port = port,
+                DispatchConsumersAsync = true // ✅ async consumer için şart
             };
 
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
 
-            var exchange = section["Exchange"]!;
-            var queue = section["Queue"]!;
-            var routingKey = section["RoutingKey"]!;
+            _channel.ExchangeDeclare(exchange: _exchange, type: ExchangeType.Fanout, durable: true);
 
-            _channel.ExchangeDeclare(exchange: exchange, type: ExchangeType.Topic, durable: true);
-            _channel.QueueDeclare(queue: queue, durable: true, exclusive: false, autoDelete: false);
-            _channel.QueueBind(queue: queue, exchange: exchange, routingKey: routingKey);
+            _queueName = _channel.QueueDeclare(
+                queue: "",
+                durable: false,
+                exclusive: true,
+                autoDelete: true
+            ).QueueName;
 
-            _channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
+            _channel.QueueBind(queue: _queueName, exchange: _exchange, routingKey: "");
+
+            _channel.BasicQos(prefetchSize: 0, prefetchCount: 50, global: false);
 
             return base.StartAsync(cancellationToken);
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            if (_channel is null)
-                throw new InvalidOperationException("RabbitMQ channel is not initialized.");
+            if (_channel is null || string.IsNullOrWhiteSpace(_queueName))
+                throw new InvalidOperationException("RabbitMQ not initialized.");
 
-            var consumer = new EventingBasicConsumer(_channel);
+            var consumer = new AsyncEventingBasicConsumer(_channel);
 
-            consumer.Received += async (sender, ea) =>
+            consumer.Received += async (_, ea) =>
             {
                 try
                 {
                     var json = Encoding.UTF8.GetString(ea.Body.ToArray());
-                    var evt = JsonSerializer.Deserialize<ChatMessageCreatedEvent>(json);
 
-                    if (evt is null || string.IsNullOrWhiteSpace(evt.ThreadId))
+                    // ✅ 1) SSE’ye yayınla (ham json)
+                    _broker.Publish(json);
+
+                    // ✅ 2) JSON → event parse (AI tetiklemek için)
+                    ChatMessageCreatedEvent? evt = null;
+                    try
                     {
-                        _channel.BasicAck(ea.DeliveryTag, multiple: false);
-                        return;
+                        evt = JsonSerializer.Deserialize<ChatMessageCreatedEvent>(json,
+                            new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                    }
+                    catch
+                    {
+                        // parse edilemezse sadece SSE’ye basıp geçiyoruz
                     }
 
-                    if (!string.IsNullOrWhiteSpace(evt.MessageId)
-                        && !ProcessedMessageIds.TryAdd(evt.MessageId, 0))
+                    // ✅ 3) Duplicate kontrol + AI tetikleme
+                    if (evt is not null && !string.IsNullOrWhiteSpace(evt.MessageId))
                     {
-                        _channel.BasicAck(ea.DeliveryTag, multiple: false);
-                        return;
+                        lock (_seenMessageIds)
+                        {
+                            if (_seenMessageIds.Contains(evt.MessageId))
+                            {
+                                _channel.BasicAck(ea.DeliveryTag, multiple: false);
+                                return;
+                            }
+                            _seenMessageIds.Add(evt.MessageId);
+                        }
+
+                        // Sadece User mesajına AI cevap üret (AI mesajı gelince döngü olmasın)
+                        if (string.Equals(evt.SenderType, "User", StringComparison.OrdinalIgnoreCase))
+                        {
+                            var replyText = await _ai.ReplyAsync(evt.Text ?? "", stoppingToken);
+
+                            var aiEvt = new ChatMessageCreatedEvent
+                            {
+                                ThreadId = evt.ThreadId ?? "global",
+                                ClientId = "ai-bot",
+                                MessageId = Guid.NewGuid().ToString("N"),
+                                SenderType = "AI",
+                                Text = replyText,
+                                CreatedAtUtc = DateTime.UtcNow,
+                                ReplyToMessageId = evt.MessageId
+                            };
+
+                            _producer.PublishMessageCreated(aiEvt);
+                        }
                     }
-
-                    var msg = new ChatMessage
-                    {
-                        MessageId = string.IsNullOrWhiteSpace(evt.MessageId) ? Guid.NewGuid().ToString() : evt.MessageId,
-                        SenderType = evt.SenderType,
-                        Text = evt.Text,
-                        CreatedAt = evt.CreatedAtUtc
-                    };
-
-                    _store.AddMessage(evt.ThreadId, msg);
-
-                    await _hub.Clients.Group(evt.ThreadId).SendAsync("message:new", msg, stoppingToken);
 
                     _channel.BasicAck(ea.DeliveryTag, multiple: false);
                 }
                 catch
                 {
-                    _channel.BasicNack(ea.DeliveryTag, multiple: false, requeue: true);
+                    _channel?.BasicNack(ea.DeliveryTag, multiple: false, requeue: true);
                 }
             };
 
-            _channel.BasicConsume(queue: _config["RabbitMQ:Queue"]!, autoAck: false, consumer: consumer);
-
+            _channel.BasicConsume(queue: _queueName, autoAck: false, consumer: consumer);
             return Task.Delay(Timeout.Infinite, stoppingToken);
         }
 
