@@ -241,5 +241,95 @@ namespace WorkflowManagemetAPI.Services
                 throw;
             }
         }
+
+        public EmployeeAncestorDto GetAncestor(int employeeId, int up)
+        {
+            if (up < 0) throw new Exception("up negatif olamaz.");
+
+            var emp = GetById(employeeId);
+            var pathIds = ParsePathIds(emp.Path);
+
+            // includeSelf=false mantığı: up=0 => kendisi
+            var targetIndex = (pathIds.Count - 1) - up;
+
+            if (targetIndex < 0 || targetIndex >= pathIds.Count)
+                throw new Exception($"İstenen üst bulunamadı. (up={up})");
+
+            var targetId = pathIds[targetIndex];
+            var target = _uow.Employees.GetByEmployeeId(targetId)
+                         ?? throw new Exception("Üst employee bulunamadı.");
+
+            return ToAncestorDto(target, pathIds.IndexOf(targetId) + 1);
+        }
+
+        public List<EmployeeAncestorDto> GetAncestors(int employeeId, int depth, bool includeSelf = false)
+        {
+            if (depth <= 0) throw new Exception("depth 1 veya daha büyük olmalı.");
+
+            var emp = GetById(employeeId);
+            var pathIds = ParsePathIds(emp.Path);
+
+            // kendisi hariç isteniyorsa, en sondaki (self) düşür
+            var idsForChain = includeSelf ? pathIds : pathIds.Take(pathIds.Count - 1).ToList();
+
+            if (idsForChain.Count == 0)
+                return new List<EmployeeAncestorDto>();
+
+            // yukarı doğru depth kadar al (sondan)
+            var takeCount = Math.Min(depth, idsForChain.Count);
+            var slice = idsForChain.Skip(idsForChain.Count - takeCount).ToList();
+
+            // db’den toplu çek
+            var employees = _uow.Employees.GetByEmployeeIds(slice);
+            var dict = employees.ToDictionary(e => e.EmployeeId, e => e);
+
+            // Path sırasına göre sırala (en üst -> en alt) veya istersen tam tersi çevirebilirsin
+            var result = new List<EmployeeAncestorDto>();
+            foreach (var id in slice)
+            {
+                if (dict.TryGetValue(id, out var e))
+                {
+                    var level = pathIds.IndexOf(id) + 1; // 1-based
+                    result.Add(ToAncestorDto(e, level));
+                }
+            }
+
+            return result;
+        }
+
+        private static List<int> ParsePathIds(string? path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+                throw new Exception("Path boş. Employee için Path üretilmemiş olabilir.");
+
+            var parts = path.Split('/', StringSplitOptions.RemoveEmptyEntries);
+
+            var ids = new List<int>(parts.Length);
+            foreach (var p in parts)
+            {
+                if (!int.TryParse(p, out var id))
+                    throw new Exception($"Path parse edilemedi: '{path}'");
+                ids.Add(id);
+            }
+
+            if (ids.Count == 0)
+                throw new Exception($"Path parse edilemedi: '{path}'");
+
+            return ids;
+        }
+
+        private static EmployeeAncestorDto ToAncestorDto(Employee e, int level)
+        {
+            return new EmployeeAncestorDto
+            {
+                EmployeeId = e.EmployeeId,
+                FullName = e.FullName,
+                JobTitle = e.JobTitle,
+                Department = e.Department,
+                ManagerId = e.ManagerId,
+                Path = e.Path,
+                Level = level
+            };
+        }
     }
 }

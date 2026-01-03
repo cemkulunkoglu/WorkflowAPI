@@ -7,6 +7,7 @@ namespace WorkflowManagemetAPI.Interfaces
         IEnumerable<Employee> GetAll();
         Employee? GetByEmployeeId(int employeeId);
         IEnumerable<Employee> GetByManagerId(int? managerId);
+        List<Employee> GetByEmployeeIds(IEnumerable<int> employeeIds);
 
         void AddEmployee(Employee employee);
         void UpdateEmployee(Employee employee);

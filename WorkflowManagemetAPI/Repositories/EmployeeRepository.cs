@@ -40,19 +40,19 @@ namespace WorkflowManagemetAPI.Repositories
                 .ToList();
         }
 
-        public void AddEmployee(Employee employee)
+        public List<Employee> GetByEmployeeIds(IEnumerable<int> employeeIds)
         {
-            Insert(employee);
+            var ids = employeeIds?.Distinct().ToList() ?? new List<int>();
+            if (ids.Count == 0) return new List<Employee>();
+
+            return _dbSet
+                .AsNoTracking()
+                .Where(e => ids.Contains(e.EmployeeId))
+                .ToList();
         }
 
-        public void UpdateEmployee(Employee employee)
-        {
-            Update(employee);
-        }
-
-        public void DeleteEmployee(Employee employee)
-        {
-            Delete(employee);
-        }
+        public void AddEmployee(Employee employee) => Insert(employee);
+        public void UpdateEmployee(Employee employee) => Update(employee);
+        public void DeleteEmployee(Employee employee) => Delete(employee);
     }
 }

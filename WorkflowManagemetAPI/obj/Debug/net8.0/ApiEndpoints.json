@@ -1,6 +1,91 @@
 [
   {
     "ContainingType": "WorkflowManagemetAPI.Controllers.EmployeesController",
+    "Method": "GetAncestor",
+    "RelativePath": "api/Employees/{employeeId}/ancestor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "up",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "WorkflowManagemetAPI.DTOs.EmployeeAncestorDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
+  },
+  {
+    "ContainingType": "WorkflowManagemetAPI.Controllers.EmployeesController",
+    "Method": "GetAncestors",
+    "RelativePath": "api/Employees/{employeeId}/ancestors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "depth",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "includeSelf",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[WorkflowManagemetAPI.DTOs.EmployeeAncestorDto, WorkflowManagemetAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
+  },
+  {
+    "ContainingType": "WorkflowManagemetAPI.Controllers.EmployeesController",
     "Method": "Create",
     "RelativePath": "api/Employees/create",
     "HttpMethod": "POST",

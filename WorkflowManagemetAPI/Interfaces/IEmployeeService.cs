@@ -14,6 +14,8 @@ namespace WorkflowManagemetAPI.Interfaces
         Employee UpdateEmployee(UpdateEmployeeRequest request);
 
         void DeleteEmployee(int employeeId);
+        EmployeeAncestorDto GetAncestor(int employeeId, int up);
+        List<EmployeeAncestorDto> GetAncestors(int employeeId, int depth, bool includeSelf = false);
 
     }
 }

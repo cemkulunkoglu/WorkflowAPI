@@ -138,4 +138,39 @@ public class EmployeesController : ControllerBase
             return BadRequest(new { message = ex.Message });
         }
     }
+
+    [HttpGet("{employeeId:int}/ancestor")]
+    [ProducesResponseType(typeof(EmployeeAncestorDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public ActionResult<EmployeeAncestorDto> GetAncestor(int employeeId, [FromQuery] int up = 1)
+    {
+        try
+        {
+            var dto = _employeeService.GetAncestor(employeeId, up);
+            return Ok(dto);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+    [HttpGet("{employeeId:int}/ancestors")]
+    [ProducesResponseType(typeof(List<EmployeeAncestorDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public ActionResult<List<EmployeeAncestorDto>> GetAncestors(
+       int employeeId,
+       [FromQuery] int depth = 3,
+       [FromQuery] bool includeSelf = false)
+    {
+        try
+        {
+            var list = _employeeService.GetAncestors(employeeId, depth, includeSelf);
+            return Ok(list);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
 }
