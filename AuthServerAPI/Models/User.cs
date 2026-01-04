@@ -13,4 +13,5 @@ public class User
 
     public string Email { get; set; } = string.Empty;
     public bool IsDesigner { get; set; }
+    public bool IsVerified { get; set; } = false;
 }

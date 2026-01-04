@@ -2,12 +2,14 @@
 using AuthServerAPI.DTOs;
 using AuthServerAPI.Helpers;
 using AuthServerAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Net.Http.Json;
 
 namespace AuthServerAPI.Controllers;
 
@@ -17,11 +19,13 @@ public class AuthController : ControllerBase
 {
     private readonly AuthDbContext _context;
     private readonly IConfiguration _configuration;
+    private readonly IHttpClientFactory _httpClientFactory;
 
-    public AuthController(AuthDbContext context, IConfiguration configuration)
+    public AuthController(AuthDbContext context, IConfiguration configuration, IHttpClientFactory httpClientFactory)
     {
         _context = context;
         _configuration = configuration;
+        _httpClientFactory = httpClientFactory;
     }
 
     [HttpPost("register")]
@@ -44,7 +48,8 @@ public class AuthController : ControllerBase
             PasswordHash = passwordHash,
             PasswordSalt = passwordSalt,
 
-            IsDesigner = true // Varsayılan
+            IsDesigner = true, // Varsayılan
+            IsVerified = false
         };
 
         _context.Users.Add(newUser);
@@ -68,11 +73,12 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto request)
     {
-        // 1. Sadece Email ile kullanıcıyı bul (Şifre kontrolü sonra)
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
+        // 1. Email ya da username ile kullanıcıyı bul (Şifre kontrolü sonra)
+        var user = await _context.Users.FirstOrDefaultAsync(u =>
+            u.Email == request.UserNameOrEmail || u.UserName == request.UserNameOrEmail);
 
         if (user == null)
-            return Unauthorized(new { message = "Geçersiz email." });
+            return Unauthorized(new { message = "Geçersiz kullanıcı." });
 
         // 2. 👇 ŞİFRE KONTROLÜ: Helper sınıfını kullanıyoruz
         if (!HashingHelper.VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
@@ -91,7 +97,8 @@ public class AuthController : ControllerBase
             token = token,
             userId = user.UserId.ToString(),
             email = user.Email,
-            fullName = fullName
+            fullName = fullName,
+            isVerified = user.IsVerified
         });
     }
 
@@ -105,7 +112,9 @@ public class AuthController : ControllerBase
 
             new Claim(JwtRegisteredClaimNames.Email, user.Email),
             new Claim("fullName", fullName),
-            new Claim("isDesigner", user.IsDesigner.ToString())
+            new Claim("isDesigner", user.IsDesigner.ToString()),
+            new Claim("isAdmin", user.IsDesigner.ToString()),
+            new Claim("isVerified", user.IsVerified.ToString())
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecretKey"]));
@@ -124,5 +133,101 @@ public class AuthController : ControllerBase
         );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    [Authorize(Policy = "AdminOnly")]
+    [HttpPost("provision-employee")] // route ismini değiştirdim
+    public async Task<IActionResult> ProvisionEmployee([FromBody] CreateEmployeeUserDto request)
+    {
+        // 1) Username ve Email unique olsun
+        if (await _context.Users.AnyAsync(u => u.UserName == request.UserName))
+            return BadRequest(new { message = "Bu username zaten kayıtlı." });
+
+        if (await _context.Users.AnyAsync(u => u.Email == request.Email))
+            return BadRequest(new { message = "Bu email zaten kayıtlı." });
+
+        // 2) Temp (güçlü) şifre
+        var generatedPassword = PasswordGenerator.Generate(12);
+
+        // 3) Hash + Salt
+        HashingHelper.CreatePasswordHash(generatedPassword, out var passwordHash, out var passwordSalt);
+
+        // 4) User oluştur (IsVerified false)
+        var newUser = new User
+        {
+            UserName = request.UserName,
+            Email = request.Email,
+            PasswordHash = passwordHash,
+            PasswordSalt = passwordSalt,
+            IsDesigner = false,
+            IsVerified = false
+        };
+
+        _context.Users.Add(newUser);
+        await _context.SaveChangesAsync(); // UserId burada oluşur
+
+        // 5) WorkflowAPI'ye org employee create at (Path/Manager burada yönetilecek)
+        try
+        {
+            var client = _httpClientFactory.CreateClient("WorkflowApi");
+
+            // WorkflowManagemetAPI.DTOs.CreateEmployeeRequest ile uyumlu payload
+            var workflowRequest = new
+            {
+                userId = newUser.UserId,
+                firstName = request.FirstName,
+                lastName = request.LastName,
+                phone = request.Phone,
+                sicilNo = request.SicilNo,
+                jobTitle = request.JobTitle,
+                department = request.Department,
+                managerId = request.ManagerId
+            };
+
+            var wfResponse = await client.PostAsJsonAsync("/api/Employees/create", workflowRequest);
+
+            if (!wfResponse.IsSuccessStatusCode)
+            {
+                // 🔁 Rollback: user'ı sil
+                _context.Users.Remove(newUser);
+                await _context.SaveChangesAsync();
+
+                var wfBody = await wfResponse.Content.ReadAsStringAsync();
+
+                return StatusCode((int)wfResponse.StatusCode, new
+                {
+                    message = "Workflow employee create başarısız. User rollback edildi.",
+                    workflowStatus = (int)wfResponse.StatusCode,
+                    workflowBody = wfBody
+                });
+            }
+
+            // Workflow response: EmployeeResponseDto (employeeId, path vs.)
+            var wfEmp = await wfResponse.Content.ReadFromJsonAsync<WorkflowEmployeeResponseDto>();
+
+            return Ok(new
+            {
+                message = "Provision başarılı (User + Workflow Employee).",
+                userId = newUser.UserId,
+                employeeId = wfEmp?.EmployeeId,
+                path = wfEmp?.Path,
+                userName = newUser.UserName,
+                email = newUser.Email,
+                temporaryPassword = generatedPassword,
+                isVerified = newUser.IsVerified
+            });
+        }
+        catch (Exception ex)
+        {
+            // 🔁 Rollback: user'ı sil
+            _context.Users.Remove(newUser);
+            await _context.SaveChangesAsync();
+
+            return StatusCode(500, new
+            {
+                message = "Workflow'a erişilemedi. User rollback edildi.",
+                error = ex.Message
+            });
+        }
     }
 }

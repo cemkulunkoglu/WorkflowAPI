@@ -36,6 +36,12 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireClaim("isAdmin", "True"));
+});
+
 // 👇 4. CORS POLİTİKASI (EKSİK OLAN KISIM BURASIYDI) 👇
 builder.Services.AddCors(options =>
 {
@@ -45,6 +51,12 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
+});
+
+builder.Services.AddHttpClient("WorkflowApi", client =>
+{
+    var baseUrl = builder.Configuration["WorkflowApi:BaseUrl"];
+    client.BaseAddress = new Uri(baseUrl!);
 });
 
 builder.Services.AddControllers();
@@ -65,6 +77,46 @@ app.UseHttpsRedirection();
 app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
+
+app.Use(async (context, next) =>
+{
+    // Swagger / public endpoint'leri bozmayalım
+    var path = context.Request.Path.Value?.ToLower() ?? "";
+
+    // Login/Register gibi AllowAnonymous endpoint'ler zaten auth istemiyor.
+    // Ama token ile gelirse bile engellemeyelim.
+    var isAuthenticated = context.User?.Identity?.IsAuthenticated == true;
+
+    if (isAuthenticated)
+    {
+        // Token içinden isVerified oku
+        var isVerifiedClaim = context.User.FindFirst("isVerified")?.Value;
+
+        // "True/False" ya da "true/false" gibi gelebilir
+        var isVerified = string.Equals(isVerifiedClaim, "true", StringComparison.OrdinalIgnoreCase);
+
+        // Verified değilse sadece change-password'a izin ver
+        var isChangePasswordEndpoint =
+            path.StartsWith("/api/account/change-password");
+
+        if (!isVerified && !isChangePasswordEndpoint)
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            context.Response.ContentType = "application/json";
+
+            await context.Response.WriteAsJsonAsync(new
+            {
+                message = "Hesabınız doğrulanmamış. Devam etmek için şifrenizi değiştirmeniz gerekiyor.",
+                code = "ACCOUNT_NOT_VERIFIED"
+            });
+
+            return;
+        }
+    }
+
+    await next();
+});
+
 app.UseAuthorization();
 
 app.MapControllers();

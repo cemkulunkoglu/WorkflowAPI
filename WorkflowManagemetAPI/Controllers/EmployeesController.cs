@@ -58,9 +58,8 @@ public class EmployeesController : ControllerBase
         }
     }
 
+    [AllowAnonymous]
     [HttpPost("create")]
-    [ProducesResponseType(typeof(EmployeeResponseDto), StatusCodes.Status201Created)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public ActionResult<EmployeeResponseDto> Create([FromBody] CreateEmployeeRequest request)
     {
         try
