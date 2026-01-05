@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\dtos\\sendmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\dtos\\sendmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\authserverapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|solutionrelative:authserverapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\entities\\outboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\entities\\outboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\authserverapi\\dtos\\workflowcreateemployeerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|solutionrelative:authserverapi\\dtos\\workflowcreateemployeerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\dtos\\messageresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\dtos\\messageresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\authserverapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|solutionrelative:authserverapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\data\\messagesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\data\\messagesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\authserverapi\\dtos\\createemployeeuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|solutionrelative:authserverapi\\dtos\\createemployeeuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\entities\\inboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\entities\\inboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,75 +39,80 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EmployeeService.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\EmployeeService.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Services\\EmployeeService.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\EmployeeService.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Services\\EmployeeService.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAkwEIAAAAyAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Program.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Program.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Program.cs",
+              "RelativeToolTip": "MessagesService\\Program.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAiwBYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T08:09:52.372Z",
+              "WhenOpened": "2026-01-05T11:59:26.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MessageResponse.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\DTOs\\MessageResponse.cs",
+              "RelativeDocumentMoniker": "MessagesService\\DTOs\\MessageResponse.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\DTOs\\MessageResponse.cs",
+              "RelativeToolTip": "MessagesService\\DTOs\\MessageResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T11:47:01.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SendMessageRequest.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\DTOs\\SendMessageRequest.cs",
+              "RelativeDocumentMoniker": "MessagesService\\DTOs\\SendMessageRequest.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\DTOs\\SendMessageRequest.cs",
+              "RelativeToolTip": "MessagesService\\DTOs\\SendMessageRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T11:46:55.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MessagesDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Data\\MessagesDbContext.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Data\\MessagesDbContext.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Data\\MessagesDbContext.cs",
+              "RelativeToolTip": "MessagesService\\Data\\MessagesDbContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA/wBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T11:45:14.126Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Program.cs",
-              "RelativeDocumentMoniker": "AuthServerAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Program.cs",
-              "RelativeToolTip": "AuthServerAPI\\Program.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADsAAAADAAAAAAAAAA==",
+              "Title": "OutboxMessage.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Entities\\OutboxMessage.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Entities\\OutboxMessage.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Entities\\OutboxMessage.cs",
+              "RelativeToolTip": "MessagesService\\Entities\\OutboxMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T12:29:30.714Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "AuthServerAPI\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "AuthServerAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAIwAAAAAAAAAAAAswLEAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T12:27:01.253Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WorkflowCreateEmployeeRequest.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\DTOs\\WorkflowCreateEmployeeRequest.cs",
-              "RelativeDocumentMoniker": "AuthServerAPI\\DTOs\\WorkflowCreateEmployeeRequest.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\DTOs\\WorkflowCreateEmployeeRequest.cs",
-              "RelativeToolTip": "AuthServerAPI\\DTOs\\WorkflowCreateEmployeeRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T12:26:47.249Z"
+              "WhenOpened": "2026-01-05T11:46:41.335Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "CreateEmployeeUserDto.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\DTOs\\CreateEmployeeUserDto.cs",
-              "RelativeDocumentMoniker": "AuthServerAPI\\DTOs\\CreateEmployeeUserDto.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\DTOs\\CreateEmployeeUserDto.cs",
-              "RelativeToolTip": "AuthServerAPI\\DTOs\\CreateEmployeeUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAnAAAAAAAAAA==",
+              "Title": "InboxMessage.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Entities\\InboxMessage.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Entities\\InboxMessage.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Entities\\InboxMessage.cs",
+              "RelativeToolTip": "MessagesService\\Entities\\InboxMessage.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T12:25:51.447Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EmployeesController.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAcwDwAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T12:24:39.39Z"
+              "WhenOpened": "2026-01-05T11:45:35.162Z",
+              "EditorCaption": ""
             }
           ]
         }

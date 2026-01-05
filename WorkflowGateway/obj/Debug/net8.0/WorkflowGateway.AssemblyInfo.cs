@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WorkflowGateway")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f40b34a7319ea431fa52324028c434129fa5430")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8528b522c038621b3a7af95d58a00b936994568a")]
 [assembly: System.Reflection.AssemblyProductAttribute("WorkflowGateway")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WorkflowGateway")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

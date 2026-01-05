@@ -17,6 +17,10 @@
       {
         "Path": "ChatService\\ChatService.csproj",
         "Action": "Start"
+      },
+      {
+        "Path": "MessagesService\\MessagesService.csproj",
+        "Action": "Start"
       }
     ]
   }
