@@ -19,3 +19,38 @@ WorkflowAPI; akış (workflow) tasarımı, akış node/edge yönetimi ve ilgili 
 ```bash
 git clone <repo-url>
 cd WorkflowAPI
+```
+
+## Workflow.MessagesService
+
+### Docker ile çalıştırma
+```bash
+docker compose up -d
+```
+
+Servisler:
+- Messages API: http://localhost:8085
+- Mailpit UI: http://localhost:8025
+
+### Örnek curl istekleri
+```bash
+curl -X POST http://localhost:8085/api/messages/send \
+  -H "Content-Type: application/json" \
+  -d '{
+    "flowDesignsId": 1,
+    "flowNodesId": 10,
+    "employeeToId": 100,
+    "employeeFromId": 200,
+    "emailTo": "to@example.com",
+    "emailFrom": "from@example.com",
+    "subject": "Merhaba"
+  }'
+```
+
+```bash
+curl "http://localhost:8085/api/messages/outbox?employeeId=200"
+```
+
+```bash
+curl "http://localhost:8085/api/messages/inbox?employeeId=100"
+```
