@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\authserverapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43ACB5D9-836F-49EB-9E2B-D3A79D211C2D}|AuthServerAPI\\AuthServerAPI.csproj|solutionrelative:authserverapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,19 +35,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Program.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Program.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Program.cs",
+              "RelativeToolTip": "MessagesService\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAUwAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T18:34:51.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "AuthServerAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\AuthServerAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "AuthServerAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAgwF0AAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T18:25:21.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MessagesController.cs",
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Controllers\\MessagesController.cs",
               "RelativeDocumentMoniker": "MessagesService\\Controllers\\MessagesController.cs",
               "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Controllers\\MessagesController.cs",
               "RelativeToolTip": "MessagesService\\Controllers\\MessagesController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwDMAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCsAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-05T17:33:37.692Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MessageService.cs",
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Services\\MessageService.cs",
               "RelativeDocumentMoniker": "MessagesService\\Services\\MessageService.cs",
@@ -52,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "IMessageService.cs",
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Services\\IMessageService.cs",
               "RelativeDocumentMoniker": "MessagesService\\Services\\IMessageService.cs",

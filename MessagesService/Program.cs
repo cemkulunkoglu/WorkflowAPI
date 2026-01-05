@@ -1,17 +1,29 @@
+using MessagesService.Data;
 using MessagesService.Services;
+using MessagesService.Workers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using MessagesService.Data;
-using MessagesService.Services;
-using MessagesService.Workers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// CORS (Vite)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MessagesCors", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        // .AllowCredentials(); // cookie vb. kullanýyorsan aç, yoksa gerek yok
+    });
+});
 
 // JWT
 var jwt = builder.Configuration.GetSection("JwtSettings");
@@ -76,6 +88,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// CORS mutlaka Authentication'dan ÖNCE
+app.UseCors("MessagesCors");
 
 app.UseAuthentication();
 app.UseAuthorization();
