@@ -238,6 +238,16 @@
   },
   {
     "ContainingType": "WorkflowManagemetAPI.Controllers.WorkflowEngineController",
+    "Method": "DebugMe",
+    "RelativePath": "api/WorkflowEngine/debug/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WorkflowManagemetAPI.Controllers.WorkflowEngineController",
     "Method": "GetDesignById",
     "RelativePath": "api/WorkflowEngine/flow-design/{id}",
     "HttpMethod": "GET",
@@ -337,8 +347,8 @@
   },
   {
     "ContainingType": "WorkflowManagemetAPI.Controllers.WorkflowEngineController",
-    "Method": "GetAllDesigns",
-    "RelativePath": "api/WorkflowEngine/flow-designs",
+    "Method": "GetMyDesigns",
+    "RelativePath": "api/WorkflowEngine/flow-designs/mine",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

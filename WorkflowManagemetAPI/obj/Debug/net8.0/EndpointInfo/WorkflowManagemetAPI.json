@@ -428,7 +428,19 @@
         }
       }
     },
-    "/api/WorkflowEngine/flow-designs": {
+    "/api/WorkflowEngine/debug/me": {
+      "get": {
+        "tags": [
+          "WorkflowEngine"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/WorkflowEngine/flow-designs/mine": {
       "get": {
         "tags": [
           "WorkflowEngine"
