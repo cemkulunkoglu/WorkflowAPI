@@ -26,12 +26,11 @@ public class DesignService : IDesignService
 
     private string GetCurrentUserId()
     {
-        var userId = _httpContextAccessor.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var userId = _httpContextAccessor.HttpContext?.User?
+            .FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-        if (string.IsNullOrEmpty(userId))
-        {
+        if (string.IsNullOrWhiteSpace(userId))
             throw new UnauthorizedAccessException("Kullanıcı kimliği (Token) doğrulanamadı.");
-        }
 
         return userId;
     }
@@ -40,10 +39,10 @@ public class DesignService : IDesignService
     public FlowDesignDto GetFlowDesignById(int designId)
     {
         var design = _flowDesignRepository.GetByID(designId)
-            ?? throw new Exception($"Design bulunamadı (ID={designId}).");
+               ?? throw new Exception($"Design bulunamadı (ID={designId}).");
 
-        // Burada istersen güvenlik kontrolü yapabilirsin:
-        // if (design.OwnerUser != GetCurrentUserId()) throw new Exception("Bu tasarımı görmeye yetkiniz yok.");
+        if (design.OwnerUser != GetCurrentUserId())
+            throw new UnauthorizedAccessException("Bu tasarımı görmeye yetkiniz yok.");
 
         var allNodes = _flowNodeRepository.GetByDesignId(designId).ToList();
 
@@ -96,14 +95,16 @@ public class DesignService : IDesignService
 
     public IEnumerable<FlowDesignDto> GetAllFlowDesigns()
     {
-        var designs = _flowDesignRepository.GetAll();
-        var result = new List<FlowDesignDto>();
+        //var designs = _flowDesignRepository.GetAll();
+        //var result = new List<FlowDesignDto>();
 
-        foreach (var design in designs)
-        {
-            result.Add(GetFlowDesignById(design.Id));
-        }
-        return result;
+        //foreach (var design in designs)
+        //{
+        //    result.Add(GetFlowDesignById(design.Id));
+        //}
+        //return result;
+
+        return GetFlowDesignsByUserId();
     }
 
 
@@ -134,6 +135,9 @@ public class DesignService : IDesignService
             var existingDesign = _flowDesignRepository.GetByID(id);
             if (existingDesign == null)
                 throw new Exception($"Güncellenecek tasarım bulunamadı (ID={id})");
+
+            if (existingDesign.OwnerUser != GetCurrentUserId())
+                throw new UnauthorizedAccessException("Yetkiniz yok.");
 
             existingDesign.DesignName = request.DesignName;
             existingDesign.UpdatedDate = DateTime.Now;

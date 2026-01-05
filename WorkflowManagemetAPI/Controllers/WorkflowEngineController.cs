@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using WorkflowManagemetAPI.DTOs;
 using WorkflowManagemetAPI.Interfaces;
 
@@ -16,12 +16,18 @@ public class WorkflowEngineController : ControllerBase
         _designService = designService;
     }
 
+    //[HttpGet("debug/me")]
+    //public IActionResult DebugMe()
+    //{
+    //    var claims = User.Claims.Select(c => new { c.Type, c.Value }).ToList();
+    //    return Ok(claims);
+    //}
 
-    [HttpGet("flow-designs")]
+    [HttpGet("flow-designs/mine")]
     [ProducesResponseType(typeof(IEnumerable<FlowDesignDto>), StatusCodes.Status200OK)]
-    public ActionResult<IEnumerable<FlowDesignDto>> GetAllDesigns()
+    public ActionResult<IEnumerable<FlowDesignDto>> GetMyDesigns()
     {
-        var designs = _designService.GetAllFlowDesigns();
+        var designs = _designService.GetFlowDesignsByUserId();
         return Ok(designs);
     }
 
@@ -30,8 +36,19 @@ public class WorkflowEngineController : ControllerBase
     [ProducesResponseType(typeof(FlowDesignDto), StatusCodes.Status200OK)]
     public ActionResult<FlowDesignDto> GetDesignById(int id)
     {
-        var design = _designService.GetFlowDesignById(id);
-        return Ok(design);
+        try
+        {
+            var design = _designService.GetFlowDesignById(id);
+            return Ok(design);
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            return StatusCode(StatusCodes.Status403Forbidden, new { message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
     }
 
 
@@ -39,8 +56,19 @@ public class WorkflowEngineController : ControllerBase
     [ProducesResponseType(typeof(FlowDesignDto), StatusCodes.Status201Created)]
     public ActionResult<FlowDesignDto> CreateFlowDesign([FromBody] CreateFlowDesignRequest request)
     {
-        var createdDesign = _designService.CreateFlowDesign(request);
-        return CreatedAtAction(nameof(GetDesignById), new { id = createdDesign.Id }, createdDesign);
+        try
+        {
+            var createdDesign = _designService.CreateFlowDesign(request);
+            return CreatedAtAction(nameof(GetDesignById), new { id = createdDesign.Id }, createdDesign);
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            return StatusCode(StatusCodes.Status401Unauthorized, new { message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
     }
 
 
@@ -53,9 +81,13 @@ public class WorkflowEngineController : ControllerBase
             var updatedDesign = _designService.UpdateFlowDesign(id, request);
             return Ok(updatedDesign);
         }
+        catch (UnauthorizedAccessException ex)
+        {
+            return StatusCode(StatusCodes.Status403Forbidden, new { message = ex.Message });
+        }
         catch (Exception ex)
         {
-            return BadRequest(ex.Message);
+            return BadRequest(new { message = ex.Message });
         }
     }
 
@@ -68,10 +100,13 @@ public class WorkflowEngineController : ControllerBase
             _designService.DeleteFlowDesign(id);
             return Ok(new { message = $"Tasarým (ID={id}) ve tüm bileþenleri baþarýyla silindi." });
         }
+        catch (UnauthorizedAccessException ex)
+        {
+            return StatusCode(StatusCodes.Status403Forbidden, new { message = ex.Message });
+        }
         catch (Exception ex)
         {
             return BadRequest(new { message = ex.Message });
         }
     }
-
 }

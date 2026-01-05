@@ -22,7 +22,9 @@ namespace WorkflowManagemetAPI.Repositories
 
         public IEnumerable<FlowDesign> GetDesignByUserId(string userId)
         {
-            return dbSet.AsNoTracking().Where(d => d.UserId == userId).ToList();
+            return dbSet.AsNoTracking()
+                .Where(d => d.OwnerUser == userId)
+                .ToList();
         }
 
         public IEnumerable<FlowDesign>? AddRange(List<FlowDesign> flowDesigns)
