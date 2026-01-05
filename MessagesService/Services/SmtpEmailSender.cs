@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Options;
 using MimeKit;
 
-namespace Workflow.MessagesService.Services;
+namespace MessagesService.Services;
 
 public class SmtpEmailSender : IEmailSender
 {

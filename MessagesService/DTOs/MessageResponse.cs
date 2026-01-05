@@ -1,4 +1,4 @@
-﻿namespace Workflow.MessagesService.Dtos;
+﻿namespace MessagesService.Dtos;
 
 public class MessageResponse
 {

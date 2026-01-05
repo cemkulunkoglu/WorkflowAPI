@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Workflow.MessagesService.Data;
-using Workflow.MessagesService.Services;
+using MessagesService.Data;
+using MessagesService.Entities;
+using MessagesService.Services;
 
-namespace Workflow.MessagesService.Workers;
+namespace MessagesService.Workers;
 
 public class OutboxBackgroundService : BackgroundService
 {
@@ -27,17 +28,11 @@ public class OutboxBackgroundService : BackgroundService
                 var db = scope.ServiceProvider.GetRequiredService<MessagesDbContext>();
                 var emailSender = scope.ServiceProvider.GetRequiredService<IEmailSender>();
 
-                // Küçük batch: 50 tane çekelim (istersen arttırırız)
                 var pending = await db.Outbox
                     .Where(x => x.UpdateDate == null)
                     .OrderBy(x => x.CreateDate)
                     .Take(50)
                     .ToListAsync(stoppingToken);
-
-                if (pending.Count > 0)
-                {
-                    _logger.LogInformation("Outbox pending count: {Count}", pending.Count);
-                }
 
                 foreach (var msg in pending)
                 {
@@ -45,24 +40,41 @@ public class OutboxBackgroundService : BackgroundService
 
                     try
                     {
-                        // Body şimdilik basit bir içerik
                         var body =
-                            $@"FlowDesignsId: {msg.FlowDesignsId}
-                            FlowNodesId: {msg.FlowNodesId}
-                            EmployeeFromId: {msg.EmployeeFromId}
-                            EmployeeToId: {msg.EmployeeToId}
+                        $@"FlowDesignsId: {msg.FlowDesignsId}
+                        FlowNodesId: {msg.FlowNodesId}
+                        EmployeeFromId: {msg.EmployeeFromId}
+                        EmployeeToId: {msg.EmployeeToId}
 
-                            Subject: {msg.Subject}";
+                        Subject: {msg.Subject}";
 
+                        // 1) SMTP gönder
                         await emailSender.SendAsync(msg.EmailFrom, msg.EmailTo, msg.Subject, body, stoppingToken);
 
-                        msg.UpdateDate = DateTime.UtcNow; // "gönderildi" işareti
+                        // 2) DB işlemleri (Outbox gönderildi + Inbox'a düş)
+                        msg.UpdateDate = DateTime.UtcNow;
+
+                        var inbox = new InboxMessage
+                        {
+                            FlowDesignsId = msg.FlowDesignsId,
+                            FlowNodesId = msg.FlowNodesId,
+                            EmployeeToId = msg.EmployeeToId,
+                            EmployeeFromId = msg.EmployeeFromId,
+                            EmailTo = msg.EmailTo,
+                            EmailFrom = msg.EmailFrom,
+                            Subject = msg.Subject,
+                            CreateDate = DateTime.UtcNow,
+                            UpdateDate = null // ✅ Inbox için: okunmadı
+                        };
+
+                        db.Inbox.Add(inbox);
+
                         await db.SaveChangesAsync(stoppingToken);
                     }
                     catch (Exception ex)
                     {
-                        // Hata olursa UpdateDate set etmiyoruz => tekrar denenecek
                         _logger.LogError(ex, "Failed to send outbox message. OutboxId={Id}", msg.Id);
+                        // UpdateDate null kalır => tekrar dener
                     }
                 }
             }
@@ -71,7 +83,6 @@ public class OutboxBackgroundService : BackgroundService
                 _logger.LogError(ex, "OutboxBackgroundService loop error.");
             }
 
-            // Poll interval 
             await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken);
         }
 

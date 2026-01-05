@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Workflow.MessagesService.Entities;
+using MessagesService.Entities;
 
-namespace Workflow.MessagesService.Data;
+namespace MessagesService.Data;
 
 public class MessagesDbContext : DbContext
 {

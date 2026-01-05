@@ -39,7 +39,18 @@ public class MessagesController : ControllerBase
     public async Task<IActionResult> GetOutbox([FromQuery] int employeeId, CancellationToken ct)
         => Ok(await _service.GetOutboxAsync(employeeId, ct));
 
+
     [HttpGet("inbox")]
     public async Task<IActionResult> GetInbox([FromQuery] int employeeId, CancellationToken ct)
         => Ok(await _service.GetInboxAsync(employeeId, ct));
+
+
+    [HttpPut("inbox/{id:int}/read")]
+    public async Task<IActionResult> MarkInboxAsRead([FromRoute] int id, CancellationToken ct)
+    {
+        var result = await _service.MarkInboxAsReadAsync(id, ct);
+        if (result == null) return NotFound();
+
+        return Ok(result);
+    }
 }

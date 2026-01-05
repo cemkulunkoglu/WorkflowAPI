@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Workflow.MessagesService.Entities;
+namespace MessagesService.Entities;
 
 [Table("Outbox")]
 public class OutboxMessage

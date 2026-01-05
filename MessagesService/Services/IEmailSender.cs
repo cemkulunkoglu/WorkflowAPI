@@ -1,4 +1,4 @@
-﻿namespace Workflow.MessagesService.Services;
+﻿namespace MessagesService.Services;
 
 public interface IEmailSender
 {

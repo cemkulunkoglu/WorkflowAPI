@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Workflow.MessagesService.Data;
-using Workflow.MessagesService.Services;
-using Workflow.MessagesService.Workers;
+using MessagesService.Data;
+using MessagesService.Services;
+using MessagesService.Workers;
 
 var builder = WebApplication.CreateBuilder(args);
 

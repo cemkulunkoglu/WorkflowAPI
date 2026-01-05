@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\dtos\\sendmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\dtos\\sendmessagerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\services\\messageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\services\\messageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\entities\\outboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\entities\\outboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\dtos\\messageresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\dtos\\messageresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\data\\messagesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\data\\messagesdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\entities\\inboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\entities\\inboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\services\\imessageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\services\\imessageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,79 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Program.cs",
-              "RelativeDocumentMoniker": "MessagesService\\Program.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Program.cs",
-              "RelativeToolTip": "MessagesService\\Program.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAiwBYAAAAoAAAAAAAAAA==",
+              "Title": "MessagesController.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Controllers\\MessagesController.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Controllers\\MessagesController.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Controllers\\MessagesController.cs",
+              "RelativeToolTip": "MessagesService\\Controllers\\MessagesController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwDMAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T11:59:26.865Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MessageResponse.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\DTOs\\MessageResponse.cs",
-              "RelativeDocumentMoniker": "MessagesService\\DTOs\\MessageResponse.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\DTOs\\MessageResponse.cs",
-              "RelativeToolTip": "MessagesService\\DTOs\\MessageResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T11:47:01.696Z",
+              "WhenOpened": "2026-01-05T17:33:37.692Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SendMessageRequest.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\DTOs\\SendMessageRequest.cs",
-              "RelativeDocumentMoniker": "MessagesService\\DTOs\\SendMessageRequest.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\DTOs\\SendMessageRequest.cs",
-              "RelativeToolTip": "MessagesService\\DTOs\\SendMessageRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Title": "MessageService.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Services\\MessageService.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Services\\MessageService.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Services\\MessageService.cs",
+              "RelativeToolTip": "MessagesService\\Services\\MessageService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowGQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T11:46:55.743Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MessagesDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Data\\MessagesDbContext.cs",
-              "RelativeDocumentMoniker": "MessagesService\\Data\\MessagesDbContext.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Data\\MessagesDbContext.cs",
-              "RelativeToolTip": "MessagesService\\Data\\MessagesDbContext.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA/wBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T11:45:14.126Z",
+              "WhenOpened": "2026-01-05T17:31:33.092Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "OutboxMessage.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Entities\\OutboxMessage.cs",
-              "RelativeDocumentMoniker": "MessagesService\\Entities\\OutboxMessage.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Entities\\OutboxMessage.cs",
-              "RelativeToolTip": "MessagesService\\Entities\\OutboxMessage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Title": "IMessageService.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Services\\IMessageService.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Services\\IMessageService.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Services\\IMessageService.cs",
+              "RelativeToolTip": "MessagesService\\Services\\IMessageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T11:46:41.335Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "InboxMessage.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Entities\\InboxMessage.cs",
-              "RelativeDocumentMoniker": "MessagesService\\Entities\\InboxMessage.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Entities\\InboxMessage.cs",
-              "RelativeToolTip": "MessagesService\\Entities\\InboxMessage.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T11:45:35.162Z",
+              "WhenOpened": "2026-01-05T17:31:27.411Z",
               "EditorCaption": ""
             }
           ]

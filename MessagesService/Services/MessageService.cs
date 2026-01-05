@@ -1,8 +1,11 @@
-﻿using MessagesService.Dtos;
+﻿using MessagesService.Data;
+using MessagesService.Dtos;
+using MessagesService.Entities;
 using Microsoft.EntityFrameworkCore;
-using Workflow.MessagesService.Data;
-using Workflow.MessagesService.Dtos;
-using Workflow.MessagesService.Entities;
+using MessagesService.Data;
+using MessagesService.Dtos;
+using MessagesService.Entities;
+using MessagesService.Services;
 
 namespace MessagesService.Services;
 
@@ -15,16 +18,16 @@ public class MessageService : IMessageService
         _db = db;
     }
 
-    public async Task<int> SendAsync(SendMessageRequest request, int employeeFromId, string emailFrom, CancellationToken ct)
+    public async Task<int> SendAsync(SendMessageRequest request, int employeeFromId, string emailFrom,CancellationToken ct)
     {
         var outbox = new OutboxMessage
         {
             FlowDesignsId = request.FlowDesignsId,
             FlowNodesId = request.FlowNodesId,
             EmployeeToId = request.EmployeeToId,
-            EmployeeFromId = employeeFromId,   // ✅ token’dan
+            EmployeeFromId = employeeFromId,
             EmailTo = request.EmailTo,
-            EmailFrom = emailFrom,             // ✅ token’dan
+            EmailFrom = emailFrom,
             Subject = request.Subject,
             CreateDate = DateTime.UtcNow,
             UpdateDate = null
@@ -76,5 +79,23 @@ public class MessageService : IMessageService
                 UpdateDate = x.UpdateDate
             })
             .ToListAsync(ct);
+    }
+
+    public async Task<MarkAsReadResponse?> MarkInboxAsReadAsync(int messageId, CancellationToken ct)
+    {
+        var msg = await _db.Inbox.FirstOrDefaultAsync(x => x.Id == messageId, ct);
+        if (msg == null) return null;
+
+        if (msg.UpdateDate == null)
+        {
+            msg.UpdateDate = DateTime.UtcNow;
+            await _db.SaveChangesAsync(ct);
+        }
+
+        return new MarkAsReadResponse
+        {
+            Id = msg.Id,
+            UpdateDate = msg.UpdateDate!.Value
+        };
     }
 }
