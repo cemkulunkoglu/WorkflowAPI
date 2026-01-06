@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 using WorkflowManagemetAPI.DbContext;
-using WorkflowManagemetAPI.Interfaces;
-using WorkflowManagemetAPI.Repositories;
+using WorkflowManagemetAPI.Interfaces.Employees;
+using WorkflowManagemetAPI.Interfaces.LeaveRequests;
+using WorkflowManagemetAPI.Interfaces.UnitOfWork;
+using WorkflowManagemetAPI.Repositories.Employees;
+using WorkflowManagemetAPI.Repositories.LeaveRequests;
 
 namespace WorkflowManagemetAPI.UnitOfWork
 {
@@ -10,11 +13,13 @@ namespace WorkflowManagemetAPI.UnitOfWork
         private readonly EmployeeDbContext _context;
 
         public IEmployeeRepository Employees { get; }
+        public ILeaveRequestRepository LeaveRequests { get; private set; }
 
         public EmployeeUnitOfWork(EmployeeDbContext context)
         {
             _context = context;
             Employees = new EmployeeRepository(_context);
+            LeaveRequests = new LeaveRequestRepository(_context);
         }
 
         public IDbContextTransaction BeginTransaction() => _context.Database.BeginTransaction();

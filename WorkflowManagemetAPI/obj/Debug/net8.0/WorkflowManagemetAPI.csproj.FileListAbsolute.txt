@@ -139,3 +139,4 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\De
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\WorkflowManagemetAPI.pdb
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\WorkflowManagemetAPI.genruntimeconfig.cache
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\ref\WorkflowManagemetAPI.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\bin\Debug\net8.0\RabbitMQ.Client.dll

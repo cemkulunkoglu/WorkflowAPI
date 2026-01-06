@@ -5,9 +5,16 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Text.Json;
 using WorkflowManagemetAPI.DbContext;
-using WorkflowManagemetAPI.Interfaces;
-using WorkflowManagemetAPI.Repositories;
-using WorkflowManagemetAPI.Services;
+using WorkflowManagemetAPI.Interfaces.Designs;
+using WorkflowManagemetAPI.Interfaces.Employees;
+using WorkflowManagemetAPI.Interfaces.LeaveRequests;
+using WorkflowManagemetAPI.Interfaces.Messaging;
+using WorkflowManagemetAPI.Interfaces.UnitOfWork;
+using WorkflowManagemetAPI.Messaging;
+using WorkflowManagemetAPI.Repositories.Designs;
+using WorkflowManagemetAPI.Services.Designs;
+using WorkflowManagemetAPI.Services.Employees;
+using WorkflowManagemetAPI.Services.LeaveRequests;
 using WorkflowManagemetAPI.UnitOfWork;
 using WorkflowManagemetAPI.UoW;
 
@@ -105,18 +112,21 @@ builder.Services.AddDbContext<EmployeeDbContext>(options =>
 
 // HttpContext'e erişmek için (Token içinden User ID okumak için şart)
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IEventPublisher, RabbitMqEventPublisher>();
+
+// Context
+builder.Services.AddScoped<DbContext, WorkflowFlowDbContext>();
 
 // Repositories
 builder.Services.AddScoped<IFlowDesignRepository, FlowDesignRepository>();
 builder.Services.AddScoped<IFlowNodeRepository, FlowNodeRepository>();
 builder.Services.AddScoped<IEmployeeUnitOfWork, EmployeeUnitOfWork>();
 
-// Context
-builder.Services.AddScoped<DbContext, WorkflowFlowDbContext>();
-
 // Services
 builder.Services.AddScoped<IDesignService, DesignService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<ILeaveRequestService, LeaveRequestService>();
+builder.Services.AddScoped<ApproverResolver>();
 
 // ----------------------------
 // 🌐 6. CORS Ayarları

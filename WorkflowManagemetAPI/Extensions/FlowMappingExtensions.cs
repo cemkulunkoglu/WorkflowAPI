@@ -1,5 +1,5 @@
-﻿using WorkflowManagemetAPI.DTOs;
-using WorkflowManagemetAPI.Models;
+﻿using WorkflowManagemetAPI.DTOs.Designs;
+using WorkflowManagemetAPI.Models.Designs;
 
 namespace WorkflowManagemetAPI.Extensions;
 

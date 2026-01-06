@@ -20,7 +20,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WorkflowManagemetAPI.DTOs.EmployeeAncestorDto",
+        "Type": "WorkflowManagemetAPI.DTOs.Employees.EmployeeAncestorDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -65,7 +65,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WorkflowManagemetAPI.DTOs.EmployeeAncestorDto, WorkflowManagemetAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WorkflowManagemetAPI.DTOs.Employees.EmployeeAncestorDto, WorkflowManagemetAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -94,13 +94,13 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "WorkflowManagemetAPI.DTOs.CreateEmployeeRequest",
+        "Type": "WorkflowManagemetAPI.DTOs.Employees.CreateEmployeeRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "WorkflowManagemetAPI.DTOs.EmployeeResponseDto",
+        "Type": "WorkflowManagemetAPI.DTOs.Employees.EmployeeResponseDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -157,7 +157,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WorkflowManagemetAPI.DTOs.EmployeeDetailDto",
+        "Type": "WorkflowManagemetAPI.DTOs.Employees.EmployeeDetailDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -186,7 +186,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WorkflowManagemetAPI.DTOs.EmployeeTreeDto, WorkflowManagemetAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WorkflowManagemetAPI.DTOs.Employees.EmployeeTreeDto, WorkflowManagemetAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -217,7 +217,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WorkflowManagemetAPI.DTOs.EmployeeResponseDto",
+        "Type": "WorkflowManagemetAPI.DTOs.Employees.EmployeeResponseDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -237,13 +237,19 @@
     ]
   },
   {
-    "ContainingType": "WorkflowManagemetAPI.Controllers.WorkflowEngineController",
-    "Method": "DebugMe",
-    "RelativePath": "api/WorkflowEngine/debug/me",
-    "HttpMethod": "GET",
+    "ContainingType": "WorkflowManagemetAPI.Controllers.LeaveRequestsController",
+    "Method": "Create",
+    "RelativePath": "api/LeaveRequests/create",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WorkflowManagemetAPI.DTOs.LeaveRequests.CreateLeaveRequestRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -262,7 +268,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WorkflowManagemetAPI.DTOs.FlowDesignDto",
+        "Type": "WorkflowManagemetAPI.DTOs.Designs.FlowDesignDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -282,13 +288,13 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "WorkflowManagemetAPI.DTOs.CreateFlowDesignRequest",
+        "Type": "WorkflowManagemetAPI.DTOs.Designs.CreateFlowDesignRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "WorkflowManagemetAPI.DTOs.FlowDesignDto",
+        "Type": "WorkflowManagemetAPI.DTOs.Designs.FlowDesignDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -329,13 +335,13 @@
       },
       {
         "Name": "request",
-        "Type": "WorkflowManagemetAPI.DTOs.CreateFlowDesignRequest",
+        "Type": "WorkflowManagemetAPI.DTOs.Designs.CreateFlowDesignRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "WorkflowManagemetAPI.DTOs.FlowDesignDto",
+        "Type": "WorkflowManagemetAPI.DTOs.Designs.FlowDesignDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -355,7 +361,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WorkflowManagemetAPI.DTOs.FlowDesignDto, WorkflowManagemetAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WorkflowManagemetAPI.DTOs.Designs.FlowDesignDto, WorkflowManagemetAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

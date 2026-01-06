@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WorkflowManagemetAPI.DTOs;
-using WorkflowManagemetAPI.Interfaces;
+using WorkflowManagemetAPI.DTOs.Employees;
+using WorkflowManagemetAPI.Interfaces.Employees;
 
 namespace WorkflowManagemetAPI.Controllers;
 
