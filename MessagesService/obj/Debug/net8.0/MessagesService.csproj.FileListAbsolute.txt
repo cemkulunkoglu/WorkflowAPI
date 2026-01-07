@@ -130,3 +130,4 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\MessagesService\obj\Debug\n
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\MessagesService\obj\Debug\net8.0\MessagesService.pdb
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\MessagesService\obj\Debug\net8.0\MessagesService.genruntimeconfig.cache
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\MessagesService\obj\Debug\net8.0\ref\MessagesService.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\MessagesService\bin\Debug\net8.0\RabbitMQ.Client.dll

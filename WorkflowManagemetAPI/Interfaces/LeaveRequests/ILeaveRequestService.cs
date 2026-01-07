@@ -5,5 +5,7 @@ namespace WorkflowManagemetAPI.Interfaces.LeaveRequests
     public interface ILeaveRequestService
     {
         LeaveRequestResponseDto Create(CreateLeaveRequestRequest request);
+
+        List<LeaveRequestListItemDto> GetMine();
     }
 }

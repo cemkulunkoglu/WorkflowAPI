@@ -1,3 +1,4 @@
+using MessagesService.Notifications;
 using MessagesService.Data;
 using MessagesService.Services;
 using MessagesService.Workers;
@@ -21,7 +22,6 @@ builder.Services.AddCors(options =>
             .WithOrigins("http://localhost:5173")
             .AllowAnyHeader()
             .AllowAnyMethod();
-        // .AllowCredentials(); // cookie vb. kullanýyorsan aç, yoksa gerek yok
     });
 });
 
@@ -59,7 +59,7 @@ builder.Services
 
 builder.Services.AddAuthorization();
 
-// DbContext
+// DbContext (MessagesDB)
 var connStr = builder.Configuration.GetConnectionString("MessagesDB");
 if (string.IsNullOrWhiteSpace(connStr))
 {
@@ -69,15 +69,19 @@ if (string.IsNullOrWhiteSpace(connStr))
 builder.Services.AddDbContext<MessagesDbContext>(opt =>
     opt.UseMySql(connStr, ServerVersion.AutoDetect(connStr)));
 
-// SMTP Options + Sender
+// SMTP options + Email sender (HostedService ile uyumlu: Singleton)
 builder.Services.Configure<SmtpOptions>(builder.Configuration.GetSection("Smtp"));
-builder.Services.AddScoped<IEmailSender, SmtpEmailSender>();
+builder.Services.AddSingleton<MessagesService.Services.IEmailSender, MessagesService.Services.SmtpEmailSender>();
+
+// Approver email lookup (HostedService ile uyumlu: Singleton)
+builder.Services.AddSingleton<IApproverEmailLookup, MySqlApproverEmailLookup>();
 
 // Application services
 builder.Services.AddScoped<IMessageService, MessageService>();
 
-// Background worker
+// Background workers
 builder.Services.AddHostedService<OutboxBackgroundService>();
+builder.Services.AddHostedService<LeaveRequestEventsConsumer>();
 
 var app = builder.Build();
 

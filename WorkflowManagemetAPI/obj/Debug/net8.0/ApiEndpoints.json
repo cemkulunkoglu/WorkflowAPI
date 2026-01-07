@@ -253,6 +253,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WorkflowManagemetAPI.Controllers.LeaveRequestsController",
+    "Method": "Mine",
+    "RelativePath": "api/LeaveRequests/mine",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WorkflowManagemetAPI.Controllers.WorkflowEngineController",
     "Method": "GetDesignById",
     "RelativePath": "api/WorkflowEngine/flow-design/{id}",

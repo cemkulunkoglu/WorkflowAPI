@@ -17,6 +17,22 @@ namespace WorkflowManagemetAPI.Controllers
             _leaveRequestService = leaveRequestService;
         }
 
+        [HttpGet("mine")]
+        public IActionResult Mine()
+        {
+            var employeeIdClaim = User.Claims.FirstOrDefault(c => c.Type == "employeeId");
+            if (employeeIdClaim == null)
+                return Unauthorized("employeeId claim not found.");
+
+            if (!int.TryParse(employeeIdClaim.Value, out var employeeId))
+                return Unauthorized("Invalid employeeId claim.");
+
+            var result = _leaveRequestService.GetMine();
+
+            return Ok(result);
+        }
+
+
         [HttpPost("create")]
         public IActionResult Create([FromBody] CreateLeaveRequestRequest request)
         {

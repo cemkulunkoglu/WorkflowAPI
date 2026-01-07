@@ -428,6 +428,18 @@
         }
       }
     },
+    "/api/LeaveRequests/mine": {
+      "get": {
+        "tags": [
+          "LeaveRequests"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/LeaveRequests/create": {
       "post": {
         "tags": [

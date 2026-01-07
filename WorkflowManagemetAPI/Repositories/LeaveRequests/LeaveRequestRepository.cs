@@ -1,4 +1,5 @@
-﻿using WorkflowManagemetAPI.DbContext;
+﻿using Microsoft.EntityFrameworkCore;
+using WorkflowManagemetAPI.DbContext;
 using WorkflowManagemetAPI.Entities;
 using WorkflowManagemetAPI.Interfaces.LeaveRequests;
 
@@ -16,6 +17,15 @@ namespace WorkflowManagemetAPI.Repositories.LeaveRequests
         public void Add(LeaveRequest entity)
         {
             _context.LeaveRequests.Add(entity);
+        }
+
+        public List<LeaveRequest> GetByEmployeeId(int employeeId)
+        {
+            return _context.LeaveRequests
+                .AsNoTracking()
+                .Where(x => x.EmployeeId == employeeId)
+                .OrderByDescending(x => x.CreatedAtUtc)
+                .ToList();
         }
     }
 }

@@ -9,6 +9,7 @@ public class MessagesDbContext : DbContext
 
     public DbSet<InboxMessage> Inbox => Set<InboxMessage>();
     public DbSet<OutboxMessage> Outbox => Set<OutboxMessage>();
+    public DbSet<ProcessedMessage> ProcessedMessages => Set<ProcessedMessage>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

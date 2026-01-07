@@ -6,6 +6,7 @@ using WorkflowManagemetAPI.Interfaces.LeaveRequests;
 using WorkflowManagemetAPI.Interfaces.Messaging;
 using WorkflowManagemetAPI.Interfaces.UnitOfWork;
 using WorkflowManagemetAPI.UnitOfWork;
+using Microsoft.AspNetCore.Http;
 
 namespace WorkflowManagemetAPI.Services.LeaveRequests
 {
@@ -26,6 +27,38 @@ namespace WorkflowManagemetAPI.Services.LeaveRequests
             _httpContextAccessor = httpContextAccessor;
             _approverResolver = approverResolver;
             _eventPublisher = eventPublisher;
+        }
+
+        public List<LeaveRequestListItemDto> GetMine()
+        {
+            // Token → UserId (Create ile aynı mantık)
+            var userIdClaim = _httpContextAccessor.HttpContext?.User?
+                .FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrWhiteSpace(userIdClaim))
+                throw new UnauthorizedAccessException("Kullanıcı doğrulanamadı.");
+
+            var userId = int.Parse(userIdClaim);
+
+            // Employee
+            var employee = _employeeUow.Employees.GetByUserId(userId);
+            if (employee == null)
+                throw new Exception("Employee bulunamadı.");
+
+            var items = _employeeUow.LeaveRequests.GetByEmployeeId(employee.EmployeeId);
+
+            return items.Select(x => new LeaveRequestListItemDto
+            {
+                LeaveRequestId = x.LeaveRequestId,
+                EmployeeId = x.EmployeeId,
+                ApproverEmployeeId = x.ApproverEmployeeId,
+                StartDate = x.StartDate,
+                EndDate = x.EndDate,
+                DayCount = x.DayCount,
+                Reason = x.Reason,
+                Status = x.Status,
+                CreatedAtUtc = x.CreatedAtUtc
+            }).ToList();
         }
 
         public LeaveRequestResponseDto Create(CreateLeaveRequestRequest request)
@@ -94,5 +127,27 @@ namespace WorkflowManagemetAPI.Services.LeaveRequests
                 DayCount = leaveRequest.DayCount
             };
         }
+
+        public List<LeaveRequestListItemDto> GetMine(int employeeId)
+        {
+            var items = _employeeUow.LeaveRequests.GetByEmployeeId(employeeId);
+
+            items ??= new List<LeaveRequest>();
+
+            return items.Select(x => new LeaveRequestListItemDto
+            {
+                LeaveRequestId = x.LeaveRequestId,
+                EmployeeId = x.EmployeeId,
+                ApproverEmployeeId = x.ApproverEmployeeId,
+                StartDate = x.StartDate,
+                EndDate = x.EndDate,
+                DayCount = x.DayCount,
+                Reason = x.Reason,
+                Status = x.Status,
+                CreatedAtUtc = x.CreatedAtUtc
+            }).ToList();
+        }
+
+
     }
 }

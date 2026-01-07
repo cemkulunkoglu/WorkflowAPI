@@ -27,4 +27,11 @@ public class OutboxMessage
 
     public DateTime CreateDate { get; set; }
     public DateTime? UpdateDate { get; set; }
+
+    [MaxLength(4000)]
+    public string Body { get; set; } = string.Empty;
+
+    public int RetryCount { get; set; }
+    public DateTime? NextAttemptAtUtc { get; set; }
+    public string? LastError { get; set; }
 }
