@@ -142,3 +142,4 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\AuthServerAPI.pdb
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\AuthServerAPI.genruntimeconfig.cache
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\ref\AuthServerAPI.dll
+C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\bin\Debug\net8.0\RabbitMQ.Client.dll

@@ -141,10 +141,18 @@ public class LeaveRequestEventsConsumer : BackgroundService
                 var manager1Id = pathIds[^2];
                 int? manager2Id = pathIds.Count >= 3 ? pathIds[^3] : null;
 
-                var recipients = new List<int> { manager1Id };
+                List<int> recipients;
 
                 if (payload.DayCount >= secondApproverMinDays && manager2Id.HasValue)
-                    recipients.Add(manager2Id.Value);
+                {
+                    // 4 gün ve üzeri → SADECE 2. yönetici
+                    recipients = new List<int> { manager2Id.Value };
+                }
+                else
+                {
+                    // 1–3 gün → SADECE 1. yönetici
+                    recipients = new List<int> { manager1Id };
+                }
 
                 // distinct + sender hariç
                 recipients = recipients
@@ -183,10 +191,8 @@ public class LeaveRequestEventsConsumer : BackgroundService
                     ?? $"Employee#{payload.EmployeeId}";
 
                 // Approve URL
-                var baseUrl = _config["Frontend:BaseUrl"] ?? "";
-                var approveUrl = string.IsNullOrWhiteSpace(baseUrl)
-                    ? payload.LeaveRequestId.ToString()
-                    : $"{baseUrl.TrimEnd('/')}/leave-requests/{payload.LeaveRequestId}";
+                var baseUrl = _config["Frontend:BaseUrl"] ?? "http://localhost:5173";
+                var approveUrl = $"{baseUrl.TrimEnd('/')}/dashboard?tab=messages&box=inbox";
 
                 var from = _config["Smtp:From"] ?? "noreply@workflow.local";
 

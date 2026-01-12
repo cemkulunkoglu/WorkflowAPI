@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\workers\\leaverequesteventsconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\workers\\leaverequesteventsconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\services\\smtpemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\services\\smtpemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\events\\employeewelcomerequestedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\events\\employeewelcomerequestedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\workers\\employeewelcomeeventsconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\workers\\employeewelcomeeventsconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,39 +31,54 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MessagesController.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Controllers\\MessagesController.cs",
-              "RelativeDocumentMoniker": "MessagesService\\Controllers\\MessagesController.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Controllers\\MessagesController.cs",
-              "RelativeToolTip": "MessagesService\\Controllers\\MessagesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T11:18:02.001Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SmtpEmailSender.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Services\\SmtpEmailSender.cs",
-              "RelativeDocumentMoniker": "MessagesService\\Services\\SmtpEmailSender.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Services\\SmtpEmailSender.cs",
-              "RelativeToolTip": "MessagesService\\Services\\SmtpEmailSender.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T11:09:13.577Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "LeaveRequestEventsConsumer.cs",
               "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Workers\\LeaveRequestEventsConsumer.cs",
               "RelativeDocumentMoniker": "MessagesService\\Workers\\LeaveRequestEventsConsumer.cs",
               "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Workers\\LeaveRequestEventsConsumer.cs",
               "RelativeToolTip": "MessagesService\\Workers\\LeaveRequestEventsConsumer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAMwJUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-12T11:02:17.959Z"
+              "WhenOpened": "2026-01-12T14:28:16.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Program.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Program.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Program.cs",
+              "RelativeToolTip": "MessagesService\\Program.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAowEUAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:24:58.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeeWelcomeEventsConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Workers\\EmployeeWelcomeEventsConsumer.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Workers\\EmployeeWelcomeEventsConsumer.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Workers\\EmployeeWelcomeEventsConsumer.cs",
+              "RelativeToolTip": "MessagesService\\Workers\\EmployeeWelcomeEventsConsumer.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAgwMwAAACBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:21:54.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeWelcomeRequestedEvent.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Events\\EmployeeWelcomeRequestedEvent.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Events\\EmployeeWelcomeRequestedEvent.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Events\\EmployeeWelcomeRequestedEvent.cs",
+              "RelativeToolTip": "MessagesService\\Events\\EmployeeWelcomeRequestedEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T13:21:35.09Z",
+              "EditorCaption": ""
             }
           ]
         }

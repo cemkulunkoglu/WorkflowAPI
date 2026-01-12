@@ -1,4 +1,6 @@
 ﻿using AuthServerAPI.Data;
+using AuthServerAPI.Interfaces;
+using AuthServerAPI.Messaging;
 using AuthServerAPI.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -42,7 +44,7 @@ builder.Services.AddAuthorization(options =>
         policy.RequireClaim("isAdmin", "True"));
 });
 
-// 👇 4. CORS POLİTİKASI (EKSİK OLAN KISIM BURASIYDI) 👇
+// 4. CORS POLİTİKASI 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -62,6 +64,8 @@ builder.Services.AddHttpClient("WorkflowApi", client =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<IEventPublisher, RabbitMqEventPublisher>();
+
 
 var app = builder.Build();
 

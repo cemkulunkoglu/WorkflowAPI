@@ -73,6 +73,7 @@ builder.Services.AddDbContext<MessagesDbContext>(opt =>
 // SMTP options + Email sender (HostedService ile uyumlu: Singleton)
 builder.Services.Configure<SmtpOptions>(builder.Configuration.GetSection("Smtp"));
 builder.Services.AddSingleton<IEmailSender, MessagesService.Services.SmtpEmailSender>();
+builder.Services.AddHostedService<EmployeeWelcomeEventsConsumer>();
 
 // Approver email lookup (HostedService ile uyumlu: Singleton)
 builder.Services.AddSingleton<IApproverEmailLookup, MySqlApproverEmailLookup>();

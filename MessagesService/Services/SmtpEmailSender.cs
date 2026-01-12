@@ -1,20 +1,17 @@
-﻿using MailKit.Net.Smtp;
+﻿using MessagesService.Interfaces;
+using MailKit.Net.Smtp;
 using MailKit.Security;
-using MessagesService.Interfaces;
-using Microsoft.Extensions.Options;
 using MimeKit;
 
 namespace MessagesService.Services;
 
 public class SmtpEmailSender : IEmailSender
 {
-    private readonly SmtpOptions _opt;
-    private readonly ILogger<SmtpEmailSender> _logger;
+    private readonly SmtpOptions _options;
 
-    public SmtpEmailSender(IOptions<SmtpOptions> opt, ILogger<SmtpEmailSender> logger)
+    public SmtpEmailSender(Microsoft.Extensions.Options.IOptions<SmtpOptions> options)
     {
-        _opt = opt.Value;
-        _logger = logger;
+        _options = options.Value;
     }
 
     public async Task SendAsync(string from, string to, string subject, string body, CancellationToken ct)
@@ -24,25 +21,25 @@ public class SmtpEmailSender : IEmailSender
         message.To.Add(MailboxAddress.Parse(to));
         message.Subject = subject;
 
-        message.Body = new BodyBuilder
-        {
-            HtmlBody = body
-        }.ToMessageBody();
+        message.Body = new TextPart("html") { Text = body };
 
         using var client = new SmtpClient();
 
-        var socketOption = _opt.UseSsl
-            ? SecureSocketOptions.SslOnConnect
-            : SecureSocketOptions.StartTlsWhenAvailable;
+        client.CheckCertificateRevocation = false;
 
-        await client.ConnectAsync(_opt.Host, _opt.Port, socketOption, ct);
+        var options = _options.Port switch
+        {
+            465 => SecureSocketOptions.SslOnConnect,
+            587 => SecureSocketOptions.StartTls,
+            _ => SecureSocketOptions.Auto
+        };
 
-        if (!string.IsNullOrWhiteSpace(_opt.User))
-            await client.AuthenticateAsync(_opt.User, _opt.Password, ct);
+        await client.ConnectAsync(_options.Host, _options.Port, options, ct);
+
+        if (!string.IsNullOrWhiteSpace(_options.User))
+            await client.AuthenticateAsync(_options.User, _options.Password, ct);
 
         await client.SendAsync(message, ct);
         await client.DisconnectAsync(true, ct);
-
-        _logger.LogInformation("Mail sent. From={From} To={To} Subject={Subject}", from, to, subject);
     }
 }

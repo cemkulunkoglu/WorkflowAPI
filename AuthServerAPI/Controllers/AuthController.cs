@@ -1,15 +1,17 @@
 ﻿using AuthServerAPI.Data;
 using AuthServerAPI.DTOs;
+using AuthServerAPI.Events;
 using AuthServerAPI.Helpers;
+using AuthServerAPI.Interfaces;
 using AuthServerAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Json;
 using System.Security.Claims;
 using System.Text;
-using System.Net.Http.Json;
 
 namespace AuthServerAPI.Controllers;
 
@@ -20,12 +22,18 @@ public class AuthController : ControllerBase
     private readonly AuthDbContext _context;
     private readonly IConfiguration _configuration;
     private readonly IHttpClientFactory _httpClientFactory;
+    private readonly IEventPublisher _eventPublisher;
 
-    public AuthController(AuthDbContext context, IConfiguration configuration, IHttpClientFactory httpClientFactory)
+    public AuthController(
+        AuthDbContext context,
+        IConfiguration configuration,
+        IHttpClientFactory httpClientFactory,
+        IEventPublisher eventPublisher)
     {
         _context = context;
         _configuration = configuration;
         _httpClientFactory = httpClientFactory;
+        _eventPublisher = eventPublisher;
     }
 
     [HttpPost("register")]
@@ -36,7 +44,6 @@ public class AuthController : ControllerBase
             return BadRequest(new { message = "Bu email adresi zaten kayıtlı." });
         }
 
-        // Şifreyi hashliyoruz
         HashingHelper.CreatePasswordHash(request.Password, out string passwordHash, out string passwordSalt);
 
         var newUser = new User
@@ -45,14 +52,13 @@ public class AuthController : ControllerBase
             Email = request.Email,
             PasswordHash = passwordHash,
             PasswordSalt = passwordSalt,
-            IsDesigner = true, // Varsayılan
+            IsDesigner = true,
             IsVerified = false
         };
 
         _context.Users.Add(newUser);
         await _context.SaveChangesAsync();
 
-        // Employee kaydı (Aynı kalıyor)
         var newEmployee = new Employee
         {
             UserId = newUser.UserId,
@@ -72,23 +78,19 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto request)
     {
-        // 1) Email ya da username ile kullanıcıyı bul
         var user = await _context.Users.FirstOrDefaultAsync(u =>
             u.Email == request.UserNameOrEmail || u.UserName == request.UserNameOrEmail);
 
         if (user == null)
             return Unauthorized(new { message = "Geçersiz kullanıcı." });
 
-        // 2) Şifre kontrolü
         if (!HashingHelper.VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
         {
             return Unauthorized(new { message = "Hatalı şifre." });
         }
 
-        // 3) Kullanıcıya ait Employee bilgisini çek (Token için employeeId gerekiyor)
         var employee = await _context.Employees.FirstOrDefaultAsync(e => e.UserId == user.UserId);
 
-        // İstersen sıkılaştır: employee yoksa login'i engelle
         if (employee == null)
         {
             return Unauthorized(new { message = "Personel kaydı bulunamadı. Lütfen yöneticinize başvurun." });
@@ -104,7 +106,7 @@ public class AuthController : ControllerBase
         {
             token = token,
             userId = user.UserId.ToString(),
-            employeeId = employee.EmployeeId, // response'a da eklemek istersen (opsiyonel ama faydalı)
+            employeeId = employee.EmployeeId,
             email = user.Email,
             fullName = fullName,
             isVerified = user.IsVerified
@@ -115,18 +117,14 @@ public class AuthController : ControllerBase
     {
         var claims = new List<Claim>
         {
-            // UserId (sub) + NameIdentifier
             new Claim(JwtRegisteredClaimNames.Sub, user.UserId.ToString()),
             new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
 
-            // Email
             new Claim(JwtRegisteredClaimNames.Email, user.Email),
             new Claim(ClaimTypes.Email, user.Email),
 
-            // ✅ EmployeeId claim (MessagesService ve frontend bununla çalışıyor)
             new Claim("employeeId", employeeId.ToString()),
 
-            // Ek claims
             new Claim("fullName", fullName),
             new Claim("isDesigner", user.IsDesigner.ToString()),
             new Claim("isAdmin", user.IsDesigner.ToString()),
@@ -153,20 +151,16 @@ public class AuthController : ControllerBase
     [HttpPost("provision-employee")]
     public async Task<IActionResult> ProvisionEmployee([FromBody] CreateEmployeeUserDto request)
     {
-        // 1) Username ve Email unique olsun
         if (await _context.Users.AnyAsync(u => u.UserName == request.UserName))
             return BadRequest(new { message = "Bu username zaten kayıtlı." });
 
         if (await _context.Users.AnyAsync(u => u.Email == request.Email))
             return BadRequest(new { message = "Bu email zaten kayıtlı." });
 
-        // 2) Temp şifre
         var generatedPassword = PasswordGenerator.Generate(12);
 
-        // 3) Hash + Salt
         HashingHelper.CreatePasswordHash(generatedPassword, out var passwordHash, out var passwordSalt);
 
-        // 4) User oluştur
         var newUser = new User
         {
             UserName = request.UserName,
@@ -180,7 +174,6 @@ public class AuthController : ControllerBase
         _context.Users.Add(newUser);
         await _context.SaveChangesAsync(); // UserId burada oluşur
 
-        // 5) WorkflowAPI'ye employee create at
         try
         {
             var client = _httpClientFactory.CreateClient("WorkflowApi");
@@ -201,7 +194,6 @@ public class AuthController : ControllerBase
 
             if (!wfResponse.IsSuccessStatusCode)
             {
-                // Rollback: user'ı sil
                 _context.Users.Remove(newUser);
                 await _context.SaveChangesAsync();
 
@@ -217,6 +209,20 @@ public class AuthController : ControllerBase
 
             var wfEmp = await wfResponse.Content.ReadFromJsonAsync<WorkflowEmployeeResponseDto>();
 
+            // ✅ TRIGGER: Welcome mail event publish
+            _eventPublisher.Publish(
+                "EmployeeWelcomeRequested",
+                new EmployeeWelcomeRequestedEvent
+                {
+                    UserId = newUser.UserId,
+                    EmployeeId = wfEmp?.EmployeeId ?? 0,
+                    Email = newUser.Email,
+                    UserName = newUser.UserName,
+                    FullName = $"{request.FirstName} {request.LastName}".Trim(),
+                    TemporaryPassword = generatedPassword
+                }
+            );
+
             return Ok(new
             {
                 message = "Provision başarılı (User + Workflow Employee).",
@@ -231,7 +237,6 @@ public class AuthController : ControllerBase
         }
         catch (Exception ex)
         {
-            // Rollback: user'ı sil
             _context.Users.Remove(newUser);
             await _context.SaveChangesAsync();
 
