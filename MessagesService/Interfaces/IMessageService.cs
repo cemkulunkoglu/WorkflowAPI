@@ -1,7 +1,6 @@
 ﻿using MessagesService.Dtos;
-using MessagesService.Dtos;
 
-namespace MessagesService.Services;
+namespace MessagesService.Interfaces;
 
 public interface IMessageService
 {

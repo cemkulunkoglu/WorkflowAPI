@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\services\\leaverequests\\leaverequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\services\\leaverequests\\leaverequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\workflowmanagemetapi\\controllers\\leaverequestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40D2DD5A-2596-46A1-90FC-C2BC93CDF161}|WorkflowManagemetAPI\\WorkflowManagemetAPI.csproj|solutionrelative:workflowmanagemetapi\\controllers\\leaverequestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\workers\\leaverequesteventsconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\workers\\leaverequesteventsconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\data\\mysqlapproveremaillookup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\data\\mysqlapproveremaillookup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\interfaces\\iapproveremaillookup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\interfaces\\iapproveremaillookup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|c:\\users\\cemku\\onedrive\\documents\\github\\workflowapi\\messagesservice\\services\\smtpemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}|MessagesService\\MessagesService.csproj|solutionrelative:messagesservice\\services\\smtpemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +34,83 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LeaveRequestsController.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Controllers\\LeaveRequestsController.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Controllers\\LeaveRequestsController.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Controllers\\LeaveRequestsController.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Controllers\\LeaveRequestsController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAswB0AAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T12:30:23.41Z",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\appsettings.json",
+              "RelativeDocumentMoniker": "MessagesService\\appsettings.json",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\appsettings.json",
+              "RelativeToolTip": "MessagesService\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-12T12:05:12.481Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LeaveRequestService.cs",
-              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\LeaveRequests\\LeaveRequestService.cs",
-              "RelativeDocumentMoniker": "WorkflowManagemetAPI\\Services\\LeaveRequests\\LeaveRequestService.cs",
-              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\WorkflowManagemetAPI\\Services\\LeaveRequests\\LeaveRequestService.cs",
-              "RelativeToolTip": "WorkflowManagemetAPI\\Services\\LeaveRequests\\LeaveRequestService.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAuwGcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "MySqlApproverEmailLookup.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Data\\MySqlApproverEmailLookup.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Data\\MySqlApproverEmailLookup.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Data\\MySqlApproverEmailLookup.cs",
+              "RelativeToolTip": "MessagesService\\Data\\MySqlApproverEmailLookup.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAApwGMAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T12:29:40.82Z",
+              "WhenOpened": "2026-01-12T12:04:07.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IApproverEmailLookup.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Interfaces\\IApproverEmailLookup.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Interfaces\\IApproverEmailLookup.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Interfaces\\IApproverEmailLookup.cs",
+              "RelativeToolTip": "MessagesService\\Interfaces\\IApproverEmailLookup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T12:00:18.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MessagesController.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Controllers\\MessagesController.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Controllers\\MessagesController.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Controllers\\MessagesController.cs",
+              "RelativeToolTip": "MessagesService\\Controllers\\MessagesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T11:18:02.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SmtpEmailSender.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Services\\SmtpEmailSender.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Services\\SmtpEmailSender.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Services\\SmtpEmailSender.cs",
+              "RelativeToolTip": "MessagesService\\Services\\SmtpEmailSender.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T11:09:13.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LeaveRequestEventsConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Workers\\LeaveRequestEventsConsumer.cs",
+              "RelativeDocumentMoniker": "MessagesService\\Workers\\LeaveRequestEventsConsumer.cs",
+              "ToolTip": "C:\\Users\\cemku\\OneDrive\\Documents\\GitHub\\WorkflowAPI\\MessagesService\\Workers\\LeaveRequestEventsConsumer.cs*",
+              "RelativeToolTip": "MessagesService\\Workers\\LeaveRequestEventsConsumer.cs*",
+              "ViewState": "AgIAAGEAAAAAAAAAAAApwHQAAAB7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T11:02:17.959Z",
               "EditorCaption": ""
             }
           ]

@@ -1,4 +1,4 @@
-﻿using MessagesService.Services;
+﻿using MessagesService.Interfaces;
 
 namespace MessagesService.Notifications;
 

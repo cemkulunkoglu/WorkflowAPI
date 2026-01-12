@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MessagesService.Data;
 using MessagesService.Entities;
-using MessagesService.Services;
+using MessagesService.Interfaces;
 
 namespace MessagesService.Workers;
 

@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MessagesService.Dtos;
+using MessagesService.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
-using MessagesService.Dtos;
-using MessagesService.Services;
 
 namespace MessagesService.Controllers;
 
@@ -12,10 +13,14 @@ namespace MessagesService.Controllers;
 public class MessagesController : ControllerBase
 {
     private readonly IMessageService _service;
+    private readonly ILogger _logger;
+    private readonly IConfiguration _configuration;
 
-    public MessagesController(IMessageService service)
+    public MessagesController(IMessageService service, ILogger<MessagesController> logger, IConfiguration configuration)
     {
         _service = service;
+        _configuration = configuration;
+        _logger = logger;
     }
 
     [HttpPost("send")]
@@ -27,7 +32,9 @@ public class MessagesController : ControllerBase
         if (!int.TryParse(employeeFromIdStr, out var employeeFromId))
             return Unauthorized("Token içinde employeeId bulunamadı.");
 
-        var emailFrom = User.FindFirstValue("email") ?? User.FindFirstValue(ClaimTypes.Email);
+        var emailFrom = _configuration["Smtp:From"]
+                ?? User.FindFirst(ClaimTypes.Email)?.Value;
+
         if (string.IsNullOrWhiteSpace(emailFrom))
             return Unauthorized("Token içinde email bulunamadı.");
 
@@ -53,4 +60,7 @@ public class MessagesController : ControllerBase
 
         return Ok(result);
     }
+
+
+
 }

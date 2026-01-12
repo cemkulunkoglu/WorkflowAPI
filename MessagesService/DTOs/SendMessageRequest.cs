@@ -15,4 +15,9 @@ public class SendMessageRequest
 
     public int FlowDesignsId { get; set; }
     public int FlowNodesId { get; set; }
+
+    public int? TemplateId { get; set; }
+    public string? TemplateName { get; set; }
+
+    public Dictionary<string, string>? Fields { get; set; }
 }

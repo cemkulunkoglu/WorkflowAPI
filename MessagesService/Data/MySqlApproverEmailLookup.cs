@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using MessagesService.Interfaces;
+using MySqlConnector;
 
 namespace MessagesService.Data;
 
@@ -34,4 +35,73 @@ public class MySqlApproverEmailLookup : IApproverEmailLookup
         var result = await cmd.ExecuteScalarAsync(ct);
         return result == null || result == DBNull.Value ? null : result.ToString();
     }
+
+    public async Task<string?> GetEmployeeEmailByEmployeeIdAsync(int employeeId, CancellationToken ct)
+    {
+        var cs = _config.GetConnectionString("EmployeeDB");
+        if (string.IsNullOrWhiteSpace(cs))
+            throw new Exception("ConnectionStrings:EmployeeDB missing in MessagesService.");
+
+        const string sql = @"
+        SELECT u.Email
+        FROM Employee e
+        JOIN Users u ON u.UserId = e.UserId
+        WHERE e.EmployeeId = @employeeId
+        LIMIT 1;";
+
+        await using var conn = new MySqlConnection(cs);
+        await conn.OpenAsync(ct);
+
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@employeeId", employeeId);
+
+        var result = await cmd.ExecuteScalarAsync(ct);
+        return result == null || result == DBNull.Value ? null : result.ToString();
+    }
+
+    public async Task<string?> GetEmployeeFullNameByEmployeeIdAsync(int employeeId, CancellationToken ct)
+    {
+        var cs = _config.GetConnectionString("EmployeeDB");
+        if (string.IsNullOrWhiteSpace(cs))
+            throw new Exception("ConnectionStrings:EmployeeDB missing in MessagesService.");
+
+        const string sql = @"
+        SELECT CONCAT(FirstName, ' ', LastName)
+        FROM Employee
+        WHERE EmployeeId = @employeeId
+        LIMIT 1;";
+
+        await using var conn = new MySqlConnection(cs);
+        await conn.OpenAsync(ct);
+
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@employeeId", employeeId);
+
+        var result = await cmd.ExecuteScalarAsync(ct);
+        return result == null || result == DBNull.Value ? null : result.ToString();
+    }
+
+    public async Task<string?> GetEmployeePathByEmployeeIdAsync(int employeeId, CancellationToken ct)
+    {
+        var cs = _config.GetConnectionString("EmployeeDB");
+        if (string.IsNullOrWhiteSpace(cs))
+            throw new Exception("ConnectionStrings:EmployeeDB missing in MessagesService.");
+
+        const string sql = @"
+        SELECT Path
+        FROM Employee
+        WHERE EmployeeId = @employeeId
+        LIMIT 1;";
+
+        await using var conn = new MySqlConnection(cs);
+        await conn.OpenAsync(ct);
+
+        await using var cmd = new MySqlCommand(sql, conn);
+        cmd.Parameters.AddWithValue("@employeeId", employeeId);
+
+        var result = await cmd.ExecuteScalarAsync(ct);
+        return result == null || result == DBNull.Value ? null : result.ToString();
+    }
+
+
 }

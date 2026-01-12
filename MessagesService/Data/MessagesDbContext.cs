@@ -10,6 +10,8 @@ public class MessagesDbContext : DbContext
     public DbSet<InboxMessage> Inbox => Set<InboxMessage>();
     public DbSet<OutboxMessage> Outbox => Set<OutboxMessage>();
     public DbSet<ProcessedMessage> ProcessedMessages => Set<ProcessedMessage>();
+    public DbSet<MessageTemplate> MessageTemplates => Set<MessageTemplate>();
+    public DbSet<MessageTemplateField> MessageTemplateFields => Set<MessageTemplateField>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -42,5 +44,33 @@ public class MessagesDbContext : DbContext
             e.Property(x => x.CreateDate).HasColumnType("datetime");
             e.Property(x => x.UpdateDate).HasColumnType("datetime");
         });
+
+        // MessageTemplates
+        modelBuilder.Entity<MessageTemplate>(e =>
+        {
+            e.ToTable("MessageTemplates");
+            e.HasKey(x => x.TemplateId);
+
+            e.Property(x => x.Name).HasMaxLength(255);
+            e.Property(x => x.Subject).HasMaxLength(255);
+
+            e.Property(x => x.CreateDate).HasColumnType("datetime");
+            e.Property(x => x.UpdateDate).HasColumnType("datetime");
+
+            e.HasMany(x => x.Fields)
+             .WithOne(x => x.Template)
+             .HasForeignKey(x => x.TemplateId);
+        });
+
+        // MessageTemplateFields
+        modelBuilder.Entity<MessageTemplateField>(e =>
+        {
+            e.ToTable("MessageTemplateFields");
+            e.HasKey(x => x.FieldId);
+
+            e.Property(x => x.DynamicField).HasMaxLength(255);
+            e.Property(x => x.SystemField).HasMaxLength(255);
+        });
+
     }
 }

@@ -1,9 +1,8 @@
 ﻿using MessagesService.Data;
 using MessagesService.Entities;
 using MessagesService.Events;
-using MessagesService.Services;
+using MessagesService.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -111,88 +110,199 @@ public class LeaveRequestEventsConsumer : BackgroundService
                 if (payload == null)
                     throw new Exception("LeaveRequestCreated payload parse failed.");
 
-                // ✅ Idempotency key (geçici): LeaveRequestId
-                var messageId = payload.LeaveRequestId.ToString();
-
                 using var scope = _scopeFactory.CreateScope();
                 var db = scope.ServiceProvider.GetRequiredService<MessagesDbContext>();
 
-                // ✅ Daha önce işlendi mi?
-                var alreadyProcessed = await db.ProcessedMessages
-                    .AnyAsync(x => x.MessageId == messageId, stoppingToken);
+                // ✅ Config: kaç gün ve üzeri 2 üst mail alsın?
+                var secondApproverMinDays = int.TryParse(_config["LeaveRequest:SecondApproverMinDays"], out var d) ? d : 4;
 
-                if (alreadyProcessed)
+                // ✅ Employee.Path üzerinden alıcıları çıkar
+                var path = await _emailLookup.GetEmployeePathByEmployeeIdAsync(payload.EmployeeId, stoppingToken);
+
+                if (string.IsNullOrWhiteSpace(path))
                 {
-                    _logger.LogInformation(
-                        "[LeaveRequestCreated] Message already processed. MessageId={MessageId}",
-                        messageId);
-
+                    _logger.LogWarning("[LeaveRequestCreated] Path not found. EmployeeId={EmployeeId}", payload.EmployeeId);
                     _channel.BasicAck(ea.DeliveryTag, multiple: false);
                     return;
                 }
 
-                // Approver email lookup (EmployeeDB)
-                var approverEmail = await _emailLookup
-                    .GetApproverEmailByEmployeeIdAsync(payload.ApproverEmployeeId, stoppingToken);
-
-                if (string.IsNullOrWhiteSpace(approverEmail))
+                var pathIds = ParsePathIds(path);
+                if (pathIds.Count < 2)
                 {
                     _logger.LogWarning(
-                        "[LeaveRequestCreated] Approver email not found. ApproverEmployeeId={ApproverEmployeeId}",
-                        payload.ApproverEmployeeId);
+                        "[LeaveRequestCreated] Path does not include manager. EmployeeId={EmployeeId} Path={Path}",
+                        payload.EmployeeId, path);
 
-                    // istersen burada ProcessedMessages'a Failed yazabilirsin, şimdilik ACK:
                     _channel.BasicAck(ea.DeliveryTag, multiple: false);
                     return;
                 }
 
-                var subject = $"Yeni İzin Talebi";
-                var body =
-                    $"LeaveRequestId: {payload.LeaveRequestId}\n" +
-                    $"EmployeeId: {payload.EmployeeId}\n" +
-                    $"Tarih: {payload.StartDate:yyyy-MM-dd} - {payload.EndDate:yyyy-MM-dd}\n" +
-                    $"Gün: {payload.DayCount}\n" +
-                    $"Sebep: {payload.Reason}\n";
+                // path: [..., managerId, employeeId]
+                var manager1Id = pathIds[^2];
+                int? manager2Id = pathIds.Count >= 3 ? pathIds[^3] : null;
+
+                var recipients = new List<int> { manager1Id };
+
+                if (payload.DayCount >= secondApproverMinDays && manager2Id.HasValue)
+                    recipients.Add(manager2Id.Value);
+
+                // distinct + sender hariç
+                recipients = recipients
+                    .Where(x => x > 0 && x != payload.EmployeeId)
+                    .Distinct()
+                    .ToList();
+
+                if (recipients.Count == 0)
+                {
+                    _logger.LogWarning(
+                        "[LeaveRequestCreated] No recipients resolved. EmployeeId={EmployeeId} Path={Path}",
+                        payload.EmployeeId, path);
+
+                    _channel.BasicAck(ea.DeliveryTag, multiple: false);
+                    return;
+                }
+
+                _logger.LogInformation(
+                    "[LeaveRequestCreated] Recipients resolved. LeaveRequestId={LeaveRequestId} EmployeeId={EmployeeId} DayCount={DayCount} Recipients={Recipients}",
+                    payload.LeaveRequestId, payload.EmployeeId, payload.DayCount, string.Join(",", recipients));
+
+                // ✅ Template hazırlığı (bir kere)
+                var templateName = _config["LeaveRequest:TemplateName"] ?? "LEAVE_REQUEST_CREATED";
+
+                var template = await db.MessageTemplates
+                    .FirstOrDefaultAsync(t => t.Name == templateName && t.IsActive, stoppingToken);
+
+                if (template != null)
+                    _logger.LogInformation("[LeaveRequestCreated] Template found. Name={TemplateName}", templateName);
+                else
+                    _logger.LogWarning("[LeaveRequestCreated] Template NOT found. Using fallback. Name={TemplateName}", templateName);
+
+                // isimler (employee)
+                var employeeName = await _emailLookup
+                    .GetEmployeeFullNameByEmployeeIdAsync(payload.EmployeeId, stoppingToken)
+                    ?? $"Employee#{payload.EmployeeId}";
+
+                // Approve URL
+                var baseUrl = _config["Frontend:BaseUrl"] ?? "";
+                var approveUrl = string.IsNullOrWhiteSpace(baseUrl)
+                    ? payload.LeaveRequestId.ToString()
+                    : $"{baseUrl.TrimEnd('/')}/leave-requests/{payload.LeaveRequestId}";
 
                 var from = _config["Smtp:From"] ?? "noreply@workflow.local";
 
-                // ✅ Outbox'a yaz (maili worker gönderecek)
-                var outbox = new OutboxMessage
+                var anyInserted = false;
+
+                foreach (var toEmployeeId in recipients)
                 {
-                    FlowDesignsId = 0,
-                    FlowNodesId = 0,
-                    EmployeeFromId = payload.EmployeeId,
-                    EmployeeToId = payload.ApproverEmployeeId,
-                    EmailFrom = from,
-                    EmailTo = approverEmail,
-                    Subject = subject,
-                    Body = body,
-                    CreateDate = DateTime.UtcNow,
-                    UpdateDate = null,
-                    RetryCount = 0,
-                    NextAttemptAtUtc = null,
-                    LastError = null
-                };
+                    // ✅ Idempotency per recipient
+                    var messageId = $"{payload.LeaveRequestId}:{toEmployeeId}";
 
-                db.Outbox.Add(outbox);
+                    var alreadyProcessed = await db.ProcessedMessages
+                        .AnyAsync(x => x.MessageId == messageId, stoppingToken);
 
-                // ✅ ProcessedMessages insert
-                db.ProcessedMessages.Add(new ProcessedMessage
-                {
-                    MessageId = messageId,
-                    EventName = "LeaveRequestCreated",
-                    ProcessedAtUtc = DateTime.UtcNow,
-                    Status = "Processed",
-                    LastError = null
-                });
+                    if (alreadyProcessed)
+                    {
+                        _logger.LogInformation(
+                            "[LeaveRequestCreated] Already processed for recipient. MessageId={MessageId}",
+                            messageId);
 
-                await db.SaveChangesAsync(stoppingToken);
+                        continue;
+                    }
+
+                    // email + approver name
+                    var toEmail = await _emailLookup.GetEmployeeEmailByEmployeeIdAsync(toEmployeeId, stoppingToken);
+                    if (string.IsNullOrWhiteSpace(toEmail))
+                    {
+                        _logger.LogWarning(
+                            "[LeaveRequestCreated] Recipient email not found. ToEmployeeId={ToEmployeeId}",
+                            toEmployeeId);
+
+                        continue;
+                    }
+
+                    var approverName = await _emailLookup
+                        .GetEmployeeFullNameByEmployeeIdAsync(toEmployeeId, stoppingToken)
+                        ?? $"Approver#{toEmployeeId}";
+
+                    // subject/body render
+                    string subject;
+                    string body;
+
+                    if (template != null)
+                    {
+                        subject = template.Subject ?? "Yeni İzin Talebi";
+                        body = template.Body ?? "";
+
+                        subject = subject.Replace("{user_name}", employeeName);
+
+                        body = body
+                            .Replace("{user_name}", employeeName)
+                            .Replace("{approver_name}", approverName)
+                            .Replace("{start_date}", payload.StartDate.ToString("dd.MM.yyyy"))
+                            .Replace("{end_date}", payload.EndDate.ToString("dd.MM.yyyy"))
+                            .Replace("{day_count}", payload.DayCount.ToString())
+                            .Replace("{reason}", payload.Reason ?? "")
+                            .Replace("{leave_request_id}", payload.LeaveRequestId.ToString())
+                            .Replace("{approve_url}", approveUrl);
+                    }
+                    else
+                    {
+                        subject = "Yeni İzin Talebi";
+                        body =
+                            $"Merhaba {approverName},\n\n" +
+                            $"{employeeName} tarafından izin talebi oluşturuldu.\n" +
+                            $"Tarih: {payload.StartDate:dd.MM.yyyy} - {payload.EndDate:dd.MM.yyyy}\n" +
+                            $"Gün: {payload.DayCount}\n" +
+                            $"Sebep: {payload.Reason ?? ""}\n\n" +
+                            $"Talep No: {payload.LeaveRequestId}\n" +
+                            $"Detay: {approveUrl}\n";
+                    }
+
+                    // ✅ Outbox insert
+                    var outbox = new OutboxMessage
+                    {
+                        FlowDesignsId = 0,
+                        FlowNodesId = 0,
+                        EmployeeFromId = payload.EmployeeId,
+                        EmployeeToId = toEmployeeId,
+                        EmailFrom = from,
+                        EmailTo = toEmail,
+                        Subject = subject,
+                        Body = body,
+                        CreateDate = DateTime.UtcNow,
+                        UpdateDate = null,
+                        RetryCount = 0,
+                        NextAttemptAtUtc = null,
+                        LastError = null
+                    };
+
+                    db.Outbox.Add(outbox);
+
+                    // ✅ ProcessedMessages insert (per recipient)
+                    db.ProcessedMessages.Add(new ProcessedMessage
+                    {
+                        MessageId = messageId,
+                        EventName = "LeaveRequestCreated",
+                        ProcessedAtUtc = DateTime.UtcNow,
+                        Status = "Processed",
+                        LastError = null
+                    });
+
+                    anyInserted = true;
+
+                    _logger.LogInformation(
+                        "[LeaveRequestCreated] Outbox queued. LeaveRequestId={LeaveRequestId} ToEmployeeId={ToEmployeeId} ToEmail={ToEmail} MessageId={MessageId}",
+                        payload.LeaveRequestId, toEmployeeId, toEmail, messageId);
+                }
+
+                if (anyInserted)
+                    await db.SaveChangesAsync(stoppingToken);
 
                 _channel.BasicAck(ea.DeliveryTag, multiple: false);
 
                 _logger.LogInformation(
-                    "[LeaveRequestCreated] Written to Outbox + marked processed. MessageId={MessageId} To={To}",
-                    messageId, approverEmail);
+                    "[LeaveRequestCreated] Completed. LeaveRequestId={LeaveRequestId} Inserted={InsertedCount}",
+                    payload.LeaveRequestId, anyInserted ? "YES" : "NO (already processed / missing emails)");
             }
             catch (Exception ex)
             {
@@ -217,5 +327,14 @@ public class LeaveRequestEventsConsumer : BackgroundService
         _connection?.Dispose();
 
         return base.StopAsync(cancellationToken);
+    }
+
+    private static List<int> ParsePathIds(string path)
+    {
+        return path.Split('/', StringSplitOptions.RemoveEmptyEntries)
+            .Select(s => int.TryParse(s, out var id) ? id : (int?)null)
+            .Where(id => id.HasValue)
+            .Select(id => id!.Value)
+            .ToList();
     }
 }

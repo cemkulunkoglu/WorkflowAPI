@@ -1,4 +1,6 @@
 ﻿using MailKit.Net.Smtp;
+using MailKit.Security;
+using MessagesService.Interfaces;
 using Microsoft.Extensions.Options;
 using MimeKit;
 
@@ -22,20 +24,21 @@ public class SmtpEmailSender : IEmailSender
         message.To.Add(MailboxAddress.Parse(to));
         message.Subject = subject;
 
-        message.Body = new TextPart("plain")
+        message.Body = new BodyBuilder
         {
-            Text = body
-        };
+            HtmlBody = body
+        }.ToMessageBody();
 
         using var client = new SmtpClient();
 
-        // Mailpit self-signed vs yok; SSL kapalı
-        await client.ConnectAsync(_opt.Host, _opt.Port, _opt.UseSsl, ct);
+        var socketOption = _opt.UseSsl
+            ? SecureSocketOptions.SslOnConnect
+            : SecureSocketOptions.StartTlsWhenAvailable;
+
+        await client.ConnectAsync(_opt.Host, _opt.Port, socketOption, ct);
 
         if (!string.IsNullOrWhiteSpace(_opt.User))
-        {
             await client.AuthenticateAsync(_opt.User, _opt.Password, ct);
-        }
 
         await client.SendAsync(message, ct);
         await client.DisconnectAsync(true, ct);
