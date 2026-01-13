@@ -30,8 +30,12 @@ public class OutboxMessage
 
     [MaxLength(4000)]
     public string Body { get; set; } = string.Empty;
+    public string? UiBody { get; set; } 
 
     public int RetryCount { get; set; }
     public DateTime? NextAttemptAtUtc { get; set; }
     public string? LastError { get; set; }
+
+    public bool IsReadByReceiver { get; set; }
+    public DateTime? ReadByReceiverAt { get; set; }
 }

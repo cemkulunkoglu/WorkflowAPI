@@ -27,4 +27,8 @@ public class InboxMessage
 
     public DateTime CreateDate { get; set; }
     public DateTime? UpdateDate { get; set; }
+
+    public int? OutboxId { get; set; }
+    public bool IsRead { get; set; } = false;
+    public DateTime? ReadAt { get; set; }
 }

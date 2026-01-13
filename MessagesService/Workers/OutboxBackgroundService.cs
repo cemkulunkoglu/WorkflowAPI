@@ -52,9 +52,9 @@ public class OutboxBackgroundService : BackgroundService
                         msg.LastError = null;
                         msg.NextAttemptAtUtc = null;
 
-                        // (İstersen inbox insert burada kalsın)
                         var inbox = new InboxMessage
                         {
+                            OutboxId = msg.Id,
                             FlowDesignsId = msg.FlowDesignsId,
                             FlowNodesId = msg.FlowNodesId,
                             EmployeeToId = msg.EmployeeToId,
@@ -63,7 +63,9 @@ public class OutboxBackgroundService : BackgroundService
                             EmailFrom = msg.EmailFrom,
                             Subject = msg.Subject,
                             CreateDate = DateTime.UtcNow,
-                            UpdateDate = null
+                            UpdateDate = null,
+                            IsRead = false,
+                            ReadAt = null
                         };
 
                         db.Inbox.Add(inbox);

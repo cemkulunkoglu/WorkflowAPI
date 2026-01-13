@@ -190,9 +190,14 @@ public class LeaveRequestEventsConsumer : BackgroundService
                     .GetEmployeeFullNameByEmployeeIdAsync(payload.EmployeeId, stoppingToken)
                     ?? $"Employee#{payload.EmployeeId}";
 
-                // Approve URL
+                // URL'ler
                 var baseUrl = _config["Frontend:BaseUrl"] ?? "http://localhost:5173";
-                var approveUrl = $"{baseUrl.TrimEnd('/')}/dashboard?tab=messages&box=inbox";
+                var inboxUrl = $"{baseUrl.TrimEnd('/')}/dashboard?tab=messages&box=inbox";
+
+                // UI template Onayla / Reddet kullanıyorsa diye:
+                // (şimdilik aynı sayfaya yönlendiriyoruz; ileride action param ekleyebilirsin)
+                var approveUrl = inboxUrl;
+                var rejectUrl = inboxUrl;
 
                 var from = _config["Smtp:From"] ?? "noreply@workflow.local";
 
@@ -230,17 +235,26 @@ public class LeaveRequestEventsConsumer : BackgroundService
                         .GetEmployeeFullNameByEmployeeIdAsync(toEmployeeId, stoppingToken)
                         ?? $"Approver#{toEmployeeId}";
 
-                    // subject/body render
+                    // ----------------------------
+                    // subject/body + uiBody render
+                    // ----------------------------
                     string subject;
                     string body;
+                    string uiBody;
 
                     if (template != null)
                     {
                         subject = template.Subject ?? "Yeni İzin Talebi";
                         body = template.Body ?? "";
 
+                        // ✅ UI: Option B
+                        // UI body boşsa email body fallback (sağlam)
+                        uiBody = (template.UiBody ?? template.Body ?? "");
+
+                        // subject
                         subject = subject.Replace("{user_name}", employeeName);
 
+                        // email body
                         body = body
                             .Replace("{user_name}", employeeName)
                             .Replace("{approver_name}", approverName)
@@ -249,7 +263,20 @@ public class LeaveRequestEventsConsumer : BackgroundService
                             .Replace("{day_count}", payload.DayCount.ToString())
                             .Replace("{reason}", payload.Reason ?? "")
                             .Replace("{leave_request_id}", payload.LeaveRequestId.ToString())
-                            .Replace("{approve_url}", approveUrl);
+                            .Replace("{approve_url}", approveUrl)
+                            .Replace("{reject_url}", rejectUrl);
+
+                        // ui body
+                        uiBody = uiBody
+                            .Replace("{user_name}", employeeName)
+                            .Replace("{approver_name}", approverName)
+                            .Replace("{start_date}", payload.StartDate.ToString("dd.MM.yyyy"))
+                            .Replace("{end_date}", payload.EndDate.ToString("dd.MM.yyyy"))
+                            .Replace("{day_count}", payload.DayCount.ToString())
+                            .Replace("{reason}", payload.Reason ?? "")
+                            .Replace("{leave_request_id}", payload.LeaveRequestId.ToString())
+                            .Replace("{approve_url}", approveUrl)
+                            .Replace("{reject_url}", rejectUrl);
                     }
                     else
                     {
@@ -261,7 +288,19 @@ public class LeaveRequestEventsConsumer : BackgroundService
                             $"Gün: {payload.DayCount}\n" +
                             $"Sebep: {payload.Reason ?? ""}\n\n" +
                             $"Talep No: {payload.LeaveRequestId}\n" +
-                            $"Detay: {approveUrl}\n";
+                            $"Detay: {inboxUrl}\n";
+
+                        // UI fallback: sade bir içerik
+                        uiBody =
+                            $"<div style=\"font-family: Arial, sans-serif; color:#111827;\">" +
+                            $"<h3 style=\"margin:0 0 8px; font-size:18px;\">Yeni İzin Talebi</h3>" +
+                            $"<p style=\"margin:0 0 12px; font-size:14px; line-height:20px;\">" +
+                            $"<strong>{employeeName}</strong> tarafından " +
+                            $"<strong>{payload.StartDate:dd.MM.yyyy}</strong> – <strong>{payload.EndDate:dd.MM.yyyy}</strong> " +
+                            $"tarihleri arasında (<strong>{payload.DayCount}</strong> gün) izin talebi oluşturuldu.</p>" +
+                            $"<div style=\"background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:12px;\">" +
+                            $"<strong>Sebep:</strong><br/>{System.Net.WebUtility.HtmlEncode(payload.Reason ?? "")}</div>" +
+                            $"</div>";
                     }
 
                     // ✅ Outbox insert
@@ -275,6 +314,10 @@ public class LeaveRequestEventsConsumer : BackgroundService
                         EmailTo = toEmail,
                         Subject = subject,
                         Body = body,
+
+                        // 🔥 KRİTİK: UI içeriği DB'ye yaz
+                        UiBody = uiBody,
+
                         CreateDate = DateTime.UtcNow,
                         UpdateDate = null,
                         RetryCount = 0,

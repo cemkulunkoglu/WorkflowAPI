@@ -15,15 +15,16 @@ public class MessageTemplate
 
     [MaxLength(255)]
     public string Subject { get; set; } = string.Empty;
-
     public string Body { get; set; } = string.Empty;
+    public string? UiSubject { get; set; }
+    public string? UiBody { get; set; }
 
     public DateTime CreateDate { get; set; }
     public DateTime? UpdateDate { get; set; }
-
     public bool IsActive { get; set; } = true;
-
     public int? UserId { get; set; }
 
     public ICollection<MessageTemplateField> Fields { get; set; } = new List<MessageTemplateField>();
+
+
 }

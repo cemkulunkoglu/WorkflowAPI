@@ -55,12 +55,33 @@ public class MessagesController : ControllerBase
     [HttpPut("inbox/{id:int}/read")]
     public async Task<IActionResult> MarkInboxAsRead([FromRoute] int id, CancellationToken ct)
     {
-        var result = await _service.MarkInboxAsReadAsync(id, ct);
+        var employeeIdStr = User.FindFirstValue("employeeId")
+                          ?? User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (!int.TryParse(employeeIdStr, out var employeeId))
+            return Unauthorized("Token içinde employeeId bulunamadı.");
+
+        var result = await _service.MarkInboxAsReadAsync(id, employeeId, ct);
         if (result == null) return NotFound();
 
         return Ok(result);
     }
 
+
+    [HttpGet("inbox/{id:int}")]
+    public async Task<IActionResult> GetInboxById([FromRoute] int id, CancellationToken ct)
+    {
+        var employeeIdStr = User.FindFirstValue("employeeId")
+                          ?? User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier);
+
+        if (!int.TryParse(employeeIdStr, out var employeeId))
+            return Unauthorized("Token içinde employeeId bulunamadı.");
+
+        var result = await _service.GetInboxByIdAsync(id, employeeId, ct);
+        if (result == null) return NotFound();
+
+        return Ok(result);
+    }
 
 
 }

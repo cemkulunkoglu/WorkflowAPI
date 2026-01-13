@@ -17,9 +17,9 @@ public class MessageService : IMessageService
 
     public async Task<int> SendAsync(SendMessageRequest request, int employeeFromId, string emailFrom, CancellationToken ct)
     {
-        // 1) Subject/Body üret (template varsa template’ten, yoksa request’ten)
-        string subject;
-        string body;
+        string emailSubject;
+        string emailBody;
+        string uiBody;
 
         if (request.TemplateId.HasValue || !string.IsNullOrWhiteSpace(request.TemplateName))
         {
@@ -34,16 +34,22 @@ public class MessageService : IMessageService
             if (template == null)
                 throw new Exception("Message template bulunamadı.");
 
-            subject = RenderTemplate(template.Subject ?? string.Empty, request.Fields);
-            body = RenderTemplate(template.Body ?? string.Empty, request.Fields);
+            // Email (SMTP)
+            emailSubject = RenderTemplate(template.Subject ?? string.Empty, request.Fields);
+            emailBody = RenderTemplate(template.Body ?? string.Empty, request.Fields);
+
+            // UI (Inbox detail)
+            // UiBody boşsa Body'ye fallback (minimum sürtünme)
+            uiBody = RenderTemplate(template.UiBody ?? template.Body ?? string.Empty, request.Fields);
         }
         else
         {
-            subject = request.Subject;
-            body = string.Empty;
+            // Template yoksa: sadece subject, body boş
+            emailSubject = request.Subject ?? string.Empty;
+            emailBody = string.Empty;
+            uiBody = string.Empty;
         }
 
-        // 2) Outbox kaydı oluştur
         var outbox = new OutboxMessage
         {
             FlowDesignsId = request.FlowDesignsId,
@@ -52,14 +58,15 @@ public class MessageService : IMessageService
             EmployeeFromId = employeeFromId,
             EmailTo = request.EmailTo,
             EmailFrom = emailFrom,
-            Subject = subject,
-            Body = body,
+
+            Subject = emailSubject,
+            Body = emailBody,
+
+            UiBody = uiBody,
+
             CreateDate = DateTime.UtcNow,
             UpdateDate = null
         };
-
-        // 3) OutboxMessage entity’sinde Body alanı varsa set et (yoksa compile kırmadan geç)
-        TrySetBodyIfExists(outbox, body);
 
         _db.Outbox.Add(outbox);
         await _db.SaveChangesAsync(ct);
@@ -83,7 +90,11 @@ public class MessageService : IMessageService
                 EmailFrom = x.EmailFrom,
                 Subject = x.Subject,
                 CreateDate = x.CreateDate,
-                UpdateDate = x.UpdateDate
+                UpdateDate = x.UpdateDate,
+
+                // Read receipt (sender side)
+                IsReadByReceiver = x.IsReadByReceiver,
+                ReadByReceiverAt = x.ReadByReceiverAt
             })
             .ToListAsync(ct);
     }
@@ -104,26 +115,86 @@ public class MessageService : IMessageService
                 EmailFrom = x.EmailFrom,
                 Subject = x.Subject,
                 CreateDate = x.CreateDate,
-                UpdateDate = x.UpdateDate
+                UpdateDate = x.UpdateDate,
+
+                // Inbox read state (receiver side)
+                OutboxId = x.OutboxId,
+                IsRead = x.IsRead,
+                ReadAt = x.ReadAt
             })
             .ToListAsync(ct);
     }
 
-    public async Task<MarkAsReadResponse?> MarkInboxAsReadAsync(int messageId, CancellationToken ct)
+    public async Task<InboxMessage?> MarkInboxAsReadAsync(int inboxId, int employeeId, CancellationToken ct)
     {
-        var msg = await _db.Inbox.FirstOrDefaultAsync(x => x.Id == messageId, ct);
-        if (msg == null) return null;
+        var inbox = await _db.Inbox
+            .FirstOrDefaultAsync(x => x.Id == inboxId && x.EmployeeToId == employeeId, ct);
 
-        if (msg.UpdateDate == null)
+        if (inbox == null) return null;
+
+        if (!inbox.IsRead)
         {
-            msg.UpdateDate = DateTime.UtcNow;
+            var now = DateTime.UtcNow;
+
+            // 1) Inbox update
+            inbox.IsRead = true;
+            inbox.ReadAt = now;
+            inbox.UpdateDate = now;
+
+            // 2) Outbox update (sender sees "read")
+            if (inbox.OutboxId.HasValue)
+            {
+                var outbox = await _db.Outbox.FirstOrDefaultAsync(x => x.Id == inbox.OutboxId.Value, ct);
+                if (outbox != null && !outbox.IsReadByReceiver)
+                {
+                    outbox.IsReadByReceiver = true;
+                    outbox.ReadByReceiverAt = now;
+                    outbox.UpdateDate = now;
+                }
+            }
+
             await _db.SaveChangesAsync(ct);
         }
 
-        return new MarkAsReadResponse
+        // Return updated inbox (entity)
+        return inbox;
+    }
+
+    public async Task<MessageResponse?> GetInboxByIdAsync(int inboxId, int employeeId, CancellationToken ct)
+    {
+        var inbox = await _db.Inbox.AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Id == inboxId && x.EmployeeToId == employeeId, ct);
+
+        if (inbox == null) return null;
+
+        string? uiBody = null;
+
+        if (inbox.OutboxId.HasValue)
         {
-            Id = msg.Id,
-            UpdateDate = msg.UpdateDate!.Value
+            uiBody = await _db.Outbox.AsNoTracking()
+                .Where(o => o.Id == inbox.OutboxId.Value)
+                .Select(o => o.UiBody)
+                .FirstOrDefaultAsync(ct);
+        }
+
+        return new MessageResponse
+        {
+            Id = inbox.Id,
+            FlowDesignsId = inbox.FlowDesignsId,
+            FlowNodesId = inbox.FlowNodesId,
+            EmployeeToId = inbox.EmployeeToId,
+            EmployeeFromId = inbox.EmployeeFromId,
+            EmailTo = inbox.EmailTo,
+            EmailFrom = inbox.EmailFrom,
+            Subject = inbox.Subject,
+            CreateDate = inbox.CreateDate,
+            UpdateDate = inbox.UpdateDate,
+
+            OutboxId = inbox.OutboxId,
+            IsRead = inbox.IsRead,
+            ReadAt = inbox.ReadAt,
+
+            UiBody = uiBody
         };
     }
 
@@ -138,15 +209,5 @@ public class MessageService : IMessageService
         }
 
         return template;
-    }
-
-    private static void TrySetBodyIfExists(OutboxMessage outbox, string body)
-    {
-        // OutboxMessage’da Body property’si yoksa hiçbir şey yapma
-        var prop = typeof(OutboxMessage).GetProperty("Body");
-        if (prop == null) return;
-        if (prop.PropertyType != typeof(string)) return;
-
-        prop.SetValue(outbox, body ?? string.Empty);
     }
 }
