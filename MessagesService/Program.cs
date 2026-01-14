@@ -75,6 +75,9 @@ builder.Services.Configure<SmtpOptions>(builder.Configuration.GetSection("Smtp")
 builder.Services.AddSingleton<IEmailSender, MessagesService.Services.SmtpEmailSender>();
 builder.Services.AddHostedService<EmployeeWelcomeEventsConsumer>();
 
+//test
+builder.Services.AddSingleton<ILeaveRequestCreatedHandler, LeaveRequestCreatedHandler>();
+
 // Approver email lookup (HostedService ile uyumlu: Singleton)
 builder.Services.AddSingleton<IApproverEmailLookup, MySqlApproverEmailLookup>();
 

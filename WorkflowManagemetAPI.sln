@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService", "ChatService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesService", "MessagesService\MessagesService.csproj", "{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.Messages.Tests", "Workflow.Messages.Tests\Workflow.Messages.Tests.csproj", "{616A4356-1315-4383-BF8C-B7164B6A9CD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{46756103-FB82-4678-B961-5AD3F52CBCEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +43,16 @@ Global
 		{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EDDF836-E1FC-43DF-A4E0-BBC92B34A5C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{616A4356-1315-4383-BF8C-B7164B6A9CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{616A4356-1315-4383-BF8C-B7164B6A9CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{616A4356-1315-4383-BF8C-B7164B6A9CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{616A4356-1315-4383-BF8C-B7164B6A9CD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{616A4356-1315-4383-BF8C-B7164B6A9CD4} = {46756103-FB82-4678-B961-5AD3F52CBCEA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EEDED3C-A70B-4B65-8401-5FD73F9904EC}

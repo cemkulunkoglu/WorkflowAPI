@@ -28,7 +28,6 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.0\ChatServ.52F73ADC.Up2Date
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.0\ChatService.dll
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\ChatService\obj\Debug\net8.0\refint\ChatService.dll

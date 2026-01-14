@@ -132,7 +132,6 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\De
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\Workflow.68B9B6D3.Up2Date
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\WorkflowManagemetAPI.dll
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\WorkflowManagemetAPI\obj\Debug\net8.0\refint\WorkflowManagemetAPI.dll

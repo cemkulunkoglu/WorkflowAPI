@@ -135,7 +135,6 @@ C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\AuthServ.546907BC.Up2Date
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\AuthServerAPI.dll
 C:\Users\cemku\OneDrive\Documents\GitHub\WorkflowAPI\AuthServerAPI\obj\Debug\net8.0\refint\AuthServerAPI.dll
